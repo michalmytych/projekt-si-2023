@@ -1,13 +1,13 @@
 <?php
 /**
- * Article controller.
+ * Category controller.
  */
 
 namespace App\Controller;
 
-use App\Entity\Article;
-use App\Form\Type\ArticleType;
-use App\Service\ArticleService;
+use App\Entity\Category;
+use App\Form\Type\CategoryType;
+use App\Service\CategoryService;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,17 +16,17 @@ use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
- * Class ArticleController.
+ * Class CategoryController.
  */
-#[Route('/article')]
-class ArticleController extends AbstractController
+#[Route('/category')]
+class CategoryController extends AbstractController
 {
     /**
-     * Article service.
+     * Category service.
      *
-     * @var ArticleService
+     * @var CategoryService
      */
-    private ArticleService $articleService;
+    private CategoryService $categoryService;
 
     /**
      * Translator.
@@ -37,15 +37,14 @@ class ArticleController extends AbstractController
 
 
     /**
-     * Construct new article controller object.
+     * Construct new category controller object.
      *
-     * @param ArticleService      $articleService
-     *
+     * @param CategoryService     $categoryService
      * @param TranslatorInterface $translator
      */
-    public function __construct(ArticleService $articleService, TranslatorInterface $translator)
+    public function __construct(CategoryService $categoryService, TranslatorInterface $translator)
     {
-        $this->articleService = $articleService;
+        $this->categoryService = $categoryService;
         $this->translator = $translator;
     }
 
@@ -57,16 +56,16 @@ class ArticleController extends AbstractController
      * @return Response HTTP response
      */
     #[Route(
-        name: 'article_index',
+        name: 'category_index',
         methods: 'GET'
     )]
     public function index(Request $request): Response
     {
         $page = $request->query->getInt('page', 1);
-        $pagination = $this->articleService->getPaginatedList($page);
+        $pagination = $this->categoryService->getPaginatedList($page);
 
         return $this->render(
-            'article/index.html.twig',
+            'category/index.html.twig',
             ['pagination' => $pagination]
         );
     }
@@ -74,19 +73,19 @@ class ArticleController extends AbstractController
     /**
      * Show action.
      *
-     * @param Article $article
+     * @param Category $category
      *
      * @return Response HTTP response
      */
     #[Route(
         '/{id}',
-        name: 'article_show',
+        name: 'category_show',
         requirements: ['id' => '[1-9]\d*'],
         methods: 'GET'
     )]
-    public function show(Article $article): Response
+    public function show(Category $category): Response
     {
-        return $this->render('article/show.html.twig', ['article' => $article]);
+        return $this->render('category/show.html.twig', ['category' => $category]);
     }
 
     /**
@@ -98,28 +97,28 @@ class ArticleController extends AbstractController
      */
     #[Route(
         '/create',
-        name: 'article_create',
+        name: 'category_create',
         methods: 'GET|POST',
     )]
     public function create(Request $request): Response
     {
-        $article = new Article();
-        $form = $this->createForm(ArticleType::class, $article);
+        $category = new Category();
+        $form = $this->createForm(CategoryType::class, $category);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->articleService->save($article);
+            $this->categoryService->save($category);
 
             $this->addFlash(
                 'success',
                 $this->translator->trans('message.created_successfully')
             );
 
-            return $this->redirectToRoute('article_index');
+            return $this->redirectToRoute('category_index');
         }
 
         return $this->render(
-            'article/create.html.twig',
+            'category/create.html.twig',
             ['form' => $form->createView()]
         );
     }
@@ -127,45 +126,45 @@ class ArticleController extends AbstractController
     /**
      * Edit action.
      *
-     * @param Request $request HTTP request
-     * @param Article $article Article entity
+     * @param Request  $request  HTTP request
+     * @param Category $category Category entity
      *
      * @return Response HTTP response
      */
     #[Route(
         '/{id}/edit',
-        name: 'article_edit',
+        name: 'category_edit',
         requirements: ['id' => '[1-9]\d*'],
         methods: 'GET|PUT'
     )]
-    public function edit(Request $request, Article $article): Response
+    public function edit(Request $request, Category $category): Response
     {
         $form = $this->createForm(
-            ArticleType::class,
-            $article,
+            CategoryType::class,
+            $category,
             [
                 'method' => 'PUT',
-                'action' => $this->generateUrl('article_edit', ['id' => $article->getId()]),
+                'action' => $this->generateUrl('category_edit', ['id' => $category->getId()]),
             ]
         );
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->articleService->save($article);
+            $this->categoryService->save($category);
 
             $this->addFlash(
                 'success',
                 $this->translator->trans('message.updated_successfully')
             );
 
-            return $this->redirectToRoute('article_index');
+            return $this->redirectToRoute('category_index');
         }
 
         return $this->render(
-            'article/edit.html.twig',
+            'category/edit.html.twig',
             [
                 'form' => $form->createView(),
-                'article' => $article,
+                'category' => $category,
             ]
         );
     }
@@ -173,36 +172,36 @@ class ArticleController extends AbstractController
     /**
      * Delete action.
      *
-     * @param Request $request HTTP request
-     * @param Article $article Article entity
+     * @param Request  $request  HTTP request
+     * @param Category $category Category entity
      *
      * @return Response HTTP response
      */
-    #[Route('/{id}/delete', name: 'article_delete', requirements: ['id' => '[1-9]\d*'], methods: 'GET|DELETE')]
-    public function delete(Request $request, Article $article): Response
+    #[Route('/{id}/delete', name: 'category_delete', requirements: ['id' => '[1-9]\d*'], methods: 'GET|DELETE')]
+    public function delete(Request $request, Category $category): Response
     {
-        $form = $this->createForm(FormType::class, $article, [
+        $form = $this->createForm(FormType::class, $category, [
             'method' => 'DELETE',
-            'action' => $this->generateUrl('article_delete', ['id' => $article->getId()]),
+            'action' => $this->generateUrl('category_delete', ['id' => $category->getId()]),
         ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->articleService->delete($article);
+            $this->categoryService->delete($category);
 
             $this->addFlash(
                 'success',
                 $this->translator->trans('message.deleted_successfully')
             );
 
-            return $this->redirectToRoute('article_index');
+            return $this->redirectToRoute('category_index');
         }
 
         return $this->render(
-            'article/delete.html.twig',
+            'category/delete.html.twig',
             [
                 'form' => $form->createView(),
-                'article' => $article,
+                'category' => $category,
             ]
         );
     }

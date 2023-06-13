@@ -7,7 +7,6 @@ namespace App\Service;
 
 use App\Entity\Article;
 use App\Repository\ArticleRepository;
-use DateTimeImmutable;
 use Knp\Component\Pager\PaginatorInterface;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 

@@ -1,10 +1,14 @@
 <?php
+/**
+ * Category repository.
+ */
 
 namespace App\Repository;
 
 use App\Entity\Category;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Category>
@@ -16,51 +20,72 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class CategoryRepository extends ServiceEntityRepository
 {
+    /**
+     * Items per page.
+     *
+     * Use constants to define configuration options that rarely change instead
+     * of specifying them in configuration files.
+     * See https://symfony.com/doc/current/best_practices.html#configuration
+     *
+     * @constant int
+     */
+    public const PAGINATOR_ITEMS_PER_PAGE = 10;
+
+    /**
+     * Construct new category repository object.
+     *
+     * @param ManagerRegistry $registry
+     *
+     * @noinspection PhpMultipleClassDeclarationsInspection
+     */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Category::class);
     }
 
-    public function save(Category $entity, bool $flush = false): void
+    /**
+     * Save record in a database.
+     *
+     * @param Category $category Category entity
+     */
+    public function save(Category $category): void
     {
-        $this->getEntityManager()->persist($entity);
-
-        if ($flush) {
-            $this->getEntityManager()->flush();
-        }
+        $this->_em->persist($category);
+        $this->_em->flush();
     }
 
-    public function remove(Category $entity, bool $flush = false): void
+    /**
+     * Delete entity.
+     *
+     * @param Category $category Category entity
+     */
+    public function delete(Category $category): void
     {
-        $this->getEntityManager()->remove($entity);
-
-        if ($flush) {
-            $this->getEntityManager()->flush();
-        }
+        $this->_em->remove($category);
+        $this->_em->flush();
     }
 
-//    /**
-//     * @return Category[] Returns an array of Category objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('c.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+     * Query all records.
+     *
+     * @return QueryBuilder Query builder
+     */
+    public function queryAll(): QueryBuilder
+    {
+        return $this
+            ->getOrCreateQueryBuilder()
+            ->orderBy('category.name', 'ASC');
+    }
 
-//    public function findOneBySomeField($value): ?Category
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    /**
+     * Get or create new query builder.
+     *
+     * @param QueryBuilder|null $queryBuilder Query builder
+     *
+     * @return QueryBuilder Query builder
+     */
+    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
+    {
+        return $queryBuilder ?? $this->createQueryBuilder('category');
+    }
 }
