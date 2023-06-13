@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ article.title }}
+{% endblock %}
+
+{% block body %}
+    <a href="{{ url('article_index') }}" title="{{ 'action.back'|trans }}">
+        {{ 'action.back'|trans }}
+    </a>
+
+    <h1>{{ article.title }}</h1>
+
+    <div>{{ article.createdAt|date('Y/m/d') }}</div>
+    <div>{{ article.updatedAt|date('Y/m/d') }}</div>
+
+    <p>{{ article.content }}</p>
+
+{% endblock %}
