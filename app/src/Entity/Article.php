@@ -43,7 +43,7 @@ class Article
      *
      * @var string|null
      */
-    #[ORM\Column(type: Types::TEXT)]
+    #[ORM\Column(type: Types::TEXT, length: 512)]
     private ?string $content = null;
 
     /**
