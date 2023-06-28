@@ -14,6 +14,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 #[ORM\Entity(repositoryClass: FileRepository::class)]
 #[ORM\Table(name: 'files')]
+#[ORM\UniqueConstraint(name: 'uq_files_path', columns: ['path'])]
 class File
 {
     /**
