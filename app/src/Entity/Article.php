@@ -21,6 +21,20 @@ use Doctrine\ORM\Mapping as ORM;
 class Article
 {
     /**
+     * Status draft.
+     *
+     * @const STATUS_DRAFT
+     */
+    public const STATUS_DRAFT = 0;
+
+    /**
+     * Status published.
+     *
+     * @const STATUS_PUBLISHED
+     */
+    public const STATUS_PUBLISHED = 1;
+
+    /**
      * Primary key.
      *
      * @var int|null
@@ -43,8 +57,16 @@ class Article
      *
      * @var string|null
      */
-    #[ORM\Column(type: Types::TEXT, length: 512)]
+    #[ORM\Column(type: Types::TEXT, length: 5000)]
     private ?string $content = null;
+
+    /**
+     * Status.
+     *
+     * @var int|null
+     */
+    #[ORM\Column(type: Types::SMALLINT, options: ['default' => self::STATUS_DRAFT])]
+    private ?int $status = null;
 
     /**
      * Created at.
@@ -307,5 +329,39 @@ class Article
         $this->tags->removeElement($tag);
 
         return $this;
+    }
+
+    /**
+     * Get status.
+     *
+     * @return int|null
+     */
+    public function getStatus(): ?int
+    {
+        return $this->status;
+    }
+
+    /**
+     * Set status.
+     *
+     * @param int $status
+     *
+     * @return $this
+     */
+    public function setStatus(int $status): static
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Returns true if article is published.
+     *
+     * @return bool
+     */
+    public function isPublished(): bool
+    {
+        return $this->getStatus() === Article::STATUS_PUBLISHED;
     }
 }

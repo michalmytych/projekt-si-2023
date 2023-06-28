@@ -56,7 +56,11 @@ class ArticleFixtures extends AbstractBaseFixtures implements OrderedFixtureInte
                 $article = new Article();
                 $article->setCategory($category);
                 $article->setTitle($this->faker->unique()->sentence);
-                $article->setContent($this->faker->realText);
+                $article->setContent($this->faker->realText(516));
+                $article->setStatus($this->faker->randomElement([
+                    Article::STATUS_DRAFT,
+                    Article::STATUS_PUBLISHED,
+                ]));
                 $article->setCreatedAt(
                     DateTimeImmutable::createFromMutable(
                         $this->faker->dateTimeBetween('-100 days', '-1 days')

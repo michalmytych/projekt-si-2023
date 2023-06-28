@@ -8,6 +8,11 @@
     <a href="{{ url('article_index') }}" title="{{ 'action.back'|trans }}">
         {{ 'action.back'|trans }}
     </a>
+    {% if article.isPublished() %}
+        <p class="text-info">{{ 'label.published'|trans }}</p>
+    {% else %}
+        <p class="text-danger">{{ 'label.draft'|trans }}</p>
+    {% endif %}
     <h1>{{ 'title.article_edit'|trans({'%id%': article.id|default('')}) }}</h1>
     {{ form_start(form) }}
     {{ form_widget(form) }}
