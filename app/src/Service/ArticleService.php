@@ -102,6 +102,18 @@ class ArticleService
     }
 
     /**
+     * Find one article by id.
+     *
+     * @param int $id Article id
+     *
+     * @return Article
+     */
+    public function findOneById(int $id): Article
+    {
+        return $this->articleRepository->find($id);
+    }
+
+    /**
      * Prepare filters for the tasks list.
      *
      * @param array<string, int> $filters Raw filters from request

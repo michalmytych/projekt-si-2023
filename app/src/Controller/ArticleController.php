@@ -6,6 +6,7 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\Comment;
 use App\Form\Type\ArticleType;
 use App\Service\ArticleService;
 use Doctrine\ORM\NonUniqueResultException;

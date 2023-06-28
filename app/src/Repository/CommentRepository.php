@@ -21,18 +21,39 @@ class CommentRepository extends ServiceEntityRepository
         parent::__construct($registry, Comment::class);
     }
 
-    public function save(Comment $entity, bool $flush = false): void
+    /**
+     * Save record in a database.
+     *
+     * @param Comment $comment Comment entity
+     */
+    public function save(Comment $comment): void
     {
-        $this->getEntityManager()->persist($entity);
-
-        if ($flush) {
-            $this->getEntityManager()->flush();
-        }
+        $this->_em->persist($comment);
+        $this->_em->flush();
     }
 
-    public function remove(Comment $entity, bool $flush = false): void
+    /**
+     * Delete entity.
+     *
+     * @param Comment $comment Comment entity
+     */
+    public function delete(Comment $comment): void
     {
-        $this->getEntityManager()->remove($entity);
+        $this->_em->remove($comment);
+        $this->_em->flush();
+    }
+
+    /**
+     * Remove tag entity.
+     *
+     * @param Comment $comment Tag entity
+     * @param bool    $flush   If entity manager should be flushed
+     *
+     * @return void
+     */
+    public function remove(Comment $comment, bool $flush = false): void
+    {
+        $this->getEntityManager()->remove($comment);
 
         if ($flush) {
             $this->getEntityManager()->flush();

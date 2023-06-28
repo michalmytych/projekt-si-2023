@@ -1,13 +1,27 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ article.title }}
+    {{ 'title.comment_create'|trans }}
 {% endblock %}
 
 {% block body %}
+
     <a href="{{ url('article_index') }}" title="{{ 'action.back'|trans }}">
         {{ 'action.back'|trans }}
     </a>
+
+    <h1>{{ 'title.comment_create'|trans }}</h1>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <div class="form-group row float-sm-right">
+        <input type="submit" value="{{ 'action.save'|trans }}" class="btn btn-primary"/>
+    </div>
+    <div class="form-group row float-sm-left">
+        <a href="{{ url('article_index') }}" class="btn btn-link">
+            {{ 'action.back'|trans }}
+        </a>
+    </div>
+    {{ form_end(form) }}
 
     <h1>{{ article.title }}</h1>
 
@@ -17,11 +31,6 @@
     <p>{{ article.content }}</p>
 
     <div>
-        <div>
-            <a href="{{ url('comment_create', {'commented_article_id' : article.id}) }}" title="{{ 'action.add_comment'|trans }}">
-                {{ 'action.add_comment'|trans }}
-            </a>
-        </div>
         <div>
             <h2>{{ 'label.comments'|trans }}</h2>
             <ul>
@@ -46,5 +55,4 @@
             </ul>
         </div>
     </div>
-
 {% endblock %}
