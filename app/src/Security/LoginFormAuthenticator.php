@@ -5,15 +5,20 @@
 
 namespace App\Security;
 
-use Exception;
-use Symfony\Component\Security\Core\Security;
+use App\Entity\User;
+use App\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Core\Security;
+use Symfony\Component\Security\Csrf\CsrfToken;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Security\Http\Util\TargetPathTrait;
+use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\Security\Core\Exception\InvalidCsrfTokenException;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
 use Symfony\Component\Security\Http\Authenticator\Passport\Badge\CsrfTokenBadge;
@@ -29,45 +34,60 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
 
     /**
      * Login route.
-     *
-     * @const string
      */
     public const LOGIN_ROUTE = 'app_login';
 
     /**
-     * Default route.
-     *
-     * @const string
+     * After login redirect route.
      */
-    public const DEFAULT_ROUTE = 'article_index';
+    public const AFTER_LOGIN_REDIRECT_ROUTE = 'article_index';
 
     /**
-     * URL Generator.
+     * User repository.
+     */
+    private UserRepository $userRepository;
+
+    /**
+     * URL generator interface.
      */
     private UrlGeneratorInterface $urlGenerator;
 
     /**
-     * Constructor.
-     *
-     * @param UrlGeneratorInterface $urlGenerator Url generator
+     * CSRF Token Manager.
      */
-    public function __construct(UrlGeneratorInterface $urlGenerator)
+    private CsrfTokenManagerInterface $csrfTokenManager;
+
+    /**
+     * Password encoder.
+     */
+    private UserPasswordHasherInterface $passwordHasher;
+
+    /**
+     * LoginFormAuthenticator constructor.
+     *
+     * @param UserRepository              $userRepository   User repository
+     * @param UrlGeneratorInterface       $urlGenerator     Url generator
+     * @param CsrfTokenManagerInterface   $csrfTokenManager CSRF token manager
+     * @param UserPasswordHasherInterface $passwordHasher   User password hasher
+     */
+    public function __construct(UserRepository $userRepository, UrlGeneratorInterface $urlGenerator, CsrfTokenManagerInterface $csrfTokenManager, UserPasswordHasherInterface $passwordHasher)
     {
+        $this->userRepository = $userRepository;
         $this->urlGenerator = $urlGenerator;
+        $this->csrfTokenManager = $csrfTokenManager;
+        $this->passwordHasher = $passwordHasher;
     }
 
     /**
-     * Does the authenticator support the given Request?
+     * Supports.
      *
-     * If this returns false, the authenticator will be skipped.
+     * @param Request $request
      *
-     * @param Request $request HTTP request
-     *
-     * @return bool Result
+     * @return bool
      */
     public function supports(Request $request): bool
     {
-        return 'app_login' === $request->attributes->get('_route')
+        return self::LOGIN_ROUTE === $request->attributes->get('_route')
             && $request->isMethod('POST');
     }
 
@@ -104,29 +124,67 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
     }
 
     /**
-     * Called when authentication executed and was successful!
+     * Get credentials.
      *
-     * This should return the Response sent back to the user, like a
-     * RedirectResponse to the last page they visited.
+     * @param Request $request
      *
-     * If you return null, the current request will continue, and the user
-     * will be authenticated. This makes sense, for example, with an API.
-     *
-     * @param Request        $request      HTTP request
-     * @param TokenInterface $token        Token
-     * @param string         $firewallName Firewall name
-     *
-     * @return Response|null HTTP response
-     *
-     * @throws Exception
+     * @return array
      */
-    public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
+    public function getCredentials(Request $request): array
+    {
+        $credentials = [
+            'email' => $request->request->get('email'),
+            'password' => $request->request->get('password'),
+            'csrf_token' => $request->request->get('_csrf_token'),
+        ];
+        $request->getSession()->set(
+            Security::LAST_USERNAME,
+            $credentials['email']
+        );
+
+        return $credentials;
+    }
+
+    /**
+     * Get user.
+     *
+     * @param mixed $credentials
+     *
+     * @return User
+     */
+    public function getUser(mixed $credentials): User
+    {
+        $token = new CsrfToken('authenticate', $credentials['csrf_token']);
+        if (!$this->csrfTokenManager->isTokenValid($token)) {
+            throw new InvalidCsrfTokenException();
+        }
+
+        $user = $this->userRepository->findOneByEmail($credentials['email']);
+
+        if (!$user) {
+            $message = sprintf("User of this email [%s] could not be found.", $credentials['email']);
+            throw new NotFoundHttpException($message);
+        }
+
+        return $user;
+    }
+
+    /**
+     * Do on auth success.
+     *
+     * @param Request        $request
+     * @param TokenInterface $token
+     * @param mixed          $firewallName
+     *
+     * @return RedirectResponse
+     */
+    public function onAuthenticationSuccess(Request $request, TokenInterface $token, mixed $firewallName): RedirectResponse
     {
         if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
             return new RedirectResponse($targetPath);
         }
 
-        return new RedirectResponse($this->urlGenerator->generate(self::DEFAULT_ROUTE));
+        return new RedirectResponse($this->urlGenerator->generate(self::AFTER_LOGIN_REDIRECT_ROUTE));
     }
 
     /**
