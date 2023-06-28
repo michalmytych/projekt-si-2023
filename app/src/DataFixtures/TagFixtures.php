@@ -30,7 +30,7 @@ class TagFixtures extends AbstractBaseFixtures implements OrderedFixtureInterfac
      */
     public function loadData(): void
     {
-        for ($i = 0; $i < 5; ++$i) {
+        for ($i = 0; $i < 15; ++$i) {
             $tag = new Tag();
             $tag->setName($this->faker->unique()->name);
 

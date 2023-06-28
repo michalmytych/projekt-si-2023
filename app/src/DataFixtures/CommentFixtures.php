@@ -51,7 +51,7 @@ class CommentFixtures extends AbstractBaseFixtures implements OrderedFixtureInte
         $articles = $this->articleRepository->findAll();
 
         foreach ($articles as $article) {
-            for ($i = 0; $i < 10; ++$i) {
+            for ($i = 0; $i < 15; ++$i) {
                 $comment = new Comment();
                 $comment->setHeader($this->faker->unique()->sentence);
                 $comment->setContent($this->faker->realText);
