@@ -5,12 +5,13 @@
 
 namespace App\Form\Type;
 
+use App\Entity\Tag;
 use App\Entity\Article;
 use App\Entity\Category;
-use App\Entity\Tag;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
@@ -44,11 +45,11 @@ class ArticleType extends AbstractType
             )
             ->add(
                 'content',
-                TextType::class,
+                CKEditorType::class,
                 [
                     'label' => 'label.content',
                     'required' => true,
-                    'attr' => ['max_length' => 512],
+                    'attr' => ['max_length' => 512, 'class' => 'easyadmin-text-editor'],
                 ]
             )
             ->add(

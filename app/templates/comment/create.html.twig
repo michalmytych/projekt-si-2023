@@ -28,7 +28,10 @@
     <div>{{ article.createdAt|date('Y/m/d') }}</div>
     <div>{{ article.updatedAt|date('Y/m/d') }}</div>
 
-    <p>{{ article.content }}</p>
+    <div>
+        <dt>{{ 'label.content'|trans }}</dt>
+        <dd>{{ article.content|markdown_to_html }}</dd>
+    </div>
 
     <div>
         <div>
