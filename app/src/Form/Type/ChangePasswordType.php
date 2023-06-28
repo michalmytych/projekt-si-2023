@@ -15,7 +15,7 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
 /**
- * Class RegistrationFormType
+ * Class ChangePasswordType.
  */
 class ChangePasswordType extends AbstractType
 {
@@ -27,18 +27,19 @@ class ChangePasswordType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder->add('password', RepeatedType::class, [
-            'type' => PasswordType::class,
-            'first_options' => ['label' => 'label_new_password'],
-            'second_options' => ['label' => 'label_repeat_password'],
-            'constraints' => [
-                new NotBlank(),
-                new Length([
-                    'min' => 6,
-                    'max' => 128,
-                ]),
-            ],
-        ]);
+        $builder
+            ->add('password', RepeatedType::class, [
+                'type' => PasswordType::class,
+                'first_options' => ['label' => 'label_new_password'],
+                'second_options' => ['label' => 'label_repeat_password'],
+                'constraints' => [
+                    new NotBlank(),
+                    new Length([
+                        'min' => 6,
+                        'max' => 128,
+                    ]),
+                ],
+            ]);
     }
 
     /**
@@ -60,6 +61,6 @@ class ChangePasswordType extends AbstractType
      */
     public function getBlockPrefix(): string
     {
-        return 'change';
+        return 'change_password';
     }
 }

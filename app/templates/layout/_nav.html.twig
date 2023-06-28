@@ -11,11 +11,14 @@
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         <div>{{ app.user.email }}</div>
         <div>
+            <a href="{{ url('user_change_password', {'id': app.user.id}) }}">{{ 'label_user_change_password'|trans }}</a>
+            <a href="{{ url('user_edit_profile', {'id': app.user.id}) }}">{{ 'label_user_edit_profile'|trans }}</a>
             <a href="{{ url('app_logout') }}">{{ 'action_logout'|trans }}</a>
         </div>
     {% else %}
         <div>
             <a href="{{ url('app_login') }}">{{ 'action_login'|trans }}</a>
+            <a href="{{ url('app_register') }}">{{ 'action_register'|trans }}</a>
         </div>
     {% endif %}
 </nav>

@@ -18,6 +18,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: 'users')]
 #[ORM\UniqueConstraint(name: 'email_idx', columns: ['email'])]
+#[ORM\UniqueConstraint(name: 'nickname_idx', columns: ['nickname'])]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     /**
@@ -56,6 +57,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string')]
     #[Assert\NotBlank]
     private ?string $password;
+
+    /**
+     * Nickname.
+     *
+     * @var string|null
+     */
+    #[ORM\Column(length: 255)]
+    private ?string $nickname = null;
 
     /**
      * Getter for id.
@@ -97,6 +106,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getUserIdentifier(): string
     {
         return (string) $this->email;
+    }
+
+    /**
+     * User nickname getter.
+     *
+     * @return string|null
+     */
+    public function getNickname(): ?string
+    {
+        return $this->nickname;
+    }
+
+    /**
+     * User nickname setter.
+     *
+     * @param string $nickname
+     *
+     * @return $this
+     */
+    public function setNickname(string $nickname): static
+    {
+        $this->nickname = $nickname;
+
+        return $this;
     }
 
     /**
@@ -160,6 +193,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Returning a salt is only needed, if you are not using a modern
      * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.
+     *
+     * @return string|null
      *
      * @see UserInterface
      */

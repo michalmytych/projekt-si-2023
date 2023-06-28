@@ -17,15 +17,10 @@
         <h1>{{ 'title_register'|trans }}</h1>
 
         {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email, {
-            label: 'label_email'
-        }) }}
-        {{ form_row(registrationForm.password, {
-            label: 'label_password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms, {
-            label: 'label_terms'
-        }) }}
+        {{ form_row(registrationForm.nickname) }}
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.password) }}
+        {{ form_row(registrationForm.agreeTerms) }}
 
         <button type="submit" class="btn btn-lg btn-primary sign">{{ 'button_register'|trans }}</button>
         {{ form_end(registrationForm) }}

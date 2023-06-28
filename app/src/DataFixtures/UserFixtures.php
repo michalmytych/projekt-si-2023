@@ -52,6 +52,7 @@ class UserFixtures extends AbstractBaseFixtures implements OrderedFixtureInterfa
         for ($i = 1; $i <= 10; $i++) {
             $user = new User();
             $user->setEmail(sprintf('user%d@example.com', $i));
+            $user->setNickname(sprintf('user%d', $i));
             $user->setRoles([UserRole::ROLE_USER->value]);
             $user->setPassword(
                 $this->passwordHasher->hashPassword(
@@ -66,6 +67,7 @@ class UserFixtures extends AbstractBaseFixtures implements OrderedFixtureInterfa
         for ($i = 1; $i <= 3; $i++) {
             $user = new User();
             $user->setEmail(sprintf('admin%d@example.com', $i));
+            $user->setNickname(sprintf('admin%d', $i));
             $user->setRoles([UserRole::ROLE_USER->value, UserRole::ROLE_ADMIN->value]);
             $user->setPassword(
                 $this->passwordHasher->hashPassword(
