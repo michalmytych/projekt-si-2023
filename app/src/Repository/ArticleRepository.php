@@ -8,9 +8,11 @@ namespace App\Repository;
 use App\Entity\Article;
 use App\Entity\Category;
 use App\Entity\Tag;
+use App\Entity\User;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @extends ServiceEntityRepository<Article>
@@ -68,19 +70,25 @@ class ArticleRepository extends ServiceEntityRepository
     }
 
     /**
-     * Query all records.
+     * Query all records published articles for regular users, and all for admin users.
      *
-     * @param array $filters Filters
+     * @param array              $filters Filters
+     * @param UserInterface|null $user    User
      *
      * @return QueryBuilder Query builder
      */
-    public function queryAll(array $filters = []): QueryBuilder
+    public function queryAll(array $filters = [], ?UserInterface $user = null): QueryBuilder
     {
         $queryBuilder = $this
             ->getOrCreateQueryBuilder()
             ->join('article.category', 'category')
             ->leftJoin('article.tags', 'tags')
             ->orderBy('article.createdAt', 'DESC');
+
+        /** @var User $user */
+        if (!$user || !$user->isAdmin()) {
+            $queryBuilder->where('article.status = '.Article::STATUS_PUBLISHED);
+        }
 
         return $this->applyFiltersToList($queryBuilder, $filters);
     }

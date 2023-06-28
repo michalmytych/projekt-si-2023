@@ -10,6 +10,7 @@ use App\Repository\ArticleRepository;
 use Doctrine\ORM\NonUniqueResultException;
 use Knp\Component\Pager\PaginatorInterface;
 use Knp\Component\Pager\Pagination\PaginationInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Class ArticleService.
@@ -83,19 +84,20 @@ class ArticleService
     /**
      * Get paginated list.
      *
-     * @param int   $page    Page number
-     * @param array $filters Filters
+     * @param int                $page    Page number
+     * @param array              $filters Filters
+     * @param UserInterface|null $user    User
      *
      * @return PaginationInterface<string, mixed> Paginated list
      *
      * @throws NonUniqueResultException
      */
-    public function getPaginatedList(int $page, array $filters = []): PaginationInterface
+    public function getPaginatedList(int $page, array $filters = [], ?UserInterface $user = null): PaginationInterface
     {
         $filters = $this->prepareFilters($filters);
 
         return $this->paginator->paginate(
-            $this->articleRepository->queryAll($filters),
+            $this->articleRepository->queryAll($filters, $user),
             $page,
             ArticleRepository::PAGINATOR_ITEMS_PER_PAGE
         );

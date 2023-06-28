@@ -18,9 +18,9 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>{{ knp_pagination_sortable(pagination, 'label.title'|trans, 'article.title') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.category_name'|trans, 'label.category_name') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.created_at'|trans, 'article.createdAt') }}</th>
+                <th>{{ 'label.title'|trans }}</th>
+                <th>{{ 'label.category_name'|trans }}</th>
+                <th>{{ 'label.created_at'|trans }}</th>
                 <th>{{ 'label.tags'|trans }}</th>
                 <th>{{ 'label.actions'|trans }}</th>
             </tr>
@@ -28,9 +28,17 @@
             <tbody>
             {% for article in pagination.items %}
                 <tr>
-                    <td>{{ article.title }}</td>
                     <td>
-                        <a href="{{ url('article_index', {'filters_category_id' : article.category.id}) }}" title="{{ article.category.name }}">
+                        {% if not article.isPublished() %}
+                            <strong class="text-warning">
+                                {{ 'label.draft'|trans }}:
+                            </strong>
+                        {% endif %}
+                        {{ article.title }}
+                    </td>
+                    <td>
+                        <a href="{{ url('article_index', {'filters_category_id' : article.category.id}) }}"
+                           title="{{ article.category.name }}">
                             {{ article.category.name }}
                         </a>
                     </td>
@@ -38,7 +46,8 @@
                     <td>
                         {% if article.tags is defined and article.tags|length %}
                             {% for tag in article.tags %}
-                                <a href="{{ url('article_index', {'filters_tag_id' : tag.id}) }}" title="{{ tag.name }}">
+                                <a href="{{ url('article_index', {'filters_tag_id' : tag.id}) }}"
+                                   title="{{ tag.name }}">
                                     {{ tag.name }}
                                 </a>
                             {% endfor %}

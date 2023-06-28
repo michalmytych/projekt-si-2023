@@ -6,7 +6,6 @@
 namespace App\Controller;
 
 use App\Entity\Article;
-use App\Entity\Comment;
 use App\Form\Type\ArticleType;
 use App\Service\ArticleService;
 use Doctrine\ORM\NonUniqueResultException;
@@ -15,6 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
@@ -66,9 +66,11 @@ class ArticleController extends AbstractController
     )]
     public function index(Request $request): Response
     {
+        // @todo return only published for non admin users
+        $user = $this->getUser();
         $filters = $this->getFilters($request);
         $page = $request->query->getInt('page', 1);
-        $pagination = $this->articleService->getPaginatedList($page, $filters);
+        $pagination = $this->articleService->getPaginatedList($page, $filters, $user);
 
         return $this->render(
             'article/index.html.twig',
@@ -89,6 +91,7 @@ class ArticleController extends AbstractController
         requirements: ['id' => '[1-9]\d*'],
         methods: 'GET'
     )]
+    #[IsGranted('VIEW', subject: 'article')]
     public function show(Article $article): Response
     {
         return $this->render('article/show.html.twig', ['article' => $article]);
@@ -106,6 +109,7 @@ class ArticleController extends AbstractController
         name: 'article_create',
         methods: 'GET|POST',
     )]
+    #[IsGranted('CREATE')]
     public function create(Request $request): Response
     {
         $article = new Article();
@@ -143,6 +147,7 @@ class ArticleController extends AbstractController
         requirements: ['id' => '[1-9]\d*'],
         methods: 'GET|PUT'
     )]
+    #[IsGranted('EDIT')]
     public function edit(Request $request, Article $article): Response
     {
         $form = $this->createForm(
@@ -184,6 +189,7 @@ class ArticleController extends AbstractController
      * @return Response HTTP response
      */
     #[Route('/{id}/delete', name: 'article_delete', requirements: ['id' => '[1-9]\d*'], methods: 'GET|DELETE')]
+    #[IsGranted('DELETE')]
     public function delete(Request $request, Article $article): Response
     {
         $form = $this->createForm(FormType::class, $article, [

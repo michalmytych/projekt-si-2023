@@ -204,6 +204,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
+     * Returns true if user has ROLE_ADMIN.
+     *
+     * @return bool
+     */
+    public function isAdmin(): bool
+    {
+        return in_array(UserRole::ROLE_ADMIN->value, $this->roles);
+    }
+
+    /**
      * Removes sensitive information from the token.
      *
      * @see UserInterface
