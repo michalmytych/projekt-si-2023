@@ -26,7 +26,7 @@ class ArticleVoter extends Voter
      */
     protected function supports(string $attribute, $subject): bool
     {
-        return in_array($attribute, ['VIEW', 'CREATE', 'EDIT', 'DELETE']) && $subject instanceof Article;
+        return in_array($attribute, ['VIEW', 'EDIT', 'DELETE']) && $subject instanceof Article;
     }
 
     /**
@@ -48,7 +48,7 @@ class ArticleVoter extends Voter
 
         return match ($attribute) {
             'VIEW' => $this->isAdminOrSubjectIsPublished($subject, $user),
-            'CREATE', 'EDIT', 'DELETE' => $this->isAdminUser($user),
+            'EDIT', 'DELETE' => $this->isAdminUser($subject, $user),
             default => false,
         };
     }
@@ -74,11 +74,12 @@ class ArticleVoter extends Voter
     /**
      * Returns true if user is admin.
      *
-     * @param UserInterface $user User
+     * @param mixed         $subject Voter subject
+     * @param UserInterface $user    User
      *
      * @return bool
      */
-    private function isAdminUser(UserInterface $user): bool
+    private function isAdminUser(mixed $subject, UserInterface $user): bool
     {
         /** @var User $user */
 

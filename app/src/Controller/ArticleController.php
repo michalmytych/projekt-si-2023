@@ -6,6 +6,7 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\User;
 use App\Form\Type\ArticleType;
 use App\Service\ArticleService;
 use Doctrine\ORM\NonUniqueResultException;
@@ -66,7 +67,6 @@ class ArticleController extends AbstractController
     )]
     public function index(Request $request): Response
     {
-        // @todo return only published for non admin users
         $user = $this->getUser();
         $filters = $this->getFilters($request);
         $page = $request->query->getInt('page', 1);
@@ -109,9 +109,21 @@ class ArticleController extends AbstractController
         name: 'article_create',
         methods: 'GET|POST',
     )]
-    #[IsGranted('CREATE')]
     public function create(Request $request): Response
     {
+        $user = $this->getUser();
+
+        /** @var User $user */
+        if (!$user->isAdmin()) {
+            // @todo - is there a better way ?
+            $this->addFlash(
+                'danger',
+                $this->translator->trans('message.no_permission')
+            );
+
+            return $this->redirectToRoute('article_index');
+        }
+
         $article = new Article();
         $form = $this->createForm(ArticleType::class, $article);
         $form->handleRequest($request);
@@ -147,7 +159,7 @@ class ArticleController extends AbstractController
         requirements: ['id' => '[1-9]\d*'],
         methods: 'GET|PUT'
     )]
-    #[IsGranted('EDIT')]
+    #[IsGranted('EDIT', subject: 'article')]
     public function edit(Request $request, Article $article): Response
     {
         $form = $this->createForm(
@@ -189,7 +201,7 @@ class ArticleController extends AbstractController
      * @return Response HTTP response
      */
     #[Route('/{id}/delete', name: 'article_delete', requirements: ['id' => '[1-9]\d*'], methods: 'GET|DELETE')]
-    #[IsGranted('DELETE')]
+    #[IsGranted('DELETE', subject: 'article')]
     public function delete(Request $request, Article $article): Response
     {
         $form = $this->createForm(FormType::class, $article, [
