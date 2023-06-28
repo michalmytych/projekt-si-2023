@@ -17,22 +17,6 @@
 
     {% include 'article/partials/_main_image.html.twig' with {'article': article, 'editable': true} %}
 
-{#    <h4>{{ 'label.main_article_image'|trans }}</h4>#}
-{#    {% set mainImage = article.files|first %}#}
-{#    {% if mainImage and mainImage.path|length %}#}
-{#        <img height="400" class="nav-profile-img" src="{{ asset(images_directory~mainImage.path) }}"#}
-{#             alt="Main article image.">#}
-{#        <div>{{ 'label.edit_image'|trans }}</div>#}
-{#        <a href="{{ url('file_edit_for_article', {id: mainImage.id, article_id: article.id}) }}" class="btn btn-link">#}
-{#            {{ 'action.file_edit_for_article'|trans }}#}
-{#        </a>#}
-{#    {% else %}#}
-{#        <div>{{ 'label.no_main_article_image'|trans }}</div>#}
-{#        <a href="{{ url('file_create_for_article', {id: article.id}) }}" class="btn btn-link">#}
-{#            {{ 'action.file_create_for_article'|trans }}#}
-{#        </a>#}
-{#    {% endif %}#}
-
     <h1>{{ 'title.article_edit'|trans({'%id%': article.id|default('')}) }}</h1>
     {{ form_start(form) }}
     {{ form_widget(form) }}
