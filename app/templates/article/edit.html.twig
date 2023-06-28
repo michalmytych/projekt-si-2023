@@ -8,11 +8,25 @@
     <a href="{{ url('article_index') }}" title="{{ 'action.back'|trans }}">
         {{ 'action.back'|trans }}
     </a>
+
     {% if article.isPublished() %}
         <p class="text-info">{{ 'label.published'|trans }}</p>
     {% else %}
         <p class="text-danger">{{ 'label.draft'|trans }}</p>
     {% endif %}
+
+    <h4>{{ 'label.main_article_image'|trans }}</h4>
+    {% set mainImage = article.files|first %}
+    {% if mainImage and mainImage.path|length %}
+        <img class="nav-profile-img" src="{{ asset(images_directory~mainImage.path) }}"
+             alt="Main article image.">
+    {% else %}
+        <div>{{ 'label.no_main_article_image'|trans }}</div>
+        <a href="{{ url('file_create_for_article', {id: article.id}) }}" class="btn btn-link">
+            {{ 'action.file_create_for_article'|trans }}
+        </a>
+    {% endif %}
+
     <h1>{{ 'title.article_edit'|trans({'%id%': article.id|default('')}) }}</h1>
     {{ form_start(form) }}
     {{ form_widget(form) }}
