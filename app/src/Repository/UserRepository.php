@@ -6,8 +6,10 @@
 namespace App\Repository;
 
 use App\Entity\User;
+use App\Entity\Enum\UserRole;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\NonUniqueResultException;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -73,9 +75,21 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     }
 
     /**
+     * Query all users with 'latest-first' ordering.
+     *
+     * @return QueryBuilder
+     */
+    public function queryAllLatest(): QueryBuilder
+    {
+        return $this
+            ->getOrCreateQueryBuilder()
+            ->orderBy('user.id', 'DESC');
+    }
+
+    /**
      * Find single user by email.
      *
-     * @param mixed $email
+     * @param mixed $email Email
      *
      * @return User|null
      */
@@ -85,14 +99,44 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     }
 
     /**
+     * Find single user by id.
+     *
+     * @param mixed $id User id
+     *
+     * @return User|null
+     */
+    public function findOneById(mixed $id): ?User
+    {
+        return $this->findOneBy(['id' => $id]);
+    }
+
+    /**
      * Save user.
      *
-     * @param User $user
+     * @param User $user User
      */
     public function save(User $user): void
     {
         $this->_em->persist($user);
         $this->_em->flush();
+    }
+
+    /**
+     * Get latest admin user if exists.
+     *
+     * @return User|null
+     *
+     * @throws NonUniqueResultException
+     */
+    public function getLatestAdminUser(): ?User
+    {
+        return $this
+            ->queryAllLatest()
+            ->where('user.roles LIKE :role')
+            ->setParameter('role', '%'.UserRole::ROLE_ADMIN->value.'%')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult();
     }
 
     /**

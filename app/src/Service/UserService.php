@@ -7,6 +7,7 @@ namespace App\Service;
 
 use App\Entity\User;
 use App\Repository\UserRepository;
+use Doctrine\ORM\NonUniqueResultException;
 use Knp\Component\Pager\PaginatorInterface;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 
@@ -48,7 +49,7 @@ class UserService
      *
      * @return PaginationInterface
      */
-    public function createPagination(int $page): PaginationInterface // @todo why unused
+    public function getPaginatedList(int $page): PaginationInterface
     {
         return $this->paginator->paginate(
             $this->userRepository->queryAll(),
@@ -70,12 +71,24 @@ class UserService
     /**
      * Find user by ID.
      *
-     * @param int $id
+     * @param int $id User id
      *
      * @return User|null
      */
     public function findOneById(int $id): ?User
     {
-        return $this->userRepository->findOneById($id); // @todo check
+        return $this->userRepository->findOneById($id);
+    }
+
+    /**
+     * Get latest admin user if exists.
+     *
+     * @return User|null
+     *
+     * @throws NonUniqueResultException
+     */
+    public function getLatestAdminUser(): ?User
+    {
+        return $this->userRepository->getLatestAdminUser();
     }
 }
