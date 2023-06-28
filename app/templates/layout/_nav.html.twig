@@ -1,0 +1,21 @@
+<nav>
+    <a href="{{ url('article_index') }}" title="{{ 'articles'|trans }}">
+        {{ 'articles'|trans }}
+    </a>
+    <a href="{{ url('category_index') }}" title="{{ 'categories'|trans }}">
+        {{ 'categories'|trans }}
+    </a>
+    <a href="{{ url('tag_index') }}" title="{{ 'tags'|trans }}">
+        {{ 'tags'|trans }}
+    </a>
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <div>{{ app.user.email }}</div>
+        <div>
+            <a href="{{ url('app_logout') }}">{{ 'action_logout'|trans }}</a>
+        </div>
+    {% else %}
+        <div>
+            <a href="{{ url('app_login') }}">{{ 'action_login'|trans }}</a>
+        </div>
+    {% endif %}
+</nav>
