@@ -5,13 +5,13 @@
 
 namespace App\Entity;
 
-use App\Repository\ArticleRepository;
 use DateTimeImmutable;
-use Gedmo\Mapping\Annotation as Gedmo;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ArticleRepository;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Class Article.
@@ -116,6 +116,9 @@ class Article
     #[ORM\JoinTable(name:'articles_tags')]
     private Collection $tags;
 
+    #[ORM\ManyToMany(targetEntity: File::class, mappedBy: 'articles')]
+    private Collection $files;
+
     /**
      * Construct new Article object.
      */
@@ -123,6 +126,7 @@ class Article
     {
         $this->comments = new ArrayCollection();
         $this->tags = new ArrayCollection();
+        $this->files = new ArrayCollection();
     }
 
     /**
@@ -363,5 +367,48 @@ class Article
     public function isPublished(): bool
     {
         return $this->getStatus() === Article::STATUS_PUBLISHED;
+    }
+
+    /**
+     * Get related files.
+     *
+     * @return Collection<int, File>
+     */
+    public function getFiles(): Collection
+    {
+        return $this->files;
+    }
+
+    /**
+     * Add file to related files.
+     *
+     * @param File $file
+     *
+     * @return $this
+     */
+    public function addFile(File $file): static
+    {
+        if (!$this->files->contains($file)) {
+            $this->files->add($file);
+            $file->addArticle($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Remove file from related files.
+     *
+     * @param File $file
+     *
+     * @return $this
+     */
+    public function removeFile(File $file): static
+    {
+        if ($this->files->removeElement($file)) {
+            $file->removeArticle($this);
+        }
+
+        return $this;
     }
 }
