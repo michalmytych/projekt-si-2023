@@ -7,7 +7,6 @@ namespace App\Service;
 
 use App\Service\Interface\FileUploadServiceInterface;
 use Symfony\Component\String\Slugger\SluggerInterface;
-
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 

@@ -1,12 +1,14 @@
 <?php
+/**
+ * Tag repository.
+ */
 
 namespace App\Repository;
 
-use App\Entity\Article;
 use App\Entity\Tag;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Tag>

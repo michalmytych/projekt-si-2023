@@ -1,4 +1,7 @@
 <?php
+/**
+ * File repository.
+ */
 
 namespace App\Repository;
 
@@ -16,6 +19,11 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class FileRepository extends ServiceEntityRepository
 {
+    /**
+     * Construct new file repository object.
+     *
+     * @param ManagerRegistry $registry
+     */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, File::class);
@@ -32,6 +40,14 @@ class FileRepository extends ServiceEntityRepository
         $this->_em->flush();
     }
 
+    /**
+     * Remove entity.
+     *
+     * @param File $entity File entity
+     * @param bool $flush  Should be flushed
+     *
+     * @return void
+     */
     public function remove(File $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
@@ -40,29 +56,4 @@ class FileRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
-
-//    /**
-//     * @return File[] Returns an array of File objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('f')
-//            ->andWhere('f.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('f.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
-
-//    public function findOneBySomeField($value): ?File
-//    {
-//        return $this->createQueryBuilder('f')
-//            ->andWhere('f.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
 }

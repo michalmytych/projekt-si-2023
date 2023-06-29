@@ -139,11 +139,23 @@ class Comment
         return $this;
     }
 
+    /**
+     * Author getter.
+     *
+     * @return User|null
+     */
     public function getAuthor(): ?User
     {
         return $this->author;
     }
 
+    /**
+     * Author getter.
+     *
+     * @param User|null $author
+     *
+     * @return $this
+     */
     public function setAuthor(?User $author): static
     {
         $this->author = $author;

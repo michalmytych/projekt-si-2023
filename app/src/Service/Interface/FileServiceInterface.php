@@ -30,7 +30,7 @@ interface FileServiceInterface
      * @param File         $file         File
      * @param Article      $article      Article
      *
-     * @return mixed
+     * @return void
      */
     public function updateForArticle(UploadedFile $uploadedFile, File $file, Article $article): void;
 }

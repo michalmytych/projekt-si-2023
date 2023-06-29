@@ -1,9 +1,8 @@
 # Projekt SI
 
 ```bash
+# Run CS fixer over project files
 ./vendor/bin/php-cs-fixer fix src/ --rules=@Symfony,@PSR1,@PSR2,@PSR12
-vendor/bin/phpcs --standard=Symfony src/
-vendor/bin/phpcbf --standard=Symfony src/ --ignore=Kernel.php
 ```
 
 1. Na deploy przełączyć na debug = false: https://epi.chojna.info.pl/narzedzia/instalacja-projektu-na-wierzbie#trybprodukcyjny
