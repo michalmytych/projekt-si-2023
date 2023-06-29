@@ -43,7 +43,7 @@ class RegistrationType extends AbstractType
                 'email',
                 EmailType::class,
                 [
-                    'label' => 'label.password',
+                    'label' => 'label.email',
                     'required' => true,
                 ]
             )

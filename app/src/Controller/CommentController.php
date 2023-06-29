@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
@@ -67,6 +68,7 @@ class CommentController extends AbstractController
      * @return Response HTTP response
      */
     #[Route('/{id}/delete', name: 'comment_delete', requirements: ['id' => '[1-9]\d*'], methods: 'GET|DELETE')]
+    #[IsGranted('DELETE', subject: 'comment')]
     public function delete(Request $request, Comment $comment): Response
     {
         $form = $this->createForm(FormType::class, $comment, [
@@ -109,6 +111,12 @@ class CommentController extends AbstractController
     )]
     public function create(Request $request): Response
     {
+        $user = $this->getUser();
+        // @todo better way
+        if (!$user) {
+            return $this->redirectToRoute('app_login');
+        }
+
         $commentedArticleId = $request->query->get('commented_article_id');
         $comment = new Comment();
         $article = $this->articleService->findOneById($commentedArticleId);

@@ -52,7 +52,7 @@ class ArticleFixtures extends AbstractBaseFixtures implements OrderedFixtureInte
         $categories = $this->categoryRepository->findAll();
 
         foreach ($categories as $category) {
-            for ($i = 0; $i < 15; ++$i) {
+            for ($i = 0; $i < 10; ++$i) {
                 $article = new Article();
                 $article->setCategory($category);
                 $article->setTitle($this->faker->unique()->sentence);

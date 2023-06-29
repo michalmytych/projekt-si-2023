@@ -5,11 +5,12 @@
 
 namespace App\Controller;
 
-use App\Entity\Enum\UserRole;
 use App\Entity\User;
 use App\Service\UserService;
+use App\Entity\Enum\UserRole;
 use App\Form\Type\UserRoleType;
 use Doctrine\ORM\NonUniqueResultException;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -62,6 +63,19 @@ class UserController extends AbstractController
     )]
     public function index(Request $request): Response
     {
+        $user = $this->getUser();
+
+        /** @var User $user */
+        if (!$user || !$user->isAdmin()) {
+            // @todo - is there a better way ?
+            $this->addFlash(
+                'danger',
+                $this->translator->trans('message.no_permission')
+            );
+
+            return $this->redirectToRoute('category_index');
+        }
+
         $page = $request->query->getInt('page', 1);
         $pagination = $this->userService->getPaginatedList($page);
 
@@ -84,6 +98,7 @@ class UserController extends AbstractController
         requirements: ['id' => '[1-9]\d*'],
         methods: 'GET'
     )]
+    #[IsGranted('VIEW', subject: 'user')]
     public function show(User $user): Response
     {
         return $this->render('user/show.html.twig', ['user' => $user]);
@@ -105,6 +120,7 @@ class UserController extends AbstractController
         requirements: ['id' => '[1-9]\d*'],
         methods: 'GET|PUT'
     )]
+    #[IsGranted('MANAGE', subject: 'user')]
     public function editRole(Request $request, User $user): Response
     {
         $form = $this->createForm(

@@ -6,6 +6,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Comment;
+use App\Repository\UserRepository;
 use App\Repository\ArticleRepository;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 
@@ -22,13 +23,22 @@ class CommentFixtures extends AbstractBaseFixtures implements OrderedFixtureInte
     private ArticleRepository $articleRepository;
 
     /**
+     * User repository.
+     *
+     * @var UserRepository
+     */
+    private UserRepository $userRepository;
+
+    /**
      * Construct new comment fixtures object.
      *
      * @param ArticleRepository $articleRepository Article repository
+     * @param UserRepository    $userRepository    User repository
      */
-    public function __construct(ArticleRepository $articleRepository)
+    public function __construct(ArticleRepository $articleRepository, UserRepository $userRepository)
     {
         $this->articleRepository = $articleRepository;
+        $this->userRepository = $userRepository;
     }
 
     /**
@@ -49,15 +59,19 @@ class CommentFixtures extends AbstractBaseFixtures implements OrderedFixtureInte
     public function loadData(): void
     {
         $articles = $this->articleRepository->findAll();
+        $users = $this->userRepository->findAll();
 
-        foreach ($articles as $article) {
-            for ($i = 0; $i < 15; ++$i) {
-                $comment = new Comment();
-                $comment->setHeader($this->faker->unique()->sentence);
-                $comment->setContent($this->faker->realText);
-                $comment->setArticle($article);
+        foreach ($users as $user) {
+            foreach ($articles as $article) {
+                for ($i = 0; $i < 3; ++$i) {
+                    $comment = new Comment();
+                    $comment->setHeader($this->faker->unique()->sentence);
+                    $comment->setContent($this->faker->realText);
+                    $comment->setAuthor($user);
+                    $comment->setArticle($article);
 
-                $this->manager->persist($comment);
+                    $this->manager->persist($comment);
+                }
             }
         }
 

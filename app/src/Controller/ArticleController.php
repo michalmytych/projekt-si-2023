@@ -5,8 +5,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Article;
 use App\Entity\User;
+use App\Entity\Article;
 use App\Form\Type\ArticleType;
 use App\Service\ArticleService;
 use Doctrine\ORM\NonUniqueResultException;
@@ -91,9 +91,21 @@ class ArticleController extends AbstractController
         requirements: ['id' => '[1-9]\d*'],
         methods: 'GET'
     )]
-    #[IsGranted('VIEW', subject: 'article')]
     public function show(Article $article): Response
     {
+        $user = $this->getUser();
+
+        /** @var User $user */
+        if (!$article->isPublished() && $user && !$user->isAdmin()) {
+            // @todo - is there a better way ?
+            $this->addFlash(
+                'danger',
+                $this->translator->trans('message.no_permission')
+            );
+
+            return $this->redirectToRoute('article_index');
+        }
+
         return $this->render('article/show.html.twig', ['article' => $article]);
     }
 
@@ -114,7 +126,7 @@ class ArticleController extends AbstractController
         $user = $this->getUser();
 
         /** @var User $user */
-        if (!$user->isAdmin()) {
+        if (!$user || !$user->isAdmin()) {
             // @todo - is there a better way ?
             $this->addFlash(
                 'danger',

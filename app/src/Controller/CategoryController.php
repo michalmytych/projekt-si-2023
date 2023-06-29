@@ -5,6 +5,7 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Entity\Category;
 use App\Form\Type\CategoryType;
 use App\Service\CategoryService;
@@ -61,6 +62,19 @@ class CategoryController extends AbstractController
     )]
     public function index(Request $request): Response
     {
+        $user = $this->getUser();
+
+        /** @var User $user */
+        if (!$user || !$user->isAdmin()) {
+            // @todo - is there a better way ?
+            $this->addFlash(
+                'danger',
+                $this->translator->trans('message.no_permission')
+            );
+
+            return $this->redirectToRoute('article_index');
+        }
+
         $page = $request->query->getInt('page', 1);
         $pagination = $this->categoryService->getPaginatedList($page);
 
@@ -102,6 +116,19 @@ class CategoryController extends AbstractController
     )]
     public function create(Request $request): Response
     {
+        $user = $this->getUser();
+
+        /** @var User $user */
+        if (!$user || !$user->isAdmin()) {
+            // @todo - is there a better way ?
+            $this->addFlash(
+                'danger',
+                $this->translator->trans('message.no_permission')
+            );
+
+            return $this->redirectToRoute('category_index');
+        }
+
         $category = new Category();
         $form = $this->createForm(CategoryType::class, $category);
         $form->handleRequest($request);

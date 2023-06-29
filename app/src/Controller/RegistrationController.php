@@ -13,6 +13,7 @@ use App\Form\Type\EditProfileType;
 use App\Form\Type\RegistrationType;
 use App\Form\Type\ChangePasswordType;
 use App\Security\LoginFormAuthenticator;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -43,6 +44,10 @@ class RegistrationController extends AbstractController
     )]
     public function register(Request $request, UserService $service, UserPasswordHasherInterface $passwordHasher, UserAuthenticatorInterface $userAuthenticator, LoginFormAuthenticator $authenticator): Response
     {
+        if ($this->getUser()) {
+            return $this->redirectToRoute('article_index');
+        }
+
         $user = new User();
         $form = $this->createForm(RegistrationType::class, $user);
         $form->handleRequest($request);
@@ -87,6 +92,7 @@ class RegistrationController extends AbstractController
         requirements: ['id' => '[1-9]\d*'],
         methods: 'GET|PUT'
     )]
+    #[IsGranted('EDIT', subject: 'user')]
     public function changePassword(Request $request, User $user, UserRepository $userRepository, UserPasswordHasherInterface $passwordHasher): Response
     {
         $form = $this->createForm(ChangePasswordType::class, $user, ['method' => 'PUT']);
@@ -126,6 +132,7 @@ class RegistrationController extends AbstractController
         requirements: ['id' => '[1-9]\d*'],
         methods: 'GET|PUT'
     )]
+    #[IsGranted('EDIT', subject: 'user')]
     public function edit(Request $request, User $user, UserRepository $userRepository): Response
     {
         $form = $this->createForm(EditProfileType::class, $user, ['method' => 'PUT']);
@@ -139,7 +146,7 @@ class RegistrationController extends AbstractController
             $user->setNickname($newNickname);
 
             $userRepository->save($user);
-            $this->addFlash('success', 'message_password_changed');
+            $this->addFlash('success', 'message_profile_updated_successfully');
             $this->redirectToRoute('article_index');
         }
 

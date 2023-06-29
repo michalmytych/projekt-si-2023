@@ -30,7 +30,7 @@ class CategoryFixtures extends AbstractBaseFixtures implements OrderedFixtureInt
      */
     protected function loadData(): void
     {
-        for ($i = 0; $i < 15; ++$i) {
+        for ($i = 0; $i < 5; ++$i) {
             $category = new Category();
             $category->setName($this->faker->unique()->word);
 

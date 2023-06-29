@@ -6,6 +6,7 @@
 namespace App\Controller;
 
 use App\Entity\Tag;
+use App\Entity\User;
 use App\Form\Type\TagType;
 use App\Service\TagService;
 use Symfony\Component\HttpFoundation\Request;
@@ -62,6 +63,19 @@ class TagController extends AbstractController
     )]
     public function index(Request $request): Response
     {
+        $user = $this->getUser();
+
+        /** @var User $user */
+        if (!$user || !$user->isAdmin()) {
+            // @todo - is there a better way ?
+            $this->addFlash(
+                'danger',
+                $this->translator->trans('message.no_permission')
+            );
+
+            return $this->redirectToRoute('article_index');
+        }
+
         $page = $request->query->getInt('page', 1);
         $pagination = $this->tagService->getPaginatedList($page);
 
@@ -103,6 +117,19 @@ class TagController extends AbstractController
     )]
     public function create(Request $request): Response
     {
+        $user = $this->getUser();
+
+        /** @var User $user */
+        if (!$user || !$user->isAdmin()) {
+            // @todo - is there a better way ?
+            $this->addFlash(
+                'danger',
+                $this->translator->trans('message.no_permission')
+            );
+
+            return $this->redirectToRoute('tag_index');
+        }
+
         $tag = new Tag();
         $form = $this->createForm(TagType::class, $tag);
         $form->handleRequest($request);

@@ -50,6 +50,10 @@ class Comment
     #[ORM\JoinColumn(nullable: false)]
     private ?Article $article = null;
 
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $author = null;
+
     /**
      * Get comment id.
      *
@@ -128,6 +132,18 @@ class Comment
     public function setArticle(?Article $article): self
     {
         $this->article = $article;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): static
+    {
+        $this->author = $author;
 
         return $this;
     }
