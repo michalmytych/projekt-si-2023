@@ -83,13 +83,20 @@ class ArticleRepository extends ServiceEntityRepository
     {
         $queryBuilder = $this
             ->getOrCreateQueryBuilder()
+            ->select(
+                'partial article.{id, title, content, status, createdAt, updatedAt}',
+                'partial category.{id, name}',
+                'partial tags.{id, name}',
+                'partial files.{id, path}',
+            )
             ->join('article.category', 'category')
             ->leftJoin('article.tags', 'tags')
+            ->leftJoin('article.files', 'files')
             ->orderBy('article.createdAt', 'DESC');
 
         /** @var User $user */
         if (!$user || !$user->isAdmin()) {
-            $queryBuilder->where('article.status = '.Article::STATUS_PUBLISHED);
+            $queryBuilder->andWhere('article.status = '.Article::STATUS_PUBLISHED);
         }
 
         return $this->applyFiltersToList($queryBuilder, $filters);

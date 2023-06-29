@@ -93,7 +93,7 @@ class Article
     /**
      * Tags.
      */
-    #[ORM\ManyToMany(targetEntity: Tag::class, inversedBy: 'articles', fetch: 'EXTRA_LAZY')]
+    #[ORM\ManyToMany(targetEntity: Tag::class, fetch: 'EXTRA_LAZY')]
     #[ORM\JoinTable(name: 'articles_tags')]
     private Collection $tags;
 
