@@ -29,8 +29,6 @@ interface FileServiceInterface
      * @param UploadedFile $uploadedFile Uploaded file
      * @param File         $file         File
      * @param Article      $article      Article
-     *
-     * @return void
      */
     public function updateForArticle(UploadedFile $uploadedFile, File $file, Article $article): void;
 }

@@ -81,7 +81,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
     /**
      * Supports.
      *
-     * @param Request $request
+     * @param Request $request Current HTTP request
      *
      * @return bool
      */
@@ -126,7 +126,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
     /**
      * Get credentials.
      *
-     * @param Request $request
+     * @param Request $request Current HTTP request
      *
      * @return array
      */
@@ -148,7 +148,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
     /**
      * Get user.
      *
-     * @param mixed $credentials
+     * @param mixed $credentials Credentials
      *
      * @return User
      */
@@ -162,7 +162,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
         $user = $this->userRepository->findOneByEmail($credentials['email']);
 
         if (!$user) {
-            $message = sprintf("User of this email [%s] could not be found.", $credentials['email']);
+            $message = sprintf('User of this email [%s] could not be found.', $credentials['email']);
             throw new NotFoundHttpException($message);
         }
 
@@ -172,9 +172,9 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
     /**
      * Do on auth success.
      *
-     * @param Request        $request
-     * @param TokenInterface $token
-     * @param mixed          $firewallName
+     * @param Request        $request      Current HTTP request
+     * @param TokenInterface $token        Token
+     * @param mixed          $firewallName Firewall name
      *
      * @return RedirectResponse
      */

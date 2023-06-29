@@ -18,8 +18,6 @@ class Comment
 {
     /**
      * Primary key.
-     *
-     * @var int|null
      */
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -28,8 +26,6 @@ class Comment
 
     /**
      * Header.
-     *
-     * @var string|null
      */
     #[ORM\Column(length: 255)]
     #[Assert\Length(min: 3, max: 255)]
@@ -37,8 +33,6 @@ class Comment
 
     /**
      * Content.
-     *
-     * @var string|null
      */
     #[ORM\Column(length: 255)]
     #[Assert\Length(min: 5, max: 255)]
@@ -46,8 +40,6 @@ class Comment
 
     /**
      * Article.
-     *
-     * @var Article|null
      */
     #[ORM\ManyToOne(inversedBy: 'comments')]
     #[ORM\JoinColumn(nullable: false)]
@@ -59,8 +51,6 @@ class Comment
 
     /**
      * Get comment id.
-     *
-     * @return int|null
      */
     public function getId(): ?int
     {
@@ -69,8 +59,6 @@ class Comment
 
     /**
      * Get comment header.
-     *
-     * @return string|null
      */
     public function getHeader(): ?string
     {
@@ -93,8 +81,6 @@ class Comment
 
     /**
      * Get comment content.
-     *
-     * @return string|null
      */
     public function getContent(): ?string
     {
@@ -117,8 +103,6 @@ class Comment
 
     /**
      * Get article to which comment is related.
-     *
-     * @return Article|null
      */
     public function getArticle(): ?Article
     {
@@ -141,8 +125,6 @@ class Comment
 
     /**
      * Author getter.
-     *
-     * @return User|null
      */
     public function getAuthor(): ?User
     {
@@ -151,8 +133,6 @@ class Comment
 
     /**
      * Author getter.
-     *
-     * @param User|null $author
      *
      * @return $this
      */

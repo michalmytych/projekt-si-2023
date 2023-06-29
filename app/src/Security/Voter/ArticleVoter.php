@@ -21,8 +21,6 @@ class ArticleVoter extends Voter
      *
      * @param string $attribute Voter attribute
      * @param mixed  $subject   Voter subject
-     *
-     * @return bool
      */
     protected function supports(string $attribute, $subject): bool
     {
@@ -35,8 +33,6 @@ class ArticleVoter extends Voter
      * @param string         $attribute Voter attribute
      * @param mixed          $subject   Voter subject
      * @param TokenInterface $token     Authentication token
-     *
-     * @return bool
      */
     protected function voteOnAttribute(string $attribute, $subject, TokenInterface $token): bool
     {
@@ -58,12 +54,10 @@ class ArticleVoter extends Voter
      *
      * @param mixed         $subject Voter subject
      * @param UserInterface $user    User
-     *
-     * @return bool
      */
     private function isAdminOrSubjectIsPublished(mixed $subject, UserInterface $user): bool
     {
-        /**
+        /*
          * @var Article $subject
          * @var User $user
          */
@@ -76,12 +70,10 @@ class ArticleVoter extends Voter
      *
      * @param mixed         $subject Voter subject
      * @param UserInterface $user    User
-     *
-     * @return bool
      */
     private function isAdminUser(mixed $subject, UserInterface $user): bool
     {
-        /** @var User $user */
+        /* @var User $user */
 
         return $user->isAdmin();
     }

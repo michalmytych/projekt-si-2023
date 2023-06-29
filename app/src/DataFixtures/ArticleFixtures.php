@@ -5,9 +5,9 @@
 
 namespace App\DataFixtures;
 
-use App\Repository\CategoryRepository;
 use DateTimeImmutable;
 use App\Entity\Article;
+use App\Repository\CategoryRepository;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 
 /**
@@ -17,8 +17,6 @@ class ArticleFixtures extends AbstractBaseFixtures implements OrderedFixtureInte
 {
     /**
      * Category repository.
-     *
-     * @var CategoryRepository
      */
     private CategoryRepository $categoryRepository;
 
@@ -44,8 +42,6 @@ class ArticleFixtures extends AbstractBaseFixtures implements OrderedFixtureInte
 
     /**
      * Load fixture data.
-     *
-     * @return void
      */
     protected function loadData(): void
     {

@@ -17,15 +17,11 @@ class CommentFixtures extends AbstractBaseFixtures implements OrderedFixtureInte
 {
     /**
      * Article repository.
-     *
-     * @var ArticleRepository $articleRepository
      */
     private ArticleRepository $articleRepository;
 
     /**
      * User repository.
-     *
-     * @var UserRepository
      */
     private UserRepository $userRepository;
 
@@ -53,8 +49,6 @@ class CommentFixtures extends AbstractBaseFixtures implements OrderedFixtureInte
 
     /**
      * Load fixture data data.
-     *
-     * @return void
      */
     public function loadData(): void
     {

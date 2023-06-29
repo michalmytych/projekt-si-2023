@@ -31,9 +31,9 @@ class UserVoter extends Voter
     /**
      * Voting mechanism.
      *
-     * @param string         $attribute Voter attribute
-     * @param mixed          $subject   Voter subject
-     * @param TokenInterface $token     Authentication token
+     * @param string $attribute Voter attribute
+     * @param mixed $subject Voter subject
+     * @param TokenInterface $token Authentication token
      *
      * @return bool
      */
@@ -55,14 +55,14 @@ class UserVoter extends Voter
     /**
      * Returns true if user is admin.
      *
-     * @param mixed         $subject Voter subject
-     * @param UserInterface $user    User
+     * @param mixed $subject Voter subject
+     * @param UserInterface $user User
      *
      * @return bool
      */
     private function isAdminOrOwner(mixed $subject, UserInterface $user): bool
     {
-        /**
+        /*
          * @var User $user
          * @var User $subject
          */
@@ -73,14 +73,14 @@ class UserVoter extends Voter
     /**
      * Returns true if user is admin.
      *
-     * @param mixed         $subject Voter subject
-     * @param UserInterface $user    User
+     * @param mixed $subject Voter subject
+     * @param UserInterface $user User
      *
      * @return bool
      */
     private function isAdminUser(mixed $subject, UserInterface $user): bool
     {
-        /** @var User $user */
+        /* @var User $user */
 
         return $user->isAdmin();
     }

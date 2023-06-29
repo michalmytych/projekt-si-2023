@@ -23,20 +23,19 @@ use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
  */
 class UserRepository extends ServiceEntityRepository implements PasswordUpgraderInterface
 {
-
     /**
      * Items per page.
      *
      * @constant int
      */
-    const PAGINATOR_ITEMS_PER_PAGE = 10;
+    public const PAGINATOR_ITEMS_PER_PAGE = 10;
 
     /**
      * UserRepository constructor.
      *
-     * @param ManagerRegistry $registry
-     *
      * @noinspection PhpMultipleClassDeclarationsInspection
+     *
+     * @param ManagerRegistry $registry Manager registry
      */
     public function __construct(ManagerRegistry $registry)
     {
@@ -46,15 +45,13 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     /**
      * Used to upgrade (rehash) the user's password automatically over time.
      *
-     * @param UserInterface $user
-     * @param string        $newHashedPassword
+     * @param UserInterface $user              User
+     * @param string        $newHashedPassword Hashed password
      */
     public function upgradePassword(UserInterface $user, string $newHashedPassword): void
     {
         if (!$user instanceof User) {
-            throw new UnsupportedUserException(
-                sprintf('Instances of "%s" are not supported.', get_class($user))
-            );
+            throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', get_class($user)));
         }
 
         $user->setPassword($newHashedPassword);

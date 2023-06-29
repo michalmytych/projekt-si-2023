@@ -21,8 +21,6 @@ class CommentRepository extends ServiceEntityRepository
 {
     /**
      * Construct new comment repository object.
-     *
-     * @param ManagerRegistry $registry
      */
     public function __construct(ManagerRegistry $registry)
     {
@@ -56,8 +54,6 @@ class CommentRepository extends ServiceEntityRepository
      *
      * @param Comment $comment Tag entity
      * @param bool    $flush   If entity manager should be flushed
-     *
-     * @return void
      */
     public function remove(Comment $comment, bool $flush = false): void
     {

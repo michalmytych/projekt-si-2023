@@ -20,8 +20,6 @@ class Tag
 {
     /**
      * Primary key.
-     *
-     * @var int|null
      */
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -30,8 +28,6 @@ class Tag
 
     /**
      * Name.
-     *
-     * @var string|null
      */
     #[ORM\Column(length: 255, unique: true)]
     #[Assert\Length(min: 3, max: 255)]
@@ -39,8 +35,6 @@ class Tag
 
     /**
      * Articles.
-     *
-     * @var Collection
      */
     #[ORM\ManyToMany(targetEntity: Article::class, mappedBy: 'tags')]
     private Collection $articles;
@@ -55,8 +49,6 @@ class Tag
 
     /**
      * Get tag id.
-     *
-     * @return int|null
      */
     public function getId(): ?int
     {
@@ -65,8 +57,6 @@ class Tag
 
     /**
      * Get tag name.
-     *
-     * @return string|null
      */
     public function getName(): ?string
     {

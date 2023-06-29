@@ -49,7 +49,7 @@ class UserFixtures extends AbstractBaseFixtures implements OrderedFixtureInterfa
             return;
         }
 
-        for ($i = 1; $i <= 5; $i++) {
+        for ($i = 1; $i <= 5; ++$i) {
             $user = new User();
             $user->setEmail(sprintf('user%d@example.com', $i));
             $user->setNickname(sprintf('user%d', $i));
@@ -64,7 +64,7 @@ class UserFixtures extends AbstractBaseFixtures implements OrderedFixtureInterfa
             $this->manager->persist($user);
         }
 
-        for ($i = 1; $i <= 2; $i++) {
+        for ($i = 1; $i <= 2; ++$i) {
             $user = new User();
             $user->setEmail(sprintf('admin%d@example.com', $i));
             $user->setNickname(sprintf('admin%d', $i));

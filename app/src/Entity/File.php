@@ -1,7 +1,8 @@
 <?php
 /**
- * File entity
+ * File entity.
  */
+
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -20,8 +21,6 @@ class File
 {
     /**
      * Primary key.
-     *
-     * @var int|null
      */
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -30,8 +29,6 @@ class File
 
     /**
      * File path.
-     *
-     * @var string|null
      */
     #[ORM\Column(length: 191)]
     #[Assert\Length(min: 1, max: 191)]
@@ -39,8 +36,6 @@ class File
 
     /**
      * Related articles.
-     *
-     * @var Collection
      */
     #[ORM\ManyToMany(targetEntity: Article::class, inversedBy: 'files')]
     private Collection $articles;
@@ -55,8 +50,6 @@ class File
 
     /**
      * File id getter.
-     *
-     * @return int|null
      */
     public function getId(): ?int
     {
@@ -65,8 +58,6 @@ class File
 
     /**
      * File path getter.
-     *
-     * @return string|null
      */
     public function getPath(): ?string
     {
@@ -75,8 +66,6 @@ class File
 
     /**
      * File path setter.
-     *
-     * @param string $path
      *
      * @return $this
      */
@@ -100,8 +89,6 @@ class File
     /**
      * Add article to related articles.
      *
-     * @param Article $article
-     *
      * @return $this
      */
     public function addArticle(Article $article): static
@@ -115,8 +102,6 @@ class File
 
     /**
      * Remove article from related articles.
-     *
-     * @param Article $article
      *
      * @return $this
      */

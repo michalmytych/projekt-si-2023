@@ -48,8 +48,6 @@ class TagRepository extends ServiceEntityRepository
      *
      * @param Tag  $entity Tag entity
      * @param bool $flush  If entity manager should be flushed
-     *
-     * @return void
      */
     public function remove(Tag $entity, bool $flush = false): void
     {

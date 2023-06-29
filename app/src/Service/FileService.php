@@ -35,8 +35,6 @@ class FileService implements FileServiceInterface
 
     /**
      * Target directory.
-     *
-     * @var string
      */
     private string $targetDirectory;
 
@@ -78,8 +76,6 @@ class FileService implements FileServiceInterface
      * @param UploadedFile $uploadedFile Uploaded file
      * @param File         $file         File entity
      * @param Article      $article      Article entity
-     *
-     * @return void
      */
     public function updateForArticle(UploadedFile $uploadedFile, File $file, Article $article): void
     {

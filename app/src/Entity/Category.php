@@ -21,8 +21,6 @@ class Category
 {
     /**
      * Primary key.
-     *
-     * @var int|null
      */
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -31,8 +29,6 @@ class Category
 
     /**
      * Name.
-     *
-     * @var string|null
      */
     #[ORM\Column(length: 255, unique: true)]
     #[Assert\Length(min: 1, max: 255)]
@@ -40,8 +36,6 @@ class Category
 
     /**
      * Slug.
-     *
-     * @var string|null
      */
     #[ORM\Column(length: 512, unique: true)]
     #[Gedmo\Slug(fields: ['name', 'id'])]
@@ -50,8 +44,6 @@ class Category
 
     /**
      * Articles.
-     *
-     * @var Collection
      */
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: Article::class, orphanRemoval: true)]
     private Collection $articles;
@@ -66,8 +58,6 @@ class Category
 
     /**
      * Get category id.
-     *
-     * @return int|null
      */
     public function getId(): ?int
     {
@@ -76,8 +66,6 @@ class Category
 
     /**
      * Get category name.
-     *
-     * @return string|null
      */
     public function getName(): ?string
     {
@@ -100,8 +88,6 @@ class Category
 
     /**
      * Get category slug.
-     *
-     * @return string|null
      */
     public function getSlug(): ?string
     {

@@ -19,9 +19,6 @@ class EditProfileType extends AbstractType
 {
     /**
      * Builds form.
-     *
-     * @param FormBuilderInterface $builder
-     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -46,8 +43,6 @@ class EditProfileType extends AbstractType
 
     /**
      * Configure options.
-     *
-     * @param OptionsResolver $resolver
      */
     public function configureOptions(OptionsResolver $resolver): void
     {
@@ -58,8 +53,6 @@ class EditProfileType extends AbstractType
 
     /**
      * Get block prefix.
-
-     * @return string
      */
     public function getBlockPrefix(): string
     {

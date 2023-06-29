@@ -25,8 +25,6 @@ class TagFixtures extends AbstractBaseFixtures implements OrderedFixtureInterfac
 
     /**
      * Load fixture data data.
-     *
-     * @return void
      */
     public function loadData(): void
     {

@@ -24,18 +24,13 @@ class CategoryController extends AbstractController
 {
     /**
      * Category service.
-     *
-     * @var CategoryService
      */
     private CategoryService $categoryService;
 
     /**
      * Translator.
-     *
-     * @var TranslatorInterface
      */
     private TranslatorInterface $translator;
-
 
     /**
      * Construct new category controller object.

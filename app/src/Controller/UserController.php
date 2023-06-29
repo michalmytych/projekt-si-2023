@@ -25,24 +25,19 @@ class UserController extends AbstractController
 {
     /**
      * User service.
-     *
-     * @var UserService
      */
     private UserService $userService;
 
     /**
      * Translator.
-     *
-     * @var TranslatorInterface
      */
     private TranslatorInterface $translator;
-
 
     /**
      * Construct new user controller object.
      *
-     * @param UserService         $userService
-     * @param TranslatorInterface $translator
+     * @param UserService         $userService User service
+     * @param TranslatorInterface $translator  Translator
      */
     public function __construct(UserService $userService, TranslatorInterface $translator)
     {
@@ -53,7 +48,7 @@ class UserController extends AbstractController
     /**
      * Index action.
      *
-     * @param Request $request
+     * @param Request $request Current HTTP request
      *
      * @return Response HTTP response
      */
@@ -88,7 +83,7 @@ class UserController extends AbstractController
     /**
      * Show action.
      *
-     * @param User $user
+     * @param User $user User entity
      *
      * @return Response HTTP response
      */

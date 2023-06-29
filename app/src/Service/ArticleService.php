@@ -19,29 +19,21 @@ class ArticleService
 {
     /**
      * Article repository.
-     *
-     * @var ArticleRepository
      */
     private ArticleRepository $articleRepository;
 
     /**
      * Paginator.
-     *
-     * @var PaginatorInterface
      */
     private PaginatorInterface $paginator;
 
     /**
      * Category service.
-     *
-     * @var CategoryService
      */
     private CategoryService $categoryService;
 
     /**
      * Tag service.
-     *
-     * @var TagService
      */
     private TagService $tagService;
 
@@ -92,7 +84,7 @@ class ArticleService
      *
      * @throws NonUniqueResultException
      */
-    public function getPaginatedList(int $page, array $filters = [], ?UserInterface $user = null): PaginationInterface
+    public function getPaginatedList(int $page, array $filters = [], UserInterface $user = null): PaginationInterface
     {
         $filters = $this->prepareFilters($filters);
 
@@ -107,8 +99,6 @@ class ArticleService
      * Find one article by id.
      *
      * @param int $id Article id
-     *
-     * @return Article
      */
     public function findOneById(int $id): Article
     {

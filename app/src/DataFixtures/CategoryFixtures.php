@@ -25,8 +25,6 @@ class CategoryFixtures extends AbstractBaseFixtures implements OrderedFixtureInt
 
     /**
      * Load fixture data.
-     *
-     * @return void
      */
     protected function loadData(): void
     {

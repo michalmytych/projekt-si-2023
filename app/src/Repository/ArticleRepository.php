@@ -77,7 +77,7 @@ class ArticleRepository extends ServiceEntityRepository
      *
      * @return QueryBuilder Query builder
      */
-    public function queryAll(array $filters = [], ?UserInterface $user = null): QueryBuilder
+    public function queryAll(array $filters = [], UserInterface $user = null): QueryBuilder
     {
         $queryBuilder = $this
             ->getOrCreateQueryBuilder()

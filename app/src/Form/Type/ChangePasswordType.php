@@ -21,9 +21,6 @@ class ChangePasswordType extends AbstractType
 {
     /**
      * Builds form.
-     *
-     * @param FormBuilderInterface $builder
-     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -44,8 +41,6 @@ class ChangePasswordType extends AbstractType
 
     /**
      * Configure options.
-     *
-     * @param OptionsResolver $resolver
      */
     public function configureOptions(OptionsResolver $resolver): void
     {
@@ -56,8 +51,6 @@ class ChangePasswordType extends AbstractType
 
     /**
      * Get block prefix.
-
-     * @return string
      */
     public function getBlockPrefix(): string
     {

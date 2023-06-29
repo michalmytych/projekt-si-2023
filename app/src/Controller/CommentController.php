@@ -25,25 +25,18 @@ class CommentController extends AbstractController
 {
     /**
      * Comment service.
-     *
-     * @var CommentService
      */
     private CommentService $commentService;
 
     /**
      * Translator.
-     *
-     * @var TranslatorInterface
      */
     private TranslatorInterface $translator;
 
     /**
      * Article service.
-     *
-     * @var ArticleService
      */
     protected ArticleService $articleService;
-
 
     /**
      * Construct new comment controller object.

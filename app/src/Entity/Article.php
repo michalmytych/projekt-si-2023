@@ -37,8 +37,6 @@ class Article
 
     /**
      * Primary key.
-     *
-     * @var int|null
      */
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -47,8 +45,6 @@ class Article
 
     /**
      * Title.
-     *
-     * @var string|null
      */
     #[ORM\Column(length: 255, unique: true)]
     #[Assert\Length(min: 5, max: 255)]
@@ -56,8 +52,6 @@ class Article
 
     /**
      * Content.
-     *
-     * @var string|null
      */
     #[ORM\Column(type: Types::TEXT, length: 5000)]
     #[Assert\Length(min: 10, max: 5000)]
@@ -65,8 +59,6 @@ class Article
 
     /**
      * Status.
-     *
-     * @var int|null
      */
     #[ORM\Column(type: Types::SMALLINT, options: ['default' => self::STATUS_DRAFT])]
     private ?int $status = null;
@@ -74,39 +66,31 @@ class Article
     /**
      * Created at.
      *
-     * @var DateTimeImmutable|null
-     *
      * @psalm-suppress PropertyNotSetInConstructor
      */
     #[ORM\Column(type: 'datetime_immutable')]
     #[Gedmo\Timestampable(on: 'create')]
-    #[Assert\Type(DateTimeImmutable::class)]
-    private ?DateTimeImmutable $createdAt;
+    #[Assert\Type(\DateTimeImmutable::class)]
+    private ?\DateTimeImmutable $createdAt;
 
     /**
      * Updated at.
-     *
-     * @var DateTimeImmutable|null
      *
      * @psalm-suppress PropertyNotSetInConstructor
      */
     #[ORM\Column(type: 'datetime_immutable')]
     #[Gedmo\Timestampable(on: 'update')]
-    #[Assert\Type(DateTimeImmutable::class)]
-    private ?DateTimeImmutable $updatedAt;
+    #[Assert\Type(\DateTimeImmutable::class)]
+    private ?\DateTimeImmutable $updatedAt;
 
     /**
      * Comments.
-     *
-     * @var Collection
      */
     #[ORM\OneToMany(mappedBy: 'article', targetEntity: Comment::class, orphanRemoval: true)]
     private Collection $comments;
 
     /**
      * Category.
-     *
-     * @var Category|null
      */
     #[ORM\ManyToOne(inversedBy: 'articles')]
     #[ORM\JoinColumn(nullable: false)]
@@ -114,11 +98,9 @@ class Article
 
     /**
      * Tags.
-     *
-     * @var Collection
      */
-    #[ORM\ManyToMany(targetEntity: Tag::class, inversedBy: 'articles', fetch:'EXTRA_LAZY')]
-    #[ORM\JoinTable(name:'articles_tags')]
+    #[ORM\ManyToMany(targetEntity: Tag::class, inversedBy: 'articles', fetch: 'EXTRA_LAZY')]
+    #[ORM\JoinTable(name: 'articles_tags')]
     private Collection $tags;
 
     #[ORM\ManyToMany(targetEntity: File::class, mappedBy: 'articles')]
@@ -195,9 +177,9 @@ class Article
     /**
      * Getter for created at.
      *
-     * @return DateTimeImmutable|null Created at
+     * @return \DateTimeImmutable|null Created at
      */
-    public function getCreatedAt(): ?DateTimeImmutable
+    public function getCreatedAt(): ?\DateTimeImmutable
     {
         return $this->createdAt;
     }
@@ -205,9 +187,9 @@ class Article
     /**
      * Setter for created at.
      *
-     * @param DateTimeImmutable|null $createdAt Created at
+     * @param \DateTimeImmutable|null $createdAt Created at
      */
-    public function setCreatedAt(?DateTimeImmutable $createdAt): void
+    public function setCreatedAt(?\DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
@@ -215,9 +197,9 @@ class Article
     /**
      * Getter for updated at.
      *
-     * @return DateTimeImmutable|null Updated at
+     * @return \DateTimeImmutable|null Updated at
      */
-    public function getUpdatedAt(): ?DateTimeImmutable
+    public function getUpdatedAt(): ?\DateTimeImmutable
     {
         return $this->updatedAt;
     }
@@ -225,9 +207,9 @@ class Article
     /**
      * Setter for updated at.
      *
-     * @param DateTimeImmutable|null $updatedAt Updated at
+     * @param \DateTimeImmutable|null $updatedAt Updated at
      */
-    public function setUpdatedAt(?DateTimeImmutable $updatedAt): void
+    public function setUpdatedAt(?\DateTimeImmutable $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
     }
@@ -371,7 +353,7 @@ class Article
      */
     public function isPublished(): bool
     {
-        return $this->getStatus() === Article::STATUS_PUBLISHED;
+        return Article::STATUS_PUBLISHED === $this->getStatus();
     }
 
     /**

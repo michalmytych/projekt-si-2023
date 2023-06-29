@@ -12,7 +12,7 @@ use Knp\Component\Pager\PaginatorInterface;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 
 /**
- * Class TagService
+ * Class TagService.
  */
 class TagService
 {
@@ -32,8 +32,6 @@ class TagService
 
     /**
      * Paginator.
-     *
-     * @var PaginatorInterface
      */
     private PaginatorInterface $paginator;
 
