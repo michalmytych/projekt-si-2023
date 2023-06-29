@@ -64,7 +64,6 @@ class TagController extends AbstractController
 
         /** @var User $user */
         if (!$user || !$user->isAdmin()) {
-            // @todo - is there a better way ?
             $this->addFlash(
                 'danger',
                 $this->translator->trans('message.no_permission')
@@ -118,7 +117,6 @@ class TagController extends AbstractController
 
         /** @var User $user */
         if (!$user || !$user->isAdmin()) {
-            // @todo - is there a better way ?
             $this->addFlash(
                 'danger',
                 $this->translator->trans('message.no_permission')

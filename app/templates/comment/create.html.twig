@@ -40,7 +40,6 @@
                 {% if article.comments is defined and article.comments|length %}
                     {% for comment in article.comments %}
                         <li>
-                            {#@todo - add nickname#}
                             <h5>{{ comment.header }}</h5>
                             <p>
                                 {{ comment.content }}

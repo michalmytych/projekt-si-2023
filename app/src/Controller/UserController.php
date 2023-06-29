@@ -62,7 +62,6 @@ class UserController extends AbstractController
 
         /** @var User $user */
         if (!$user || !$user->isAdmin()) {
-            // @todo - is there a better way ?
             $this->addFlash(
                 'danger',
                 $this->translator->trans('message.no_permission')
@@ -131,7 +130,7 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $newRoles = $form->get('roles')->getData();
 
-            if (!in_array(UserRole::ROLE_USER->value, $newRoles)) { // @todo to service
+            if (!in_array(UserRole::ROLE_USER->value, $newRoles)) {
                 $this->addFlash(
                     'danger',
                     $this->translator->trans('message.cannot_delete_role_user')
@@ -141,7 +140,7 @@ class UserController extends AbstractController
             }
 
             $latestAdminUser = $this->userService->getLatestAdminUser();
-            if ($latestAdminUser && $latestAdminUser->getId() === $user->getId()) { // @todo to service
+            if ($latestAdminUser && $latestAdminUser->getId() === $user->getId()) {
                 $this->addFlash(
                     'danger',
                     $this->translator->trans('message.cannot_delete_admin_role_from_latest_admin_user')
