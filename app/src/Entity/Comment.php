@@ -51,6 +51,8 @@ class Comment
 
     /**
      * Get comment id.
+     *
+     * @return int|null
      */
     public function getId(): ?int
     {
@@ -59,6 +61,8 @@ class Comment
 
     /**
      * Get comment header.
+     *
+     * @return string|null
      */
     public function getHeader(): ?string
     {
@@ -81,6 +85,8 @@ class Comment
 
     /**
      * Get comment content.
+     *
+     * @return string|null
      */
     public function getContent(): ?string
     {
@@ -103,6 +109,8 @@ class Comment
 
     /**
      * Get article to which comment is related.
+     *
+     * @return Article|null
      */
     public function getArticle(): ?Article
     {
@@ -125,6 +133,8 @@ class Comment
 
     /**
      * Author getter.
+     *
+     * @return User|null
      */
     public function getAuthor(): ?User
     {
@@ -133,6 +143,8 @@ class Comment
 
     /**
      * Author getter.
+     *
+     * @param User|null $author
      *
      * @return $this
      */

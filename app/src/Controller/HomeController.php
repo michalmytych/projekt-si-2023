@@ -15,7 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 #[Route('/')]
 class HomeController extends AbstractController
 {
-    public const HOME_ROUTE = 'article_index';
+    public const HOME_REDIRECT_ROUTE = 'article_index';
 
     /**
      * Index action.
@@ -28,6 +28,6 @@ class HomeController extends AbstractController
     )]
     public function index(): RedirectResponse
     {
-        return $this->redirectToRoute(self::HOME_ROUTE);
+        return $this->redirectToRoute(self::HOME_REDIRECT_ROUTE);
     }
 }
