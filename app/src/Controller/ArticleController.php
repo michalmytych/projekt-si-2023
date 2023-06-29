@@ -20,6 +20,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * Class ArticleController.
+ *
+ * @class ArticleController
  */
 #[Route('/article')]
 class ArticleController extends AbstractController
@@ -55,7 +57,7 @@ class ArticleController extends AbstractController
     /**
      * Index action.
      *
-     * @param Request $request
+     * @param Request $request Current HTTP request
      *
      * @return Response HTTP response
      *
@@ -81,7 +83,7 @@ class ArticleController extends AbstractController
     /**
      * Show action.
      *
-     * @param Article $article
+     * @param Article $article Article entity
      *
      * @return Response HTTP response
      */

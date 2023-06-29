@@ -10,6 +10,8 @@ use App\Repository\CommentRepository;
 
 /**
  * Class CommentService.
+ *
+ * @class CommentService
  */
 class CommentService
 {
@@ -18,7 +20,7 @@ class CommentService
     /**
      * Construct new comment service object.
      *
-     * @param CommentRepository $commentRepository
+     * @param CommentRepository $commentRepository Comment repository
      */
     public function __construct(CommentRepository $commentRepository)
     {

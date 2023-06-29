@@ -10,6 +10,8 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 
 /**
  * Class TagFixtures.
+ *
+ * @class TagFixtures
  */
 class TagFixtures extends AbstractBaseFixtures implements OrderedFixtureInterface
 {

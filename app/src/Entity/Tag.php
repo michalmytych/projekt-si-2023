@@ -5,13 +5,16 @@
 
 namespace App\Entity;
 
-use App\Repository\TagRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\TagRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Tag.
+ *
+ * @class Tag
  */
 #[ORM\Entity(repositoryClass: TagRepository::class)]
 #[ORM\Table(name: 'tags')]
@@ -33,6 +36,7 @@ class Tag
      * @var string|null
      */
     #[ORM\Column(length: 255, unique: true)]
+    #[Assert\Length(min: 3, max: 255)]
     private ?string $name = null;
 
     /**

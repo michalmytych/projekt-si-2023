@@ -21,6 +21,8 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class ArticleType.
+ *
+ * @class ArticleType
  */
 class ArticleType extends AbstractType
 {
@@ -34,7 +36,7 @@ class ArticleType extends AbstractType
     /**
      * Construct new article type object.
      *
-     * @param TranslatorInterface $translator
+     * @param TranslatorInterface $translator Translator
      */
     public function __construct(TranslatorInterface $translator)
     {

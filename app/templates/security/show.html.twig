@@ -1,18 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ 'title_user_profile'|trans }}
+    {{ 'title.user_profile'|trans }}
 {% endblock %}
 
 {% block body %}
     {% if user is defined and user|length %}
-        <h1>{{ 'title_user_profile'|trans }} - <span class="username">{{ user.email }}</span></h1>
+        <h1>{{ 'title.user_profile'|trans }} - <span class="username">{{ user.email }}</span></h1>
         <dl class="dl-horizontal">
-            <dt>{{ 'label_id'|trans }}</dt>
+            <dt>{{ 'label.id'|trans }}</dt>
             <dd>{{ user.id }}</dd>
-            <dt>{{ 'label_email'|trans }}</dt>
+            <dt>{{ 'label.email'|trans }}</dt>
             <dd>{{ user.email }}</dd>
-            <dt>{{ 'label_actions'|trans }}</dt>
+            <dt>{{ 'label.actions'|trans }}</dt>
             <dd><a href="{{ url('user_edit', {'id': user.id}) }}">{{ 'user_change_password'|trans }}</a></dd>
         </dl>
     {% else %}

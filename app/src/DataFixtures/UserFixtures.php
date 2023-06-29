@@ -12,6 +12,8 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 /**
  * Class UserFixtures.
+ *
+ * @class UserFixtures
  */
 class UserFixtures extends AbstractBaseFixtures implements OrderedFixtureInterface
 {

@@ -14,6 +14,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Class ArticleService.
+ *
+ * @class ArticleService
  */
 class ArticleService
 {

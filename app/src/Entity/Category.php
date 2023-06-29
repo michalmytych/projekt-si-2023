@@ -5,14 +5,17 @@
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 use App\Repository\CategoryRepository;
 use Gedmo\Mapping\Annotation as Gedmo;
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Category.
+ *
+ * @class Category
  */
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
 #[ORM\Table(name: 'categories')]
@@ -34,6 +37,7 @@ class Category
      * @var string|null
      */
     #[ORM\Column(length: 255, unique: true)]
+    #[Assert\Length(min: 1, max: 255)]
     private ?string $name = null;
 
     /**
@@ -43,6 +47,7 @@ class Category
      */
     #[ORM\Column(length: 512, unique: true)]
     #[Gedmo\Slug(fields: ['name', 'id'])]
+    #[Assert\Length(min: 1, max: 512)]
     private ?string $slug = null;
 
     /**

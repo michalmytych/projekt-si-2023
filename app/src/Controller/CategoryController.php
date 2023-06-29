@@ -18,6 +18,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * Class CategoryController.
+ *
+ * @class CategoryController
  */
 #[Route('/category')]
 class CategoryController extends AbstractController
@@ -40,8 +42,8 @@ class CategoryController extends AbstractController
     /**
      * Construct new category controller object.
      *
-     * @param CategoryService     $categoryService
-     * @param TranslatorInterface $translator
+     * @param CategoryService     $categoryService Category service
+     * @param TranslatorInterface $translator      Translator
      */
     public function __construct(CategoryService $categoryService, TranslatorInterface $translator)
     {
@@ -52,7 +54,7 @@ class CategoryController extends AbstractController
     /**
      * Index action.
      *
-     * @param Request $request
+     * @param Request $request Current HTTP request
      *
      * @return Response HTTP response
      */
@@ -87,7 +89,7 @@ class CategoryController extends AbstractController
     /**
      * Show action.
      *
-     * @param Category $category
+     * @param Category $category Category entity
      *
      * @return Response HTTP response
      */

@@ -23,6 +23,8 @@ use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 
 /**
  * Class RegistrationController.
+ *
+ * @class RegistrationController
  */
 class RegistrationController extends AbstractController
 {

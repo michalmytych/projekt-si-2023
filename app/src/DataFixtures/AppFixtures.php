@@ -10,13 +10,15 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 
 /**
  * Class AppFixtures.
+ *
+ * @class AppFixtures
  */
 class AppFixtures extends Fixture
 {
     /**
      * Load app fixtures.
      *
-     * @param ObjectManager $manager
+     * @param ObjectManager $manager Object manager
      *
      * @return void
      */

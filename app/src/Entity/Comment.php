@@ -5,11 +5,14 @@
 
 namespace App\Entity;
 
-use App\Repository\CommentRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\CommentRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Comment.
+ *
+ * @class Comment
  */
 #[ORM\Entity(repositoryClass: CommentRepository::class)]
 #[ORM\Table(name: 'comments')]
@@ -31,6 +34,7 @@ class Comment
      * @var string|null
      */
     #[ORM\Column(length: 255)]
+    #[Assert\Length(min: 3, max: 255)]
     private ?string $header = null;
 
     /**
@@ -39,6 +43,7 @@ class Comment
      * @var string|null
      */
     #[ORM\Column(length: 255)]
+    #[Assert\Length(min: 5, max: 255)]
     private ?string $content = null;
 
     /**

@@ -9,10 +9,14 @@
         {{ 'action.back'|trans }}
     </a>
 
-    {% if article.isPublished() %}
-        <p class="text-info">{{ 'label.published'|trans }}</p>
+    {% if not article.isPublished() %}
+        <p class="text-warning">
+            {{ 'label.draft'|trans }}:
+        </p>
     {% else %}
-        <p class="text-danger">{{ 'label.draft'|trans }}</p>
+        <p class="text-info">
+            {{ 'label.published'|trans }}
+        </p>
     {% endif %}
 
     {% include 'article/partials/_main_image.html.twig' with {'article': article, 'editable': true} %}

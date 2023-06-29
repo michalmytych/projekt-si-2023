@@ -34,7 +34,7 @@ class CategoryRepository extends ServiceEntityRepository
     /**
      * Construct new category repository object.
      *
-     * @param ManagerRegistry $registry
+     * @param ManagerRegistry $registry Manager registry
      *
      * @noinspection PhpMultipleClassDeclarationsInspection
      */

@@ -14,6 +14,8 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 /**
  * Class UserRoleType.
+ *
+ * @class UserRoleType
  */
 class UserRoleType extends AbstractType
 {

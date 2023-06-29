@@ -19,6 +19,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * Class CommentController.
+ *
+ * @class CommentController
  */
 #[Route('/comment')]
 class CommentController extends AbstractController

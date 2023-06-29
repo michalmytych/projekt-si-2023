@@ -8,9 +8,12 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Repository\FileRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class File.
+ *
+ * @class File
  */
 #[ORM\Entity(repositoryClass: FileRepository::class)]
 #[ORM\Table(name: 'files')]
@@ -33,12 +36,13 @@ class File
      * @var string|null
      */
     #[ORM\Column(length: 191)]
+    #[Assert\Length(min: 1, max: 191)]
     private ?string $path = null;
 
     /**
+     * Related articles.
      *
-     *
-     * @var Collection|ArrayCollection
+     * @var Collection
      */
     #[ORM\ManyToMany(targetEntity: Article::class, inversedBy: 'files')]
     private Collection $articles;

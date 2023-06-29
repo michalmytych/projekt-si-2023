@@ -8,6 +8,7 @@ namespace App\Controller;
 use App\Entity\File;
 use App\Entity\Article;
 use App\Form\Type\FileType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Service\Interface\FileServiceInterface;
@@ -18,6 +19,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * Class FileController.
+ *
+ * @class FileController
  */
 #[Route('/file')]
 class FileController extends AbstractController
@@ -58,6 +61,7 @@ class FileController extends AbstractController
         requirements: ['id' => '[1-9]\d*'],
         methods: 'GET|POST'
     )]
+    #[IsGranted('EDIT', subject: 'article')]
     public function createForArticle(Article $article, RequestAlias $request): Response
     {
         $file = new File();
@@ -109,6 +113,7 @@ class FileController extends AbstractController
         requirements: ['id' => '[1-9]\d*'],
         methods: 'GET|PUT'
     )]
+    #[IsGranted('EDIT', subject: 'article')]
     public function editForArticle(RequestAlias $request, File $file, Article $article): Response
     {
         if (!$article->getFiles()->first()) {

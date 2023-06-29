@@ -1,30 +1,37 @@
-<nav>
+<nav class="navbar navbar-expand-lg navbar-light rounded">
 
-    <a href="{{ url('article_index') }}" title="{{ 'articles'|trans }}">
-        {{ 'articles'|trans }}
-    </a>
-    <a href="{{ url('category_index') }}" title="{{ 'categories'|trans }}">
-        {{ 'categories'|trans }}
-    </a>
-    <a href="{{ url('tag_index') }}" title="{{ 'tags'|trans }}">
-        {{ 'tags'|trans }}
-    </a>
+    <div style="width: 65%;">
+        <a href="{{ url('article_index') }}" title="{{ 'articles'|trans }}">
+            {{ 'articles'|trans }}
+        </a>
 
-    <a href="{{ url('user_index') }}" title="{{ 'users'|trans }}">
-        {{ 'users'|trans }}
-    </a>
+        {% if is_granted('IS_AUTHENTICATED_FULLY') and app.user.isAdmin() %}
+            <a href="{{ url('category_index') }}" title="{{ 'categories'|trans }}">
+                • {{ 'categories'|trans }}
+            </a>
+            <a href="{{ url('tag_index') }}" title="{{ 'tags'|trans }}">
+                • {{ 'tags'|trans }}
+            </a>
+            <a href="{{ url('user_index') }}" title="{{ 'users'|trans }}">
+                • {{ 'users'|trans }}
+            </a>
+        {% endif %}
+    </div>
 
-    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        <div>{{ app.user.email }}</div>
-        <div>
-            <a href="{{ url('user_change_password', {'id': app.user.id}) }}">{{ 'label_user_change_password'|trans }}</a>
-            <a href="{{ url('user_edit_profile', {'id': app.user.id}) }}">{{ 'label_user_edit_profile'|trans }}</a>
-            <a href="{{ url('app_logout') }}">{{ 'action_logout'|trans }}</a>
-        </div>
-    {% else %}
-        <div>
-            <a href="{{ url('app_login') }}">{{ 'action_login'|trans }}</a>
-            <a href="{{ url('app_register') }}">{{ 'action_register'|trans }}</a>
-        </div>
-    {% endif %}
+    <div class="text-right">
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <div>{{ app.user.email }}</div>
+            <div>
+                <a href="{{ url('user_change_password', {'id': app.user.id}) }}">{{ 'label.user_change_password'|trans }}</a>
+                <a href="{{ url('user_edit_profile', {'id': app.user.id}) }}">{{ 'label.user_edit_profile'|trans }}</a>
+                <a href="{{ url('app_logout') }}">{{ 'action.logout'|trans }}</a>
+            </div>
+        {% else %}
+            <div>
+                <a href="{{ url('app_login') }}">{{ 'action.login'|trans }}</a>
+                <a href="{{ url('app_register') }}">{{ 'action.register'|trans }}</a>
+            </div>
+        {% endif %}
+    </div>
+
 </nav>

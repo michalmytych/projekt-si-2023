@@ -27,6 +27,8 @@ use Symfony\Component\Security\Http\Authenticator\Passport\Credentials\PasswordC
 
 /**
  * Class LoginFormAuthenticator.
+ *
+ * @class LoginFormAuthenticator
  */
 class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
 {

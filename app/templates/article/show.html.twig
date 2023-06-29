@@ -11,34 +11,40 @@
 
     <h1>{{ article.title }}</h1>
 
-    <div>{{ article.createdAt|date('Y/m/d') }}</div>
-    <div>{{ article.updatedAt|date('Y/m/d') }}</div>
+    <div>{{ 'label.created_at'|trans }}: {{ article.createdAt|date('Y/m/d') }}</div>
+    <div>{{ 'label.updated_at'|trans }}: {{ article.updatedAt|date('Y/m/d') }}</div>
 
-    <div>
+    <div class="mt-3">
         <dt>{{ 'label.content'|trans }}</dt>
         <dd>{{ article.content|markdown_to_html }}</dd>
     </div>
 
     <div>
-        <div>
-            <a href="{{ url('comment_create', {'commented_article_id' : article.id}) }}" title="{{ 'action.add_comment'|trans }}">
-                {{ 'action.add_comment'|trans }}
-            </a>
-        </div>
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <div>
+                <a href="{{ url('comment_create', {'commented_article_id' : article.id}) }}"
+                   title="{{ 'action.add_comment'|trans }}">
+                    {{ 'action.add_comment'|trans }}
+                </a>
+            </div>
+        {% endif %}
         <div>
             <h2>{{ 'label.comments'|trans }}</h2>
             <ul>
                 {% if article.comments is defined and article.comments|length %}
                     {% for comment in article.comments %}
                         <li>
-                            {#@todo - add nickname#}
-                            <h5>{{ comment.header }}</h5>
+                            {# @todo - add nickname #}
+                            <h5><em>{{ comment.author.nickname }}</em> - {{ comment.header }}</h5>
                             <p>
                                 {{ comment.content }}
                             </p>
-                            <a href="{{ url('comment_delete', {id: comment.id}) }}" title="{{ 'action.delete'|trans }}">
-                                {{ 'action.delete'|trans }}
-                            </a>
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') and app.user.isAdmin() %}
+                                <a href="{{ url('comment_delete', {id: comment.id}) }}"
+                                   title="{{ 'action.delete'|trans }}">
+                                    {{ 'action.delete'|trans }}
+                                </a>
+                            {% endif %}
                         </li>
                     {% endfor %}
                 {% else %}

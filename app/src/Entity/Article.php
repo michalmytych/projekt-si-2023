@@ -12,9 +12,12 @@ use App\Repository\ArticleRepository;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Article.
+ *
+ * @class Article
  */
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 #[ORM\Table(name: 'articles')]
@@ -50,6 +53,7 @@ class Article
      * @var string|null
      */
     #[ORM\Column(length: 255, unique: true)]
+    #[Assert\Length(min: 5, max: 255)]
     private ?string $title = null;
 
     /**
@@ -58,6 +62,7 @@ class Article
      * @var string|null
      */
     #[ORM\Column(type: Types::TEXT, length: 5000)]
+    #[Assert\Length(min: 10, max: 5000)]
     private ?string $content = null;
 
     /**
@@ -77,6 +82,7 @@ class Article
      */
     #[ORM\Column(type: 'datetime_immutable')]
     #[Gedmo\Timestampable(on: 'create')]
+    #[Assert\Type(DateTimeImmutable::class)]
     private ?DateTimeImmutable $createdAt;
 
     /**
@@ -88,6 +94,7 @@ class Article
      */
     #[ORM\Column(type: 'datetime_immutable')]
     #[Gedmo\Timestampable(on: 'update')]
+    #[Assert\Type(DateTimeImmutable::class)]
     private ?DateTimeImmutable $updatedAt;
 
     /**
@@ -238,7 +245,7 @@ class Article
     /**
      * Add comment to related comments.
      *
-     * @param Comment $comment
+     * @param Comment $comment Comment entity
      *
      * @return $this
      */
@@ -255,7 +262,7 @@ class Article
     /**
      * Remove comment from related comments.
      *
-     * @param Comment $comment Comment
+     * @param Comment $comment Comment entity
      *
      * @return $this
      */
@@ -284,7 +291,7 @@ class Article
     /**
      * Set category to which article is related.
      *
-     * @param Category|null $category Category
+     * @param Category|null $category Category entity
      *
      * @return $this
      */
@@ -308,7 +315,7 @@ class Article
     /**
      * Add tag to tags related to article.
      *
-     * @param Tag $tag Tag
+     * @param Tag $tag Tag entity
      *
      * @return $this
      */
@@ -324,7 +331,7 @@ class Article
     /**
      * Remove tag from related tags.
      *
-     * @param Tag $tag Tag
+     * @param Tag $tag Tag entity
      *
      * @return $this
      */
@@ -348,7 +355,7 @@ class Article
     /**
      * Set status.
      *
-     * @param int $status
+     * @param int $status Status value
      *
      * @return $this
      */
@@ -382,7 +389,7 @@ class Article
     /**
      * Add file to related files.
      *
-     * @param File $file
+     * @param File $file File entity
      *
      * @return $this
      */
@@ -399,7 +406,7 @@ class Article
     /**
      * Remove file from related files.
      *
-     * @param File $file
+     * @param File $file File entity
      *
      * @return $this
      */

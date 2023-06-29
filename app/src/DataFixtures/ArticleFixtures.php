@@ -12,6 +12,8 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 
 /**
  * Class ArticleFixtures.
+ *
+ * @class ArticleFixtures
  */
 class ArticleFixtures extends AbstractBaseFixtures implements OrderedFixtureInterface
 {

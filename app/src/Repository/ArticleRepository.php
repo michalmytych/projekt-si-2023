@@ -38,7 +38,7 @@ class ArticleRepository extends ServiceEntityRepository
     /**
      * Construct new article repository object.
      *
-     * @param ManagerRegistry $registry
+     * @param ManagerRegistry $registry Manager registry
      *
      * @noinspection PhpMultipleClassDeclarationsInspection
      */

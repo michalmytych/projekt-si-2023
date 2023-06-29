@@ -19,6 +19,8 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 /**
  * Class registration form type.
+ *
+ * @class Registration Type
  */
 class RegistrationType extends AbstractType
 {

@@ -14,6 +14,8 @@ use Symfony\Component\Form\Extension\Core\Type\FileType as FileFormType;
 
 /**
  * Class FileType.
+ *
+ * @class FileType
  */
 class FileType extends AbstractType
 {
