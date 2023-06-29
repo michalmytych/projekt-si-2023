@@ -32,7 +32,7 @@
             </trans-unit>
             <trans-unit id="title.register">
                 <source>title.register</source>
-                <target>Zarejestruj</target>
+                <target>Zarejestruj się</target>
             </trans-unit>
             <trans-unit id="label.nickname">
                 <source>label.nickname</source>
@@ -189,6 +189,10 @@
             <trans-unit id="action.edit">
                 <source>action.edit</source>
                 <target>Edytuj</target>
+            </trans-unit>
+            <trans-unit id="label.main_image_file">
+                <source>label.main_image_file</source>
+                <target>Główny obraz</target>
             </trans-unit>
             <trans-unit id="action.delete">
                 <source>action.delete</source>
@@ -369,6 +373,18 @@
             <trans-unit id="action.user_edit_profile">
                 <source>action.user_edit_profile</source>
                 <target>Edytuj profil</target>
+            </trans-unit>
+            <trans-unit id="logged_in_as_user">
+                <source>logged_in_as_user</source>
+                <target>Zalogowany jako</target>
+            </trans-unit>
+            <trans-unit id="please_log_in">
+                <source>please_log_in</source>
+                <target>Zaloguj się</target>
+            </trans-unit>
+            <trans-unit id="action.sign_in">
+                <source>action.sign_in</source>
+                <target>Zaloguj</target>
             </trans-unit>
         </body>
     </file>
