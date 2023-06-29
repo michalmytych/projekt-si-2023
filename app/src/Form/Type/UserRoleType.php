@@ -39,6 +39,8 @@ class UserRoleType extends AbstractType
 
     /**
      * Configure options.
+     *
+     * @param OptionsResolver $resolver
      */
     public function configureOptions(OptionsResolver $resolver): void
     {
@@ -49,6 +51,8 @@ class UserRoleType extends AbstractType
 
     /**
      * Get block prefix.
+     *
+     * @return string
      */
     public function getBlockPrefix(): string
     {

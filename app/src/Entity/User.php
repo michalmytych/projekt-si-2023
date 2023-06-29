@@ -6,11 +6,11 @@
 namespace App\Entity;
 
 use App\Entity\Enum\UserRole;
-use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
+use App\Repository\UserRepository;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 /**
  * Class User.
@@ -102,6 +102,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * User nickname getter.
+     *
+     * @return string|null
      */
     public function getNickname(): ?string
     {
@@ -110,6 +112,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * User nickname setter.
+     *
+     * @param string $nickname
      *
      * @return $this
      */
@@ -182,6 +186,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * Returning a salt is only needed, if you are not using a modern
      * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.
      *
+     * @return string|null
+     *
      * @see UserInterface
      */
     public function getSalt(): ?string
@@ -191,6 +197,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * Returns true if user has ROLE_ADMIN.
+     *
+     * @return bool
      */
     public function isAdmin(): bool
     {

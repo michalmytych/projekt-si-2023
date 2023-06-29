@@ -9,8 +9,6 @@ use App\Entity\User;
 use App\Entity\Category;
 use App\Form\Type\CategoryType;
 use App\Service\CategoryService;
-use Doctrine\ORM\NonUniqueResultException;
-use Doctrine\ORM\NoResultException;
 use LogicException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

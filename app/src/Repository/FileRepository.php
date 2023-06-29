@@ -21,6 +21,8 @@ class FileRepository extends ServiceEntityRepository
 {
     /**
      * Construct new file repository object.
+     *
+     * @param ManagerRegistry $registry
      */
     public function __construct(ManagerRegistry $registry)
     {

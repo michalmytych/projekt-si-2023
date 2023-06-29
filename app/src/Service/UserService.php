@@ -28,6 +28,9 @@ class UserService
 
     /**
      * UserService constructor.
+     *
+     * @param UserRepository     $userRepository User repository
+     * @param PaginatorInterface $paginator      Paginator
      */
     public function __construct(UserRepository $userRepository, PaginatorInterface $paginator)
     {
@@ -37,6 +40,10 @@ class UserService
 
     /**
      * Pagination.
+     *
+     * @param int $page Page
+     *
+     * @return PaginationInterface
      */
     public function getPaginatedList(int $page): PaginationInterface
     {
@@ -49,6 +56,8 @@ class UserService
 
     /**
      * Save record.
+     *
+     * @param User $user
      */
     public function save(User $user): void
     {
@@ -59,6 +68,8 @@ class UserService
      * Find user by ID.
      *
      * @param int $id User id
+     *
+     * @return User|null
      */
     public function findOneById(int $id): ?User
     {
@@ -67,6 +78,8 @@ class UserService
 
     /**
      * Get latest admin user if exists.
+     *
+     * @return User|null
      *
      * @throws NonUniqueResultException
      */

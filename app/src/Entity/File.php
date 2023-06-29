@@ -50,6 +50,8 @@ class File
 
     /**
      * File id getter.
+     *
+     * @return int|null
      */
     public function getId(): ?int
     {
@@ -58,6 +60,8 @@ class File
 
     /**
      * File path getter.
+     *
+     * @return string|null
      */
     public function getPath(): ?string
     {
@@ -66,6 +70,8 @@ class File
 
     /**
      * File path setter.
+     *
+     * @param string $path
      *
      * @return $this
      */
@@ -89,6 +95,8 @@ class File
     /**
      * Add article to related articles.
      *
+     * @param Article $article
+     *
      * @return $this
      */
     public function addArticle(Article $article): static
@@ -102,6 +110,8 @@ class File
 
     /**
      * Remove article from related articles.
+     *
+     * @param Article $article
      *
      * @return $this
      */
