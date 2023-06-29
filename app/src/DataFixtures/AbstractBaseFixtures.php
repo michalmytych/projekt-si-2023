@@ -12,8 +12,6 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 
 /**
  * Class AbstractBaseFixtures.
- *
- * @class AbstractBaseFixtures
  */
 abstract class AbstractBaseFixtures extends Fixture
 {

@@ -19,8 +19,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * Class FileController.
- *
- * @class FileController
  */
 #[Route('/file')]
 class FileController extends AbstractController

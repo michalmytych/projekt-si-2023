@@ -13,8 +13,6 @@ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
 /**
  * Class ArticleVoter.
- *
- * @class ArticleVoter
  */
 class ArticleVoter extends Voter
 {

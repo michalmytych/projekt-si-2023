@@ -20,8 +20,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * Class ArticleController.
- *
- * @class ArticleController
  */
 #[Route('/article')]
 class ArticleController extends AbstractController

@@ -19,8 +19,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * Class UserController.
- *
- * @class UserController
  */
 #[Route('/user')]
 class UserController extends AbstractController

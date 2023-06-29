@@ -13,8 +13,6 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 /**
  * Class SecurityController
- *
- * @class SecurityController
  */
 class SecurityController extends AbstractController
 {

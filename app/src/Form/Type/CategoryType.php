@@ -15,8 +15,6 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 /**
  * Class CategoryType.
- *
- * @class CategoryType
  */
 class CategoryType extends AbstractType
 {

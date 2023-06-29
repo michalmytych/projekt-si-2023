@@ -10,8 +10,6 @@ use App\Repository\CommentRepository;
 
 /**
  * Class CommentService.
- *
- * @class CommentService
  */
 class CommentService
 {

@@ -13,8 +13,6 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 /**
  * Class TagType.
- *
- * @class TagType
  */
 class TagType extends AbstractType
 {

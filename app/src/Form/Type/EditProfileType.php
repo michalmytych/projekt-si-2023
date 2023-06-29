@@ -14,8 +14,6 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 
 /**
  * Class EditProfileType.
- *
- * @class EditProfileType
  */
 class EditProfileType extends AbstractType
 {

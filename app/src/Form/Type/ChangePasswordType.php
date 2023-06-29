@@ -16,8 +16,6 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
 /**
  * Class ChangePasswordType.
- *
- * @class ChangePasswordType
  */
 class ChangePasswordType extends AbstractType
 {

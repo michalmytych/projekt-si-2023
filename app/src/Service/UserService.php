@@ -13,8 +13,6 @@ use Knp\Component\Pager\Pagination\PaginationInterface;
 
 /**
  * Class UserService.
- *
- * @class UserService
  */
 class UserService
 {

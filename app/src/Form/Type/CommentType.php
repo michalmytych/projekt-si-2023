@@ -14,8 +14,6 @@ use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 /**
  * Class ArticleType.
- *
- * @class ArticleType
  */
 class CommentType extends AbstractType
 {

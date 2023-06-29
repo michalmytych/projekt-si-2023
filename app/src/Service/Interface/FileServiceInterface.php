@@ -11,8 +11,6 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Class File service.
- *
- * @class FileService
  */
 interface FileServiceInterface
 {

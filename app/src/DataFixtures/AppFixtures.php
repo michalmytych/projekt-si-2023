@@ -10,8 +10,6 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 
 /**
  * Class AppFixtures.
- *
- * @class AppFixtures
  */
 class AppFixtures extends Fixture
 {

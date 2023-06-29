@@ -18,8 +18,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * Class TagController.
- *
- * @class TagController
  */
 #[Route('/tag')]
 class TagController extends AbstractController

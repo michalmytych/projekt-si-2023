@@ -18,8 +18,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * Class CategoryController.
- *
- * @class CategoryController
  */
 #[Route('/category')]
 class CategoryController extends AbstractController

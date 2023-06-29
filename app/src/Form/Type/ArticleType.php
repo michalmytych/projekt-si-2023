@@ -21,8 +21,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class ArticleType.
- *
- * @class ArticleType
  */
 class ArticleType extends AbstractType
 {

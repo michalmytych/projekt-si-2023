@@ -13,8 +13,6 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 /**
  * Class FileUploadService.
- *
- * @class FileUploadService
  */
 class FileUploadService implements FileUploadServiceInterface
 {

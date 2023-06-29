@@ -13,8 +13,6 @@ use Knp\Component\Pager\Pagination\PaginationInterface;
 
 /**
  * Class TagService
- *
- * @class TagService
  */
 class TagService
 {

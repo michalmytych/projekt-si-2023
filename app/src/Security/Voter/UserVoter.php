@@ -12,8 +12,6 @@ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 
 /**
  * Class UserVoter.
- *
- * @class UserVoter
  */
 class UserVoter extends Voter
 {

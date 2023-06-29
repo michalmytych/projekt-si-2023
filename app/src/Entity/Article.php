@@ -16,8 +16,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class Article.
- *
- * @class Article
  */
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 #[ORM\Table(name: 'articles')]

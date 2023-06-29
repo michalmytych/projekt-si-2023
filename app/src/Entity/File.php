@@ -12,8 +12,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class File.
- *
- * @class File
  */
 #[ORM\Entity(repositoryClass: FileRepository::class)]
 #[ORM\Table(name: 'files')]

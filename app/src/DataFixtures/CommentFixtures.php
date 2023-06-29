@@ -12,8 +12,6 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 
 /**
  * Class CommentFixtures.
- *
- * @class CommentFixtures
  */
 class CommentFixtures extends AbstractBaseFixtures implements OrderedFixtureInterface
 {
