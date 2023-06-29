@@ -5,14 +5,14 @@
 
 namespace App\Controller;
 
+use LogicException;
 use App\Entity\User;
 use App\Entity\Category;
 use App\Form\Type\CategoryType;
-use App\Service\CategoryService;
-use LogicException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Service\Interface\CategoryServiceInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,7 +26,7 @@ class CategoryController extends AbstractController
     /**
      * Category service.
      */
-    private CategoryService $categoryService;
+    private CategoryServiceInterface $categoryService;
 
     /**
      * Translator.
@@ -36,10 +36,10 @@ class CategoryController extends AbstractController
     /**
      * Construct new category controller object.
      *
-     * @param CategoryService     $categoryService Category service
-     * @param TranslatorInterface $translator      Translator
+     * @param CategoryServiceInterface $categoryService Category service
+     * @param TranslatorInterface      $translator      Translator
      */
-    public function __construct(CategoryService $categoryService, TranslatorInterface $translator)
+    public function __construct(CategoryServiceInterface $categoryService, TranslatorInterface $translator)
     {
         $this->categoryService = $categoryService;
         $this->translator = $translator;

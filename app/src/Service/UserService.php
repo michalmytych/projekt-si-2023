@@ -9,12 +9,13 @@ use App\Entity\User;
 use App\Repository\UserRepository;
 use Doctrine\ORM\NonUniqueResultException;
 use Knp\Component\Pager\PaginatorInterface;
+use App\Service\Interface\UserServiceInterface;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 
 /**
  * Class UserService.
  */
-class UserService
+class UserService implements UserServiceInterface
 {
     /**
      * User repository.

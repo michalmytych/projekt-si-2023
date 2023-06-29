@@ -9,12 +9,13 @@ use App\Entity\Tag;
 use App\Repository\TagRepository;
 use Doctrine\ORM\NonUniqueResultException;
 use Knp\Component\Pager\PaginatorInterface;
+use App\Service\Interface\TagServiceInterface;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 
 /**
  * Class TagService.
  */
-class TagService
+class TagService implements TagServiceInterface
 {
     private TagRepository $tagRepository;
 

@@ -9,13 +9,15 @@ use App\Entity\Article;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\NonUniqueResultException;
 use Knp\Component\Pager\PaginatorInterface;
+use App\Service\Interface\ArticleServiceInterface;
+use App\Service\Interface\CategoryServiceInterface;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Class ArticleService.
  */
-class ArticleService
+class ArticleService implements ArticleServiceInterface
 {
     /**
      * Article repository.
@@ -30,7 +32,7 @@ class ArticleService
     /**
      * Category service.
      */
-    private CategoryService $categoryService;
+    private CategoryServiceInterface $categoryService;
 
     /**
      * Tag service.
@@ -40,12 +42,12 @@ class ArticleService
     /**
      * Construct new article service object.
      *
-     * @param ArticleRepository  $articleRepository Article repository
-     * @param PaginatorInterface $paginator         Paginator interface
-     * @param CategoryService    $categoryService   Category service
-     * @param TagService         $tagService        Tag service
+     * @param ArticleRepository        $articleRepository Article repository
+     * @param PaginatorInterface       $paginator         Paginator interface
+     * @param CategoryServiceInterface $categoryService   Category service
+     * @param TagService               $tagService        Tag service
      */
-    public function __construct(ArticleRepository $articleRepository, PaginatorInterface $paginator, CategoryService $categoryService, TagService $tagService)
+    public function __construct(ArticleRepository $articleRepository, PaginatorInterface $paginator, CategoryServiceInterface $categoryService, TagService $tagService)
     {
         $this->articleRepository = $articleRepository;
         $this->paginator = $paginator;

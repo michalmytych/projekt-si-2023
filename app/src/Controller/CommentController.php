@@ -7,11 +7,11 @@ namespace App\Controller;
 
 use App\Entity\Comment;
 use App\Form\Type\CommentType;
-use App\Service\ArticleService;
-use App\Service\CommentService;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Service\Interface\ArticleServiceInterface;
+use App\Service\Interface\CommentServiceInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -26,7 +26,7 @@ class CommentController extends AbstractController
     /**
      * Comment service.
      */
-    private CommentService $commentService;
+    private CommentServiceInterface $commentService;
 
     /**
      * Translator.
@@ -36,16 +36,16 @@ class CommentController extends AbstractController
     /**
      * Article service.
      */
-    protected ArticleService $articleService;
+    protected ArticleServiceInterface $articleService;
 
     /**
      * Construct new comment controller object.
      *
-     * @param CommentService      $commentService Comment service
-     * @param ArticleService      $articleService Article service
-     * @param TranslatorInterface $translator     Translator
+     * @param CommentServiceInterface $commentService Comment service
+     * @param ArticleServiceInterface $articleService Article service
+     * @param TranslatorInterface     $translator     Translator
      */
-    public function __construct(CommentService $commentService, ArticleService $articleService, TranslatorInterface $translator)
+    public function __construct(CommentServiceInterface $commentService, ArticleServiceInterface $articleService, TranslatorInterface $translator)
     {
         $this->commentService = $commentService;
         $this->articleService = $articleService;

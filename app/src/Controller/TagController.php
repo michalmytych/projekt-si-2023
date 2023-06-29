@@ -10,6 +10,7 @@ use App\Entity\User;
 use App\Form\Type\TagType;
 use App\Service\TagService;
 use Symfony\Component\HttpFoundation\Request;
+use App\Service\Interface\TagServiceInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -27,7 +28,7 @@ class TagController extends AbstractController
      *
      * @var TagService tag service
      */
-    private TagService $tagService;
+    private TagServiceInterface $tagService;
 
     /**
      * Translator.
@@ -37,10 +38,10 @@ class TagController extends AbstractController
     /**
      * Construct new tag controller object.
      *
-     * @param TagService          $tagService Tag service
+     * @param TagServiceInterface $tagService Tag service
      * @param TranslatorInterface $translator Translator
      */
-    public function __construct(TagService $tagService, TranslatorInterface $translator)
+    public function __construct(TagServiceInterface $tagService, TranslatorInterface $translator)
     {
         $this->tagService = $tagService;
         $this->translator = $translator;

@@ -6,15 +6,15 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use App\Service\UserService;
 use App\Entity\Enum\UserRole;
 use App\Form\Type\UserRoleType;
 use Doctrine\ORM\NonUniqueResultException;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Service\Interface\UserServiceInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
@@ -26,7 +26,7 @@ class UserController extends AbstractController
     /**
      * User service.
      */
-    private UserService $userService;
+    private UserServiceInterface $userService;
 
     /**
      * Translator.
@@ -36,10 +36,10 @@ class UserController extends AbstractController
     /**
      * Construct new user controller object.
      *
-     * @param UserService         $userService User service
-     * @param TranslatorInterface $translator  Translator
+     * @param UserServiceInterface $userService User service
+     * @param TranslatorInterface  $translator  Translator
      */
-    public function __construct(UserService $userService, TranslatorInterface $translator)
+    public function __construct(UserServiceInterface $userService, TranslatorInterface $translator)
     {
         $this->userService = $userService;
         $this->translator = $translator;

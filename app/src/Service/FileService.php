@@ -8,9 +8,9 @@ namespace App\Service;
 use App\Entity\File;
 use App\Entity\Article;
 use App\Repository\FileRepository;
+use Symfony\Component\Filesystem\Filesystem;
 use App\Service\Interface\FileServiceInterface;
 use App\Service\Interface\FileUploadServiceInterface;
-use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**

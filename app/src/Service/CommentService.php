@@ -8,11 +8,12 @@ namespace App\Service;
 use App\Entity\Article;
 use App\Entity\Comment;
 use App\Repository\CommentRepository;
+use App\Service\Interface\CommentServiceInterface;
 
 /**
  * Class CommentService.
  */
-class CommentService
+class CommentService implements CommentServiceInterface
 {
     private CommentRepository $commentRepository;
 

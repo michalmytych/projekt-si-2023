@@ -10,7 +10,7 @@ use App\Entity\Article;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
- * Class File service.
+ * Interface FileServiceInterface.
  */
 interface FileServiceInterface
 {

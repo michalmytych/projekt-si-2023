@@ -5,18 +5,20 @@
 
 namespace App\Service;
 
+use LogicException;
 use App\Entity\Category;
 use Doctrine\ORM\NoResultException;
 use App\Repository\ArticleRepository;
 use App\Repository\CategoryRepository;
 use Doctrine\ORM\NonUniqueResultException;
 use Knp\Component\Pager\PaginatorInterface;
+use App\Service\Interface\CategoryServiceInterface;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 
 /**
  * Class CategoryService.
  */
-class CategoryService
+class CategoryService implements CategoryServiceInterface
 {
     /**
      * Category repository.
@@ -79,7 +81,7 @@ class CategoryService
     public function delete(Category $category): void
     {
         if (!$this->canBeDeleted($category)) {
-            throw new \LogicException('Cannot delete category if it has articles attached.');
+            throw new LogicException('Cannot delete category if it has articles attached.');
         }
 
         $this->categoryRepository->delete($category);

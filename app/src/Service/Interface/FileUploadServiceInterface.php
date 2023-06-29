@@ -8,7 +8,7 @@ namespace App\Service\Interface;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
- * Interface FileUploadService.
+ * Interface FileUploadServiceInterface.
  */
 interface FileUploadServiceInterface
 {

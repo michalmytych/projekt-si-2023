@@ -8,12 +8,12 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Entity\Article;
 use App\Form\Type\ArticleType;
-use App\Service\ArticleService;
-use App\Service\CommentService;
 use Doctrine\ORM\NonUniqueResultException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Service\Interface\ArticleServiceInterface;
+use App\Service\Interface\CommentServiceInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -28,7 +28,7 @@ class ArticleController extends AbstractController
     /**
      * Article service.
      */
-    private ArticleService $articleService;
+    private ArticleServiceInterface $articleService;
 
     /**
      * Translator.
@@ -38,16 +38,16 @@ class ArticleController extends AbstractController
     /**
      * Comment service.
      */
-    private CommentService $commentService;
+    private CommentServiceInterface $commentService;
 
     /**
      * Construct new article controller object.
      *
-     * @param ArticleService      $articleService Article service
-     * @param TranslatorInterface $translator     Translator
-     * @param CommentService      $commentService Comment service
+     * @param ArticleServiceInterface $articleService Article service
+     * @param TranslatorInterface     $translator     Translator
+     * @param CommentServiceInterface $commentService Comment service
      */
-    public function __construct(ArticleService $articleService, TranslatorInterface $translator, CommentService $commentService)
+    public function __construct(ArticleServiceInterface $articleService, TranslatorInterface $translator, CommentServiceInterface $commentService)
     {
         $this->articleService = $articleService;
         $this->commentService = $commentService;
