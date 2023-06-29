@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Repository\TagRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -16,6 +17,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 #[ORM\Entity(repositoryClass: TagRepository::class)]
 #[ORM\Table(name: 'tags')]
+#[UniqueEntity('name')]
 class Tag
 {
     /**
@@ -49,6 +51,8 @@ class Tag
 
     /**
      * Get tag id.
+     *
+     * @return int|null
      */
     public function getId(): ?int
     {
@@ -57,6 +61,8 @@ class Tag
 
     /**
      * Get tag name.
+     *
+     * @return string|null
      */
     public function getName(): ?string
     {

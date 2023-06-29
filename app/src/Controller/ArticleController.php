@@ -9,6 +9,7 @@ use App\Entity\User;
 use App\Entity\Article;
 use App\Form\Type\ArticleType;
 use App\Service\ArticleService;
+use App\Service\CommentService;
 use Doctrine\ORM\NonUniqueResultException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -35,14 +36,23 @@ class ArticleController extends AbstractController
     private TranslatorInterface $translator;
 
     /**
+     * Comment service.
+     *
+     * @var CommentService
+     */
+    private CommentService $commentService;
+
+    /**
      * Construct new article controller object.
      *
      * @param ArticleService      $articleService Article service
      * @param TranslatorInterface $translator     Translator
+     * @param CommentService      $commentService Comment service
      */
-    public function __construct(ArticleService $articleService, TranslatorInterface $translator)
+    public function __construct(ArticleService $articleService, TranslatorInterface $translator, CommentService $commentService)
     {
         $this->articleService = $articleService;
+        $this->commentService = $commentService;
         $this->translator = $translator;
     }
 
@@ -91,7 +101,6 @@ class ArticleController extends AbstractController
 
         /** @var User $user */
         if (!$article->isPublished() && $user && !$user->isAdmin()) {
-            // @todo - is there a better way ?
             $this->addFlash(
                 'danger',
                 $this->translator->trans('message.no_permission')
@@ -100,7 +109,12 @@ class ArticleController extends AbstractController
             return $this->redirectToRoute('article_index');
         }
 
-        return $this->render('article/show.html.twig', ['article' => $article]);
+        $comments = $this->commentService->getLatestByArticle($article);
+
+        return $this->render('article/show.html.twig', [
+            'article' => $article,
+            'comments' => $comments,
+        ]);
     }
 
     /**

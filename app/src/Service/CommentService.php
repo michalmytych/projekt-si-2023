@@ -5,6 +5,7 @@
 
 namespace App\Service;
 
+use App\Entity\Article;
 use App\Entity\Comment;
 use App\Repository\CommentRepository;
 
@@ -43,5 +44,24 @@ class CommentService
     public function delete(Comment $comment): void
     {
         $this->commentRepository->delete($comment);
+    }
+
+    /**
+     * Get latest comments by article.
+     *
+     * @param Article $article Article entity
+     * @param int     $limit   Records limit
+     *
+     * @return array
+     */
+    public function getLatestByArticle(Article $article, int $limit = 5): array
+    {
+        return $this
+            ->commentRepository
+            ->findBy(
+                ['article' => $article],
+                ['id' => 'DESC'],
+                $limit
+            );
     }
 }

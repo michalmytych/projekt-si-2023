@@ -78,7 +78,7 @@ class CommentController extends AbstractController
                 $this->translator->trans('message.deleted_successfully')
             );
 
-            return $this->redirectToRoute('article_index');
+            return $this->redirectToRoute('article_show', ['id' => $comment->getArticle()->getId()]);
         }
 
         return $this->render(
@@ -105,7 +105,6 @@ class CommentController extends AbstractController
     public function create(Request $request): Response
     {
         $user = $this->getUser();
-        // @todo better way
         if (!$user) {
             return $this->redirectToRoute('app_login');
         }
@@ -114,6 +113,7 @@ class CommentController extends AbstractController
         $comment = new Comment();
         $article = $this->articleService->findOneById($commentedArticleId);
         $comment->setArticle($article);
+        $comment->setAuthor($user);
         $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
 
@@ -125,7 +125,7 @@ class CommentController extends AbstractController
                 $this->translator->trans('message.created_successfully')
             );
 
-            return $this->redirectToRoute('article_index');
+            return $this->redirectToRoute('article_show', ['id' => $comment->getArticle()->getId()]);
         }
 
         if (null === $commentedArticleId) {

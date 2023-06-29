@@ -9,6 +9,9 @@ use App\Entity\User;
 use App\Entity\Category;
 use App\Form\Type\CategoryType;
 use App\Service\CategoryService;
+use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\NoResultException;
+use LogicException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -61,7 +64,6 @@ class CategoryController extends AbstractController
 
         /** @var User $user */
         if (!$user || !$user->isAdmin()) {
-            // @todo - is there a better way ?
             $this->addFlash(
                 'danger',
                 $this->translator->trans('message.no_permission')
@@ -94,6 +96,18 @@ class CategoryController extends AbstractController
     )]
     public function show(Category $category): Response
     {
+        $user = $this->getUser();
+
+        /** @var User $user */
+        if (!$user || !$user->isAdmin()) {
+            $this->addFlash(
+                'danger',
+                $this->translator->trans('message.no_permission')
+            );
+
+            return $this->redirectToRoute('category_index');
+        }
+
         return $this->render('category/show.html.twig', ['category' => $category]);
     }
 
@@ -115,7 +129,6 @@ class CategoryController extends AbstractController
 
         /** @var User $user */
         if (!$user || !$user->isAdmin()) {
-            // @todo - is there a better way ?
             $this->addFlash(
                 'danger',
                 $this->translator->trans('message.no_permission')
@@ -209,7 +222,16 @@ class CategoryController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->categoryService->delete($category);
+            try {
+                $this->categoryService->delete($category);
+            } catch (LogicException) {
+                $this->addFlash(
+                    'danger',
+                    $this->translator->trans('message.cannot_delete_category_with_articles')
+                );
+
+                return $this->redirectToRoute('category_index');
+            }
 
             $this->addFlash(
                 'success',

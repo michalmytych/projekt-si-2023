@@ -5,7 +5,10 @@
 
 namespace App\Service;
 
+use LogicException;
 use App\Entity\Category;
+use Doctrine\ORM\NoResultException;
+use App\Repository\ArticleRepository;
 use App\Repository\CategoryRepository;
 use Doctrine\ORM\NonUniqueResultException;
 use Knp\Component\Pager\PaginatorInterface;
@@ -16,19 +19,38 @@ use Knp\Component\Pager\Pagination\PaginationInterface;
  */
 class CategoryService
 {
+    /**
+     * Category repository.
+     *
+     * @var CategoryRepository
+     */
     private CategoryRepository $categoryRepository;
 
+    /**
+     * Paginator.
+     *
+     * @var PaginatorInterface
+     */
     private PaginatorInterface $paginator;
+
+    /**
+     * Article repository.
+     *
+     * @var ArticleRepository
+     */
+    private ArticleRepository $articleRepository;
 
     /**
      * Construct new category service object.
      *
      * @param CategoryRepository $categoryRepository Category repository
      * @param PaginatorInterface $paginator          Paginator interface
+     * @param ArticleRepository  $articleRepository  Article repository
      */
-    public function __construct(CategoryRepository $categoryRepository, PaginatorInterface $paginator)
+    public function __construct(CategoryRepository $categoryRepository, PaginatorInterface $paginator, ArticleRepository $articleRepository)
     {
         $this->categoryRepository = $categoryRepository;
+        $this->articleRepository = $articleRepository;
         $this->paginator = $paginator;
     }
 
@@ -63,6 +85,10 @@ class CategoryService
      */
     public function delete(Category $category): void
     {
+        if (!$this->canBeDeleted($category)) {
+            throw new LogicException('Cannot delete category if it has articles attached.');
+        }
+
         $this->categoryRepository->delete($category);
     }
 
@@ -80,5 +106,23 @@ class CategoryService
             $page,
             CategoryRepository::PAGINATOR_ITEMS_PER_PAGE
         );
+    }
+
+    /**
+     * Can Category be deleted?
+     *
+     * @param Category $category Category entity
+     *
+     * @return bool Result
+     */
+    public function canBeDeleted(Category $category): bool
+    {
+        try {
+            $result = $this->articleRepository->countByCategory($category);
+
+            return !($result > 0);
+        } catch (NoResultException|NonUniqueResultException) {
+            return false;
+        }
     }
 }

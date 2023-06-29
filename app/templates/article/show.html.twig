@@ -11,8 +11,8 @@
 
     <h1>{{ article.title }}</h1>
 
-    <div>{{ 'label.created_at'|trans }}: {{ article.createdAt|date('Y/m/d') }}</div>
-    <div>{{ 'label.updated_at'|trans }}: {{ article.updatedAt|date('Y/m/d') }}</div>
+    <div>{{ 'label.created_at'|trans }}: {{ article.createdAt|date('d.m.Y') }}</div>
+    <div>{{ 'label.updated_at'|trans }}: {{ article.updatedAt|date('d.m.Y') }}</div>
 
     <div class="mt-3">
         <dt>{{ 'label.content'|trans }}</dt>
@@ -31,10 +31,9 @@
         <div>
             <h2>{{ 'label.comments'|trans }}</h2>
             <ul>
-                {% if article.comments is defined and article.comments|length %}
-                    {% for comment in article.comments %}
+                {% if comments is defined and comments|length %}
+                    {% for comment in comments %}
                         <li>
-                            {# @todo - add nickname #}
                             <h5><em>{{ comment.author.nickname }}</em> - {{ comment.header }}</h5>
                             <p>
                                 {{ comment.content }}

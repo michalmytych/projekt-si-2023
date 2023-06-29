@@ -9,6 +9,8 @@ use App\Entity\Article;
 use App\Entity\Category;
 use App\Entity\Tag;
 use App\Entity\User;
+use Doctrine\ORM\NonUniqueResultException;
+use Doctrine\ORM\NoResultException;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -91,6 +93,26 @@ class ArticleRepository extends ServiceEntityRepository
         }
 
         return $this->applyFiltersToList($queryBuilder, $filters);
+    }
+
+    /**
+     * Count articles by category.
+     *
+     * @param Category $category Category
+     *
+     * @return int Number of articles in category
+     *
+     * @throws NoResultException|NonUniqueResultException
+     */
+    public function countByCategory(Category $category): int
+    {
+        $qb = $this->getOrCreateQueryBuilder();
+
+        return $qb->select($qb->expr()->countDistinct('article.id'))
+            ->where('article.category = :category')
+            ->setParameter(':category', $category)
+            ->getQuery()
+            ->getSingleScalarResult();
     }
 
     /**

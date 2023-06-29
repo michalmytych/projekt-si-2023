@@ -99,6 +99,8 @@ class ArticleService
      * Find one article by id.
      *
      * @param int $id Article id
+     *
+     * @return Article
      */
     public function findOneById(int $id): Article
     {

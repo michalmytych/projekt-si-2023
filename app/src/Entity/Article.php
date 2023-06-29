@@ -97,7 +97,8 @@ class Article
     #[ORM\JoinTable(name: 'articles_tags')]
     private Collection $tags;
 
-    #[ORM\ManyToMany(targetEntity: File::class, mappedBy: 'articles')]
+    #[ORM\ManyToMany(targetEntity: File::class, mappedBy: 'articles', fetch: 'EXTRA_LAZY')]
+    #[ORM\JoinTable(name: 'articles_files')]
     private Collection $files;
 
     /**
