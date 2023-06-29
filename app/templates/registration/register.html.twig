@@ -9,10 +9,8 @@
 
     {% if app.user %}
         <h1>
-            {{ 'message_logged_in_as'|trans }} <span class="username">{{ app.user.username }}</span>
+            {{ 'message_logged_in_as'|trans }} <span>{{ app.user.username }}</span>
         </h1>
-        <p>{{ 'message_logged_in_description'|trans }}</p>
-        <img class="img-big" src="{{ asset('images/undraw_wallet.svg') }}" alt="{{ 'image_people_with_wallet'|trans }}">
     {% else %}
         <h1>{{ 'title.register'|trans }}</h1>
 
