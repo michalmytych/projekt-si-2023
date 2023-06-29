@@ -12,8 +12,8 @@
     {% endblock %}
 </head>
 <body>
-<main role="main" class="container-fluid">
-    <div class="container-fluid">
+<main role="main" class="container-md" style="width: 80%;">
+    <div class="container-md">
         {% include 'layout/_nav.html.twig' %}
         {% for type, messages in app.session.flashBag.all %}
             {% for message in messages %}

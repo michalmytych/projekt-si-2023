@@ -1,0 +1,207 @@
+<?xml version="1.0" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="articles">
+                <source>articles</source>
+                <target>Artykuły</target>
+            </trans-unit>
+            <trans-unit id="categories">
+                <source>categories</source>
+                <target>Kategorie</target>
+            </trans-unit>
+            <trans-unit id="tags">
+                <source>tags</source>
+                <target>Tagi</target>
+            </trans-unit>
+            <trans-unit id="label.published">
+                <source>label.published</source>
+                <target>Opublikowano</target>
+            </trans-unit>
+            <trans-unit id="title.user_edit_profile">
+                <source>title.user_edit_profile</source>
+                <target>Edytowanie profilu</target>
+            </trans-unit>
+            <trans-unit id="label.change_nickname">
+                <source>label.change_nickname</source>
+                <target>Zmień nickname</target>
+            </trans-unit>
+            <trans-unit id="users">
+                <source>users</source>
+                <target>Użytkownicy</target>
+            </trans-unit>
+            <trans-unit id="title.register">
+                <source>title.register</source>
+                <target>Zarejestruj</target>
+            </trans-unit>
+            <trans-unit id="label.nickname">
+                <source>label.nickname</source>
+                <target>Nickname</target>
+            </trans-unit>
+            <trans-unit id="label.email">
+                <source>label.email</source>
+                <target>Email</target>
+            </trans-unit>
+            <trans-unit id="label.password">
+                <source>label.password</source>
+                <target>Hasło</target>
+            </trans-unit>
+            <trans-unit id="label.agree_terms">
+                <source>label.agree_terms</source>
+                <target>Akceptuję warunki serwisu</target>
+            </trans-unit>
+            <trans-unit id="message_already_have_account">
+                <source>message_already_have_account</source>
+                <target>Może posiadasz już konto?</target>
+            </trans-unit>
+            <trans-unit id="login">
+                <source>login</source>
+                <target>Zaloguj</target>
+            </trans-unit>
+            <trans-unit id="action.save">
+                <source>action.save</source>
+                <target>Zapisz</target>
+            </trans-unit>
+            <trans-unit id="action.back_to_list">
+                <source>action.back_to_list</source>
+                <target>Wróć</target>
+            </trans-unit>
+            <trans-unit id="title.user_change_password">
+                <source>title.user_change_password</source>
+                <target>Zmiana hasło</target>
+            </trans-unit>
+            <trans-unit id="label_new_password">
+                <source>label_new_password</source>
+                <target>Nowe hasło</target>
+            </trans-unit>
+            <trans-unit id="label_repeat_password">
+                <source>label_repeat_password</source>
+                <target>Powtórz hasło</target>
+            </trans-unit>
+            <trans-unit id="label.change_email">
+                <source>label.change_email</source>
+                <target>Zmień email</target>
+            </trans-unit>
+            <trans-unit id="label.category">
+                <source>label.category</source>
+                <target>Kategoria</target>
+            </trans-unit>
+            <trans-unit id="label.main_article_image">
+                <source>label.main_article_image</source>
+                <target>Główny obraz artykułu</target>
+            </trans-unit>
+            <trans-unit id="action.file_create_for_article">
+                <source>action.file_create_for_article</source>
+                <target>Dodaje obraz</target>
+            </trans-unit>
+            <trans-unit id="action.file_edit_for_article">
+                <source>action.file_edit_for_article</source>
+                <target>Edytuj obraz</target>
+            </trans-unit>
+            <trans-unit id="title.article_edit">
+                <source>title.article_edit</source>
+                <target>Edytuj artykuł</target>
+            </trans-unit>
+            <trans-unit id="title.category_edit">
+                <source>title.category_edit</source>
+                <target>Edytuj kategorię</target>
+            </trans-unit>
+            <trans-unit id="title.articles">
+                <source>title.articles</source>
+                <target>Artykuły</target>
+            </trans-unit>
+            <trans-unit id="title.tags">
+                <source>title.tags</source>
+                <target>Tagi</target>
+            </trans-unit>
+            <trans-unit id="title.categories">
+                <source>title.categories</source>
+                <target>Kategorie</target>
+            </trans-unit>
+            <trans-unit id="label.actions">
+                <source>label.actions</source>
+                <target>Akcje</target>
+            </trans-unit>
+            <trans-unit id="action.logout">
+                <source>action.logout</source>
+                <target>Wyloguj</target>
+            </trans-unit>
+            <trans-unit id="action.show">
+                <source>action.show</source>
+                <target>Pokaż</target>
+            </trans-unit>
+            <trans-unit id="label.id">
+                <source>label.id</source>
+                <target>ID</target>
+            </trans-unit>
+            <trans-unit id="label.title">
+                <source>label.title</source>
+                <target>Tytuł</target>
+            </trans-unit>
+            <trans-unit id="label.category_name">
+                <source>label.category_name</source>
+                <target>Kategoria</target>
+            </trans-unit>
+            <trans-unit id="label.image">
+                <source>label.image</source>
+                <target>-</target>
+            </trans-unit>
+            <trans-unit id="label.no_tags">
+                <source>label.no_tags</source>
+                <target>Brak</target>
+            </trans-unit>
+            <trans-unit id="label.created_at">
+                <source>label.created_at</source>
+                <target>Utworzono</target>
+            </trans-unit>
+            <trans-unit id="label.content">
+                <source>label.content</source>
+                <target>Treść</target>
+            </trans-unit>
+            <trans-unit id="label.tags">
+                <source>label.tags</source>
+                <target>Tagi</target>
+            </trans-unit>
+            <trans-unit id="label.draft">
+                <source>label.draft</source>
+                <target>DRAFT</target>
+            </trans-unit>
+            <trans-unit id="label.user_change_password">
+                <source>label.user_change_password</source>
+                <target>Zmień hasło</target>
+            </trans-unit>
+            <trans-unit id="label.user_edit_profile">
+                <source>label.user_edit_profile</source>
+                <target>Edytuj profil</target>
+            </trans-unit>
+            <trans-unit id="message.empty_list">
+                <source>message.empty_list</source>
+                <target>Lista jest pusta.</target>
+            </trans-unit>
+            <trans-unit id="message.record_not_found">
+                <source>message.record_not_found</source>
+                <target>Nie znaleziono rekordu.</target>
+            </trans-unit>
+            <trans-unit id="action.create">
+                <source>action.create</source>
+                <target>Stwórz</target>
+            </trans-unit>
+            <trans-unit id="action.edit">
+                <source>action.edit</source>
+                <target>Edytuj</target>
+            </trans-unit>
+            <trans-unit id="action.delete">
+                <source>action.delete</source>
+                <target>Usuń</target>
+            </trans-unit>
+            <trans-unit id="title.record_list">
+                <source>title.record_list</source>
+                <target>Lista rekordów</target>
+            </trans-unit>
+            <trans-unit id="title.record_view">
+                <source>title.record_view</source>
+                <target>Podgląd rekordu #%id%</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
