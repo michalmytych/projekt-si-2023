@@ -5,7 +5,6 @@
 
 namespace App\Service;
 
-use LogicException;
 use App\Entity\Category;
 use Doctrine\ORM\NoResultException;
 use App\Repository\ArticleRepository;
@@ -81,7 +80,7 @@ class CategoryService implements CategoryServiceInterface
     public function delete(Category $category): void
     {
         if (!$this->canBeDeleted($category)) {
-            throw new LogicException('Cannot delete category if it has articles attached.');
+            throw new \LogicException('Cannot delete category if it has articles attached.');
         }
 
         $this->categoryRepository->delete($category);

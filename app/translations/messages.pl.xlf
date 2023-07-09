@@ -386,6 +386,14 @@
                 <source>action.sign_in</source>
                 <target>Zaloguj</target>
             </trans-unit>
+            <trans-unit id="label.none">
+                <source>label.none</source>
+                <target>Brak</target>
+            </trans-unit>
+            <trans-unit id="label.header">
+                <source>label.header</source>
+                <target>Nagłówek</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
