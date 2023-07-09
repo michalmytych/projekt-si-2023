@@ -1,0 +1,391 @@
+<?xml version="1.0" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="articles">
+                <source>articles</source>
+                <target>Articles</target>
+            </trans-unit>
+            <trans-unit id="categories">
+                <source>categories</source>
+                <target>Categories</target>
+            </trans-unit>
+            <trans-unit id="tags">
+                <source>tags</source>
+                <target>Tags</target>
+            </trans-unit>
+            <trans-unit id="label.published">
+                <source>label.published</source>
+                <target>Published</target>
+            </trans-unit>
+            <trans-unit id="title.user_edit_profile">
+                <source>title.user_edit_profile</source>
+                <target>Editing user profile</target>
+            </trans-unit>
+            <trans-unit id="label.change_nickname">
+                <source>label.change_nickname</source>
+                <target>Change nickname</target>
+            </trans-unit>
+            <trans-unit id="users">
+                <source>users</source>
+                <target>Users</target>
+            </trans-unit>
+            <trans-unit id="title.register">
+                <source>title.register</source>
+                <target>Register</target>
+            </trans-unit>
+            <trans-unit id="label.nickname">
+                <source>label.nickname</source>
+                <target>Nickname</target>
+            </trans-unit>
+            <trans-unit id="label.email">
+                <source>label.email</source>
+                <target>Email</target>
+            </trans-unit>
+            <trans-unit id="label.password">
+                <source>label.password</source>
+                <target>Password</target>
+            </trans-unit>
+            <trans-unit id="label.agree_terms">
+                <source>label.agree_terms</source>
+                <target>I accept terms of service</target>
+            </trans-unit>
+            <trans-unit id="message_already_have_account">
+                <source>message_already_have_account</source>
+                <target>You already have an account?</target>
+            </trans-unit>
+            <trans-unit id="login">
+                <source>login</source>
+                <target>Log in</target>
+            </trans-unit>
+            <trans-unit id="action.save">
+                <source>action.save</source>
+                <target>Save</target>
+            </trans-unit>
+            <trans-unit id="action.back_to_list">
+                <source>action.back_to_list</source>
+                <target>Back</target>
+            </trans-unit>
+            <trans-unit id="title.user_change_password">
+                <source>title.user_change_password</source>
+                <target>Change password</target>
+            </trans-unit>
+            <trans-unit id="label_new_password">
+                <source>label_new_password</source>
+                <target>New password</target>
+            </trans-unit>
+            <trans-unit id="label_repeat_password">
+                <source>label_repeat_password</source>
+                <target>Repeat password</target>
+            </trans-unit>
+            <trans-unit id="label.change_email">
+                <source>label.change_email</source>
+                <target>Change email</target>
+            </trans-unit>
+            <trans-unit id="label.category">
+                <source>label.category</source>
+                <target>Category</target>
+            </trans-unit>
+            <trans-unit id="label.main_article_image">
+                <source>label.main_article_image</source>
+                <target>Main article image</target>
+            </trans-unit>
+            <trans-unit id="action.file_create_for_article">
+                <source>action.file_create_for_article</source>
+                <target>Add image</target>
+            </trans-unit>
+            <trans-unit id="action.file_edit_for_article">
+                <source>action.file_edit_for_article</source>
+                <target>Edit image</target>
+            </trans-unit>
+            <trans-unit id="title.article_edit">
+                <source>title.article_edit</source>
+                <target>Edit article</target>
+            </trans-unit>
+            <trans-unit id="title.category_edit">
+                <source>title.category_edit</source>
+                <target>Edit category</target>
+            </trans-unit>
+            <trans-unit id="title.articles">
+                <source>title.articles</source>
+                <target>Articles</target>
+            </trans-unit>
+            <trans-unit id="title.tags">
+                <source>title.tags</source>
+                <target>Tags</target>
+            </trans-unit>
+            <trans-unit id="title.categories">
+                <source>title.categories</source>
+                <target>Categories</target>
+            </trans-unit>
+            <trans-unit id="label.actions">
+                <source>label.actions</source>
+                <target>Actions</target>
+            </trans-unit>
+            <trans-unit id="action.logout">
+                <source>action.logout</source>
+                <target>Log out</target>
+            </trans-unit>
+            <trans-unit id="action.show">
+                <source>action.show</source>
+                <target>Show</target>
+            </trans-unit>
+            <trans-unit id="label.id">
+                <source>label.id</source>
+                <target>ID</target>
+            </trans-unit>
+            <trans-unit id="label.title">
+                <source>label.title</source>
+                <target>Title</target>
+            </trans-unit>
+            <trans-unit id="label.category_name">
+                <source>label.category_name</source>
+                <target>Category</target>
+            </trans-unit>
+            <trans-unit id="label.image">
+                <source>label.image</source>
+                <target>-</target>
+            </trans-unit>
+            <trans-unit id="label.no_tags">
+                <source>label.no_tags</source>
+                <target>No tags</target>
+            </trans-unit>
+            <trans-unit id="label.created_at">
+                <source>label.created_at</source>
+                <target>Created</target>
+            </trans-unit>
+            <trans-unit id="label.content">
+                <source>label.content</source>
+                <target>Content</target>
+            </trans-unit>
+            <trans-unit id="label.tags">
+                <source>label.tags</source>
+                <target>Tags</target>
+            </trans-unit>
+            <trans-unit id="label.draft">
+                <source>label.draft</source>
+                <target>DRAFT</target>
+            </trans-unit>
+            <trans-unit id="label.user_change_password">
+                <source>label.user_change_password</source>
+                <target>Change password</target>
+            </trans-unit>
+            <trans-unit id="label.user_edit_profile">
+                <source>label.user_edit_profile</source>
+                <target>Edit profile</target>
+            </trans-unit>
+            <trans-unit id="message.empty_list">
+                <source>message.empty_list</source>
+                <target>List is empty.</target>
+            </trans-unit>
+            <trans-unit id="message.record_not_found">
+                <source>message.record_not_found</source>
+                <target>Not found.</target>
+            </trans-unit>
+            <trans-unit id="action.create">
+                <source>action.create</source>
+                <target>Create</target>
+            </trans-unit>
+            <trans-unit id="action.edit">
+                <source>action.edit</source>
+                <target>Edit</target>
+            </trans-unit>
+            <trans-unit id="label.main_image_file">
+                <source>label.main_image_file</source>
+                <target>Main image</target>
+            </trans-unit>
+            <trans-unit id="action.delete">
+                <source>action.delete</source>
+                <target>Delete</target>
+            </trans-unit>
+            <trans-unit id="title.record_list">
+                <source>title.record_list</source>
+                <target>Records list</target>
+            </trans-unit>
+            <trans-unit id="title.record_view">
+                <source>title.record_view</source>
+                <target>Show record #%id%</target>
+            </trans-unit>
+            <trans-unit id="message.no_permission">
+                <source>message.no_permission</source>
+                <target>No access</target>
+            </trans-unit>
+            <trans-unit id="message.created_successfully">
+                <source>message.created_successfully</source>
+                <target>Created new record</target>
+            </trans-unit>
+            <trans-unit id="message.updated_successfully">
+                <source>message.updated_successfully</source>
+                <target>Updated</target>
+            </trans-unit>
+            <trans-unit id="message.deleted_successfully">
+                <source>message.deleted_successfully</source>
+                <target>Deleted</target>
+            </trans-unit>
+            <trans-unit id="message.cannot_delete_category_with_articles">
+                <source>message.cannot_delete_category_with_articles</source>
+                <target>Cannot delete category which has related articles</target>
+            </trans-unit>
+            <trans-unit id="message.bad_request">
+                <source>message.bad_request</source>
+                <target>You are not permitted to perform this action</target>
+            </trans-unit>
+            <trans-unit id="message.edited_successfully">
+                <source>message.edited_successfully</source>
+                <target>Updated</target>
+            </trans-unit>
+            <trans-unit id="message.cannot_delete_role_user">
+                <source>message.cannot_delete_role_user</source>
+                <target>You cannot delete regular users role from user</target>
+            </trans-unit>
+            <trans-unit id="message.cannot_delete_admin_role_from_latest_admin_user">
+                <source>message.cannot_delete_admin_role_from_latest_admin_user</source>
+                <target>You cannot delete admin role from last admin user</target>
+            </trans-unit>
+            <trans-unit id="title.article_create">
+                <source>title.article_create</source>
+                <target>New article</target>
+            </trans-unit>
+            <trans-unit id="action.back">
+                <source>action.back</source>
+                <target>Back</target>
+            </trans-unit>
+            <trans-unit id="title.article_delete">
+                <source>title.article_delete</source>
+                <target>Deleting article</target>
+            </trans-unit>
+            <trans-unit id="label.edit_image">
+                <source>label.edit_image</source>
+                <target>Editing image</target>
+            </trans-unit>
+            <trans-unit id="label.no_main_article_image">
+                <source>label.no_main_article_image</source>
+                <target>No main image for article</target>
+            </trans-unit>
+            <trans-unit id="label.updated_at">
+                <source>label.updated_at</source>
+                <target>Last update</target>
+            </trans-unit>
+            <trans-unit id="action.add_comment">
+                <source>action.add_comment</source>
+                <target>Add comment</target>
+            </trans-unit>
+            <trans-unit id="label.comments">
+                <source>label.comments</source>
+                <target>Comments</target>
+            </trans-unit>
+            <trans-unit id="label.no_comments">
+                <source>label.no_comments</source>
+                <target>No comments</target>
+            </trans-unit>
+            <trans-unit id="title.welcome">
+                <source>title.welcome</source>
+                <target>Welcome!</target>
+            </trans-unit>
+            <trans-unit id="title.category_create">
+                <source>title.category_create</source>
+                <target>New category</target>
+            </trans-unit>
+            <trans-unit id="title.category_delete">
+                <source>title.category_delete</source>
+                <target>Deleting category</target>
+            </trans-unit>
+            <trans-unit id="label.name">
+                <source>label.name</source>
+                <target>Name</target>
+            </trans-unit>
+            <trans-unit id="title.comment_create">
+                <source>title.comment_create</source>
+                <target>Adding comments</target>
+            </trans-unit>
+            <trans-unit id="title.comment_delete">
+                <source>title.comment_delete</source>
+                <target>Do you really want to delete this comment?</target>
+            </trans-unit>
+            <trans-unit id="message_form_error">
+                <source>message_form_error</source>
+                <target>Invalid data</target>
+            </trans-unit>
+            <trans-unit id="title.file_create_for_article">
+                <source>title.file_create_for_article</source>
+                <target>Adding main image to article</target>
+            </trans-unit>
+            <trans-unit id="title.file_update_for_article">
+                <source>title.file_update_for_article</source>
+                <target>Editing main image on article</target>
+            </trans-unit>
+            <trans-unit id="action.login">
+                <source>action.login</source>
+                <target>Sign in</target>
+            </trans-unit>
+            <trans-unit id="action.register">
+                <source>action.register</source>
+                <target>Register</target>
+            </trans-unit>
+            <trans-unit id="message_logged_in_as">
+                <source>message_logged_in_as</source>
+                <target>Logged in as</target>
+            </trans-unit>
+            <trans-unit id="button_register">
+                <source>button_register</source>
+                <target>Register</target>
+            </trans-unit>
+            <trans-unit id="title.user_profile">
+                <source>title.user_profile</source>
+                <target>User profile</target>
+            </trans-unit>
+            <trans-unit id="user_change_password">
+                <source>user_change_password</source>
+                <target>Change password</target>
+            </trans-unit>
+            <trans-unit id="message_item_not_found">
+                <source>message_item_not_found</source>
+                <target>Not found!</target>
+            </trans-unit>
+            <trans-unit id="title.tag_create">
+                <source>title.tag_create</source>
+                <target>New tag</target>
+            </trans-unit>
+            <trans-unit id="title.tag_delete">
+                <source>title.tag_delete</source>
+                <target>Deleting tag</target>
+            </trans-unit>
+            <trans-unit id="title.tag_edit">
+                <source>title.tag_edit</source>
+                <target>Editing tag</target>
+            </trans-unit>
+            <trans-unit id="title.users">
+                <source>title.users</source>
+                <target>Users</target>
+            </trans-unit>
+            <trans-unit id="label.roles">
+                <source>label.roles</source>
+                <target>Roles</target>
+            </trans-unit>
+            <trans-unit id="action.user_edit_role">
+                <source>action.user_edit_role</source>
+                <target>Editing users roles</target>
+            </trans-unit>
+            <trans-unit id="action.user_change_password">
+                <source>action.user_change_password</source>
+                <target>Change password</target>
+            </trans-unit>
+            <trans-unit id="action.user_edit_profile">
+                <source>action.user_edit_profile</source>
+                <target>Edit profile</target>
+            </trans-unit>
+            <trans-unit id="logged_in_as_user">
+                <source>logged_in_as_user</source>
+                <target>Logged in as</target>
+            </trans-unit>
+            <trans-unit id="please_log_in">
+                <source>please_log_in</source>
+                <target>Log in</target>
+            </trans-unit>
+            <trans-unit id="action.sign_in">
+                <source>action.sign_in</source>
+                <target>Log in</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
