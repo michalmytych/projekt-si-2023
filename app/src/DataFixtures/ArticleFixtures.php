@@ -5,6 +5,7 @@
 
 namespace App\DataFixtures;
 
+use DateTimeImmutable;
 use App\Entity\Article;
 use App\Repository\CategoryRepository;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
@@ -57,12 +58,12 @@ class ArticleFixtures extends AbstractBaseFixtures implements OrderedFixtureInte
                     Article::STATUS_PUBLISHED,
                 ]));
                 $article->setCreatedAt(
-                    \DateTimeImmutable::createFromMutable(
+                    DateTimeImmutable::createFromMutable(
                         $this->faker->dateTimeBetween('-100 days', '-1 days')
                     )
                 );
                 $article->setUpdatedAt(
-                    \DateTimeImmutable::createFromMutable(
+                    DateTimeImmutable::createFromMutable(
                         $this->faker->dateTimeBetween('-100 days', '-1 days')
                     )
                 );

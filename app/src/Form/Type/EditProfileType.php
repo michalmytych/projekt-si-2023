@@ -11,12 +11,28 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class EditProfileType.
  */
 class EditProfileType extends AbstractType
 {
+    /**
+     * Translator.
+     */
+    private TranslatorInterface $translator;
+
+    /**
+     * ChangePasswordType constructor.
+     *
+     * @param TranslatorInterface $translator Translator
+     */
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
+
     /**
      * Builds form.
      *
@@ -30,7 +46,7 @@ class EditProfileType extends AbstractType
                 'nickname',
                 TextType::class,
                 [
-                    'label' => 'label.change_nickname',
+                    'label' => $this->translator->trans('label.change_nickname'),
                     'attr' => ['max_length' => 255],
                 ]
             )
@@ -38,7 +54,7 @@ class EditProfileType extends AbstractType
                 'email',
                 EmailType::class,
                 [
-                    'label' => 'label.change_email',
+                    'label' => $this->translator->trans('label.change_email'),
                     'attr' => ['max_length' => 255],
                 ]
             );

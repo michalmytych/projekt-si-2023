@@ -28,7 +28,7 @@ class ArticleType extends AbstractType
     private TranslatorInterface $translator;
 
     /**
-     * Construct new article type object.
+     * ArticleType constructor.
      *
      * @param TranslatorInterface $translator Translator
      */
@@ -55,7 +55,7 @@ class ArticleType extends AbstractType
                 'title',
                 TextType::class,
                 [
-                    'label' => 'label.title',
+                    'label' => $this->translator->trans('label.title'),
                     'required' => true,
                     'attr' => ['max_length' => 255],
                 ]
@@ -80,7 +80,7 @@ class ArticleType extends AbstractType
                 'content',
                 CKEditorType::class,
                 [
-                    'label' => 'label.content',
+                    'label' => $this->translator->trans('label.content'),
                     'required' => true,
                     'attr' => ['max_length' => 5000],
                 ]
@@ -93,8 +93,8 @@ class ArticleType extends AbstractType
                     'choice_label' => function ($tag): string {
                         return $tag->getName();
                     },
-                    'label' => 'label.tags',
-                    'placeholder' => 'label.none',
+                    'label' => $this->translator->trans('label.tags'),
+                    'placeholder' => $this->translator->trans('label.none'),
                     'required' => false,
                     'expanded' => true,
                     'multiple' => true,
@@ -108,8 +108,8 @@ class ArticleType extends AbstractType
                     'choice_label' => function ($category): string {
                         return $category->getName();
                     },
-                    'label' => 'label.category',
-                    'placeholder' => 'label.none',
+                    'label' => $this->translator->trans('label.category'),
+                    'placeholder' => $this->translator->trans('label.none'),
                     'required' => true,
                     'expanded' => false,
                     'multiple' => false,

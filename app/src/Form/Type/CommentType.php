@@ -10,12 +10,28 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class ArticleType.
  */
 class CommentType extends AbstractType
 {
+    /**
+     * Translator.
+     */
+    private TranslatorInterface $translator;
+
+    /**
+     * CommentType constructor.
+     *
+     * @param TranslatorInterface $translator Translator
+     */
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
+
     /**
      * Builds the form.
      *
@@ -34,7 +50,7 @@ class CommentType extends AbstractType
                 'header',
                 TextType::class,
                 [
-                    'label' => 'label.header',
+                    'label' => $this->translator->trans('label.header'),
                     'required' => true,
                     'attr' => ['max_length' => 255],
                 ]
@@ -43,7 +59,7 @@ class CommentType extends AbstractType
                 'content',
                 TextType::class,
                 [
-                    'label' => 'label.content',
+                    'label' => $this->translator->trans('label.content'),
                     'required' => true,
                     'attr' => ['max_length' => 255],
                 ]

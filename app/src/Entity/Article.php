@@ -94,11 +94,9 @@ class Article
      * Tags.
      */
     #[ORM\ManyToMany(targetEntity: Tag::class, fetch: 'EXTRA_LAZY')]
-    #[ORM\JoinTable(name: 'articles_tags')]
     private Collection $tags;
 
-    #[ORM\ManyToMany(targetEntity: File::class, mappedBy: 'articles', fetch: 'EXTRA_LAZY')]
-    #[ORM\JoinTable(name: 'articles_files')]
+    #[ORM\ManyToMany(targetEntity: File::class, fetch: 'EXTRA_LAZY')]
     private Collection $files;
 
     /**
@@ -327,23 +325,6 @@ class Article
     {
         if (!$this->files->contains($file)) {
             $this->files->add($file);
-            $file->addArticle($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * Remove file from related files.
-     *
-     * @param File $file File entity
-     *
-     * @return $this
-     */
-    public function removeFile(File $file): static
-    {
-        if ($this->files->removeElement($file)) {
-            $file->removeArticle($this);
         }
 
         return $this;

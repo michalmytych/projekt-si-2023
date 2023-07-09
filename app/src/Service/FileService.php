@@ -65,7 +65,7 @@ class FileService implements FileServiceInterface
     {
         $generatedFileName = $this->fileUploadService->upload($uploadedFile);
 
-        $file->addArticle($article);
+        $article->addFile($file);
         $file->setPath($generatedFileName);
         $this->fileRepository->save($file);
     }

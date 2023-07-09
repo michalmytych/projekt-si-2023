@@ -10,12 +10,28 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class CategoryType.
  */
 class CategoryType extends AbstractType
 {
+    /**
+     * @var TranslatorInterface Translator
+     */
+    private TranslatorInterface $translator;
+
+    /**
+     * CategoryType constructor.
+     *
+     * @param TranslatorInterface $translator Translator
+     */
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
+
     /**
      * Builds the form.
      *
@@ -34,7 +50,7 @@ class CategoryType extends AbstractType
                 'name',
                 TextType::class,
                 [
-                    'label' => 'label.name',
+                    'label' => $this->translator->trans('label.name'),
                     'required' => true,
                     'attr' => ['max_length' => 255],
                 ]

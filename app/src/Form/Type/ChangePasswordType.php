@@ -13,12 +13,28 @@ use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class ChangePasswordType.
  */
 class ChangePasswordType extends AbstractType
 {
+    /**
+     * Translator.
+     */
+    private TranslatorInterface $translator;
+
+    /**
+     * ChangePasswordType constructor.
+     *
+     * @param TranslatorInterface $translator Translator
+     */
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
+
     /**
      * Builds form.
      *
@@ -30,8 +46,12 @@ class ChangePasswordType extends AbstractType
         $builder
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
-                'first_options' => ['label' => 'label_new_password'],
-                'second_options' => ['label' => 'label_repeat_password'],
+                'first_options' => [
+                    'label' => $this->translator->trans('label_new_password'),
+                ],
+                'second_options' => [
+                    'label' => $this->translator->trans('label_repeat_password'),
+                ],
                 'constraints' => [
                     new NotBlank(),
                     new Length([

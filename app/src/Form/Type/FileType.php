@@ -11,12 +11,28 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType as FileFormType;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class FileType.
  */
 class FileType extends AbstractType
 {
+    /**
+     * Translator.
+     */
+    private TranslatorInterface $translator;
+
+    /**
+     * FileType constructor.
+     *
+     * @param TranslatorInterface $translator Translator
+     */
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
+
     /**
      * Builds the form.
      *
@@ -35,7 +51,7 @@ class FileType extends AbstractType
             FileFormType::class,
             [
                 'mapped' => false,
-                'label' => 'label.main_image_file',
+                'label' => $this->translator->trans('label.main_image_file'),
                 'required' => true,
                 'constraints' => new Image(
                     [

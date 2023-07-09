@@ -16,12 +16,28 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class registration form type.
  */
 class RegistrationType extends AbstractType
 {
+    /**
+     * Translator.
+     */
+    private TranslatorInterface $translator;
+
+    /**
+     * RegistrationType constructor.
+     *
+     * @param TranslatorInterface $translator Translator
+     */
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
+
     /**
      * Builds form.
      *
@@ -35,7 +51,7 @@ class RegistrationType extends AbstractType
                 'nickname',
                 TextType::class,
                 [
-                    'label' => 'label.nickname',
+                    'label' => $this->translator->trans('label.nickname'),
                     'attr' => ['max_length' => 255],
                 ]
             )
@@ -43,7 +59,7 @@ class RegistrationType extends AbstractType
                 'email',
                 EmailType::class,
                 [
-                    'label' => 'label.email',
+                    'label' => $this->translator->trans('label.email'),
                     'required' => true,
                 ]
             )
@@ -51,7 +67,7 @@ class RegistrationType extends AbstractType
                 'agreeTerms',
                 CheckboxType::class,
                 [
-                    'label' => 'label.agree_terms',
+                    'label' => $this->translator->trans('label.agree_terms'),
                     'mapped' => false,
                     'constraints' => [
                         new IsTrue(),
@@ -62,7 +78,7 @@ class RegistrationType extends AbstractType
                 'password',
                 PasswordType::class,
                 [
-                    'label' => 'label.password',
+                    'label' => $this->translator->trans('label.password'),
                     'mapped' => true,
                     'attr' => ['autocomplete' => 'new-password'],
                     'constraints' => [
