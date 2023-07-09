@@ -2,6 +2,12 @@
 # Projekt SI
 
 ```bash
-# Run CS fixer over project files
-./vendor/bin/php-cs-fixer fix src/ --rules=@Symfony,@PSR1,@PSR2,@PSR12
+# Make sure that docker engine is running, then run project containers
+docker-compose up -d
+# In php container:
+cd app && \
+composer install && \
+bin/console doctrine:migrations:migrate && \
+bin/console doctrine:fixtures:load
+# App should by available at http://localhost:8000
 ```
