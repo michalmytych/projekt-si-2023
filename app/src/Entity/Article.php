@@ -5,7 +5,6 @@
 
 namespace App\Entity;
 
-use DateTimeImmutable;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ArticleRepository;
@@ -70,8 +69,8 @@ class Article
      */
     #[ORM\Column(type: 'datetime_immutable')]
     #[Gedmo\Timestampable(on: 'create')]
-    #[Assert\Type(DateTimeImmutable::class)]
-    private ?DateTimeImmutable $createdAt;
+    #[Assert\Type(\DateTimeImmutable::class)]
+    private ?\DateTimeImmutable $createdAt;
 
     /**
      * Updated at.
@@ -80,8 +79,8 @@ class Article
      */
     #[ORM\Column(type: 'datetime_immutable')]
     #[Gedmo\Timestampable(on: 'update')]
-    #[Assert\Type(DateTimeImmutable::class)]
-    private ?DateTimeImmutable $updatedAt;
+    #[Assert\Type(\DateTimeImmutable::class)]
+    private ?\DateTimeImmutable $updatedAt;
 
     /**
      * Category.
@@ -171,7 +170,7 @@ class Article
      *
      * @return DateTimeImmutable|null Created at
      */
-    public function getCreatedAt(): ?DateTimeImmutable
+    public function getCreatedAt(): ?\DateTimeImmutable
     {
         return $this->createdAt;
     }
@@ -181,7 +180,7 @@ class Article
      *
      * @param DateTimeImmutable|null $createdAt Created at
      */
-    public function setCreatedAt(?DateTimeImmutable $createdAt): void
+    public function setCreatedAt(?\DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
@@ -191,7 +190,7 @@ class Article
      *
      * @return DateTimeImmutable|null Updated at
      */
-    public function getUpdatedAt(): ?DateTimeImmutable
+    public function getUpdatedAt(): ?\DateTimeImmutable
     {
         return $this->updatedAt;
     }
@@ -201,7 +200,7 @@ class Article
      *
      * @param DateTimeImmutable|null $updatedAt Updated at
      */
-    public function setUpdatedAt(?DateTimeImmutable $updatedAt): void
+    public function setUpdatedAt(?\DateTimeImmutable $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
     }

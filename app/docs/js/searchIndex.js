@@ -546,11 +546,6 @@ Search.appendIndex(
             "summary": "Add\u0020file\u0020to\u0020related\u0020files.",
             "url": "classes/App-Entity-Article.html#method_addFile"
         },                {
-            "fqsen": "\\App\\Entity\\Article\u003A\u003AremoveFile\u0028\u0029",
-            "name": "removeFile",
-            "summary": "Remove\u0020file\u0020from\u0020related\u0020files.",
-            "url": "classes/App-Entity-Article.html#method_removeFile"
-        },                {
             "fqsen": "\\App\\Entity\\Article\u003A\u003ASTATUS_DRAFT",
             "name": "STATUS_DRAFT",
             "summary": "Status\u0020draft.",
@@ -611,11 +606,6 @@ Search.appendIndex(
             "summary": "Class\u0020Category.",
             "url": "classes/App-Entity-Category.html"
         },                {
-            "fqsen": "\\App\\Entity\\Category\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "Construct\u0020new\u0020category\u0020object.",
-            "url": "classes/App-Entity-Category.html#method___construct"
-        },                {
             "fqsen": "\\App\\Entity\\Category\u003A\u003AgetId\u0028\u0029",
             "name": "getId",
             "summary": "Get\u0020category\u0020id.",
@@ -636,21 +626,6 @@ Search.appendIndex(
             "summary": "Get\u0020category\u0020slug.",
             "url": "classes/App-Entity-Category.html#method_getSlug"
         },                {
-            "fqsen": "\\App\\Entity\\Category\u003A\u003AgetArticles\u0028\u0029",
-            "name": "getArticles",
-            "summary": "Get\u0020related\u0020articles.",
-            "url": "classes/App-Entity-Category.html#method_getArticles"
-        },                {
-            "fqsen": "\\App\\Entity\\Category\u003A\u003AaddArticle\u0028\u0029",
-            "name": "addArticle",
-            "summary": "Add\u0020article\u0020to\u0020related\u0020articles.",
-            "url": "classes/App-Entity-Category.html#method_addArticle"
-        },                {
-            "fqsen": "\\App\\Entity\\Category\u003A\u003AremoveArticle\u0028\u0029",
-            "name": "removeArticle",
-            "summary": "Remove\u0020article\u0020from\u0020related\u0020articles.",
-            "url": "classes/App-Entity-Category.html#method_removeArticle"
-        },                {
             "fqsen": "\\App\\Entity\\Category\u003A\u003A\u0024id",
             "name": "id",
             "summary": "Primary\u0020key.",
@@ -665,11 +640,6 @@ Search.appendIndex(
             "name": "slug",
             "summary": "Slug.",
             "url": "classes/App-Entity-Category.html#property_slug"
-        },                {
-            "fqsen": "\\App\\Entity\\Category\u003A\u003A\u0024articles",
-            "name": "articles",
-            "summary": "Articles.",
-            "url": "classes/App-Entity-Category.html#property_articles"
         },                {
             "fqsen": "\\App\\Entity\\Comment",
             "name": "Comment",
@@ -771,11 +741,6 @@ Search.appendIndex(
             "summary": "Class\u0020File.",
             "url": "classes/App-Entity-File.html"
         },                {
-            "fqsen": "\\App\\Entity\\File\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "Construct\u0020new\u0020File\u0020object.",
-            "url": "classes/App-Entity-File.html#method___construct"
-        },                {
             "fqsen": "\\App\\Entity\\File\u003A\u003AgetId\u0028\u0029",
             "name": "getId",
             "summary": "File\u0020id\u0020getter.",
@@ -791,21 +756,6 @@ Search.appendIndex(
             "summary": "File\u0020path\u0020setter.",
             "url": "classes/App-Entity-File.html#method_setPath"
         },                {
-            "fqsen": "\\App\\Entity\\File\u003A\u003AgetArticles\u0028\u0029",
-            "name": "getArticles",
-            "summary": "Related\u0020articles\u0020getter.",
-            "url": "classes/App-Entity-File.html#method_getArticles"
-        },                {
-            "fqsen": "\\App\\Entity\\File\u003A\u003AaddArticle\u0028\u0029",
-            "name": "addArticle",
-            "summary": "Add\u0020article\u0020to\u0020related\u0020articles.",
-            "url": "classes/App-Entity-File.html#method_addArticle"
-        },                {
-            "fqsen": "\\App\\Entity\\File\u003A\u003AremoveArticle\u0028\u0029",
-            "name": "removeArticle",
-            "summary": "Remove\u0020article\u0020from\u0020related\u0020articles.",
-            "url": "classes/App-Entity-File.html#method_removeArticle"
-        },                {
             "fqsen": "\\App\\Entity\\File\u003A\u003A\u0024id",
             "name": "id",
             "summary": "Primary\u0020key.",
@@ -815,11 +765,6 @@ Search.appendIndex(
             "name": "path",
             "summary": "File\u0020path.",
             "url": "classes/App-Entity-File.html#property_path"
-        },                {
-            "fqsen": "\\App\\Entity\\File\u003A\u003A\u0024articles",
-            "name": "articles",
-            "summary": "Related\u0020articles.",
-            "url": "classes/App-Entity-File.html#property_articles"
         },                {
             "fqsen": "\\App\\Entity\\Tag",
             "name": "Tag",
@@ -958,7 +903,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Form\\Type\\ArticleType\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Construct\u0020new\u0020article\u0020type\u0020object.",
+            "summary": "ArticleType\u0020constructor.",
             "url": "classes/App-Form-Type-ArticleType.html#method___construct"
         },                {
             "fqsen": "\\App\\Form\\Type\\ArticleType\u003A\u003AbuildForm\u0028\u0029",
@@ -986,6 +931,11 @@ Search.appendIndex(
             "summary": "Class\u0020CategoryType.",
             "url": "classes/App-Form-Type-CategoryType.html"
         },                {
+            "fqsen": "\\App\\Form\\Type\\CategoryType\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "CategoryType\u0020constructor.",
+            "url": "classes/App-Form-Type-CategoryType.html#method___construct"
+        },                {
             "fqsen": "\\App\\Form\\Type\\CategoryType\u003A\u003AbuildForm\u0028\u0029",
             "name": "buildForm",
             "summary": "Builds\u0020the\u0020form.",
@@ -1001,10 +951,20 @@ Search.appendIndex(
             "summary": "Returns\u0020the\u0020prefix\u0020of\u0020the\u0020template\u0020block\u0020name\u0020for\u0020this\u0020type.",
             "url": "classes/App-Form-Type-CategoryType.html#method_getBlockPrefix"
         },                {
+            "fqsen": "\\App\\Form\\Type\\CategoryType\u003A\u003A\u0024translator",
+            "name": "translator",
+            "summary": "",
+            "url": "classes/App-Form-Type-CategoryType.html#property_translator"
+        },                {
             "fqsen": "\\App\\Form\\Type\\ChangePasswordType",
             "name": "ChangePasswordType",
             "summary": "Class\u0020ChangePasswordType.",
             "url": "classes/App-Form-Type-ChangePasswordType.html"
+        },                {
+            "fqsen": "\\App\\Form\\Type\\ChangePasswordType\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "ChangePasswordType\u0020constructor.",
+            "url": "classes/App-Form-Type-ChangePasswordType.html#method___construct"
         },                {
             "fqsen": "\\App\\Form\\Type\\ChangePasswordType\u003A\u003AbuildForm\u0028\u0029",
             "name": "buildForm",
@@ -1021,10 +981,20 @@ Search.appendIndex(
             "summary": "Get\u0020block\u0020prefix.",
             "url": "classes/App-Form-Type-ChangePasswordType.html#method_getBlockPrefix"
         },                {
+            "fqsen": "\\App\\Form\\Type\\ChangePasswordType\u003A\u003A\u0024translator",
+            "name": "translator",
+            "summary": "Translator.",
+            "url": "classes/App-Form-Type-ChangePasswordType.html#property_translator"
+        },                {
             "fqsen": "\\App\\Form\\Type\\CommentType",
             "name": "CommentType",
             "summary": "Class\u0020ArticleType.",
             "url": "classes/App-Form-Type-CommentType.html"
+        },                {
+            "fqsen": "\\App\\Form\\Type\\CommentType\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "CommentType\u0020constructor.",
+            "url": "classes/App-Form-Type-CommentType.html#method___construct"
         },                {
             "fqsen": "\\App\\Form\\Type\\CommentType\u003A\u003AbuildForm\u0028\u0029",
             "name": "buildForm",
@@ -1041,10 +1011,20 @@ Search.appendIndex(
             "summary": "Returns\u0020the\u0020prefix\u0020of\u0020the\u0020template\u0020block\u0020name\u0020for\u0020this\u0020type.",
             "url": "classes/App-Form-Type-CommentType.html#method_getBlockPrefix"
         },                {
+            "fqsen": "\\App\\Form\\Type\\CommentType\u003A\u003A\u0024translator",
+            "name": "translator",
+            "summary": "Translator.",
+            "url": "classes/App-Form-Type-CommentType.html#property_translator"
+        },                {
             "fqsen": "\\App\\Form\\Type\\EditProfileType",
             "name": "EditProfileType",
             "summary": "Class\u0020EditProfileType.",
             "url": "classes/App-Form-Type-EditProfileType.html"
+        },                {
+            "fqsen": "\\App\\Form\\Type\\EditProfileType\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "ChangePasswordType\u0020constructor.",
+            "url": "classes/App-Form-Type-EditProfileType.html#method___construct"
         },                {
             "fqsen": "\\App\\Form\\Type\\EditProfileType\u003A\u003AbuildForm\u0028\u0029",
             "name": "buildForm",
@@ -1061,10 +1041,20 @@ Search.appendIndex(
             "summary": "Get\u0020block\u0020prefix.",
             "url": "classes/App-Form-Type-EditProfileType.html#method_getBlockPrefix"
         },                {
+            "fqsen": "\\App\\Form\\Type\\EditProfileType\u003A\u003A\u0024translator",
+            "name": "translator",
+            "summary": "Translator.",
+            "url": "classes/App-Form-Type-EditProfileType.html#property_translator"
+        },                {
             "fqsen": "\\App\\Form\\Type\\FileType",
             "name": "FileType",
             "summary": "Class\u0020FileType.",
             "url": "classes/App-Form-Type-FileType.html"
+        },                {
+            "fqsen": "\\App\\Form\\Type\\FileType\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "FileType\u0020constructor.",
+            "url": "classes/App-Form-Type-FileType.html#method___construct"
         },                {
             "fqsen": "\\App\\Form\\Type\\FileType\u003A\u003AbuildForm\u0028\u0029",
             "name": "buildForm",
@@ -1081,10 +1071,20 @@ Search.appendIndex(
             "summary": "Returns\u0020the\u0020prefix\u0020of\u0020the\u0020template\u0020block\u0020name\u0020for\u0020this\u0020type.",
             "url": "classes/App-Form-Type-FileType.html#method_getBlockPrefix"
         },                {
+            "fqsen": "\\App\\Form\\Type\\FileType\u003A\u003A\u0024translator",
+            "name": "translator",
+            "summary": "Translator.",
+            "url": "classes/App-Form-Type-FileType.html#property_translator"
+        },                {
             "fqsen": "\\App\\Form\\Type\\RegistrationType",
             "name": "RegistrationType",
             "summary": "Class\u0020registration\u0020form\u0020type.",
             "url": "classes/App-Form-Type-RegistrationType.html"
+        },                {
+            "fqsen": "\\App\\Form\\Type\\RegistrationType\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "RegistrationType\u0020constructor.",
+            "url": "classes/App-Form-Type-RegistrationType.html#method___construct"
         },                {
             "fqsen": "\\App\\Form\\Type\\RegistrationType\u003A\u003AbuildForm\u0028\u0029",
             "name": "buildForm",
@@ -1101,10 +1101,20 @@ Search.appendIndex(
             "summary": "Get\u0020block\u0020prefix.",
             "url": "classes/App-Form-Type-RegistrationType.html#method_getBlockPrefix"
         },                {
+            "fqsen": "\\App\\Form\\Type\\RegistrationType\u003A\u003A\u0024translator",
+            "name": "translator",
+            "summary": "Translator.",
+            "url": "classes/App-Form-Type-RegistrationType.html#property_translator"
+        },                {
             "fqsen": "\\App\\Form\\Type\\TagType",
             "name": "TagType",
             "summary": "Class\u0020TagType.",
             "url": "classes/App-Form-Type-TagType.html"
+        },                {
+            "fqsen": "\\App\\Form\\Type\\TagType\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "TagType\u0020constructor.",
+            "url": "classes/App-Form-Type-TagType.html#method___construct"
         },                {
             "fqsen": "\\App\\Form\\Type\\TagType\u003A\u003AbuildForm\u0028\u0029",
             "name": "buildForm",
@@ -1120,6 +1130,11 @@ Search.appendIndex(
             "name": "getBlockPrefix",
             "summary": "Returns\u0020the\u0020prefix\u0020of\u0020the\u0020template\u0020block\u0020name\u0020for\u0020this\u0020type.",
             "url": "classes/App-Form-Type-TagType.html#method_getBlockPrefix"
+        },                {
+            "fqsen": "\\App\\Form\\Type\\TagType\u003A\u003A\u0024translator",
+            "name": "translator",
+            "summary": "Translator.",
+            "url": "classes/App-Form-Type-TagType.html#property_translator"
         },                {
             "fqsen": "\\App\\Form\\Type\\UserRoleType",
             "name": "UserRoleType",

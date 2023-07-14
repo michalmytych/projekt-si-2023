@@ -1,10 +1,10 @@
-   1) src/Controller/SecurityController.php (no_superfluous_phpdoc_tags, global_namespace_import, phpdoc_trim, no_unused_imports)
-   2) src/DataFixtures/ArticleFixtures.php (no_superfluous_phpdoc_tags, global_namespace_import, phpdoc_trim, no_unused_imports)
+   1) src/Controller/SecurityController.php (no_superfluous_phpdoc_tags, phpdoc_trim)
+   2) src/DataFixtures/ArticleFixtures.php (no_superfluous_phpdoc_tags, phpdoc_trim)
    3) src/DataFixtures/CategoryFixtures.php (no_superfluous_phpdoc_tags, phpdoc_trim)
    4) src/DataFixtures/CommentFixtures.php (no_superfluous_phpdoc_tags, phpdoc_trim)
    5) src/DataFixtures/TagFixtures.php (no_superfluous_phpdoc_tags, phpdoc_trim)
    6) src/DataFixtures/UserFixtures.php (no_superfluous_phpdoc_tags, phpdoc_trim)
-   7) src/Entity/Article.php (no_superfluous_phpdoc_tags, global_namespace_import, phpdoc_trim)
+   7) src/Entity/Article.php (no_superfluous_phpdoc_tags, phpdoc_trim)
    8) src/Entity/Category.php (no_superfluous_phpdoc_tags, phpdoc_trim)
    9) src/Entity/Comment.php (no_superfluous_phpdoc_tags, phpdoc_trim, phpdoc_trim_consecutive_blank_line_separation)
   10) src/Entity/File.php (no_superfluous_phpdoc_tags, phpdoc_trim, phpdoc_trim_consecutive_blank_line_separation)
@@ -30,7 +30,7 @@
   30) src/Service/Interface/UserServiceInterface.php (no_superfluous_phpdoc_tags, phpdoc_trim, phpdoc_trim_consecutive_blank_line_separation)
   31) src/Service/UserService.php (no_superfluous_phpdoc_tags, phpdoc_trim, phpdoc_trim_consecutive_blank_line_separation)
 
-Found 31 of 59 files that can be fixed in 0.804 seconds, 18.000 MB memory used
+Found 31 of 59 files that can be fixed in 0.818 seconds, 18.000 MB memory used
  ------- -------- ---- ---------------------- 
   State   Domain   Id   Message Preview (en)  
  ------- -------- ---- ---------------------- 
