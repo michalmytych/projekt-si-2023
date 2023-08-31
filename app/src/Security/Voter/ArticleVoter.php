@@ -22,7 +22,7 @@ class ArticleVoter extends Voter
      * @param string $attribute Attribute
      * @param        $subject
      *
-     * @return bool
+     * @return bool If supports
      */
     protected function supports(string $attribute, $subject): bool
     {
@@ -35,7 +35,7 @@ class ArticleVoter extends Voter
      * @param                $subject
      * @param TokenInterface $token     Token
      *
-     * @return bool
+     * @return bool Vote on attribute
      */
     protected function voteOnAttribute(string $attribute, $subject, TokenInterface $token): bool
     {
@@ -58,7 +58,7 @@ class ArticleVoter extends Voter
      * @param mixed         $subject Subject
      * @param UserInterface $user    User
      *
-     * @return bool
+     * @return bool Is admin or subject is published
      */
     private function isAdminOrSubjectIsPublished(mixed $subject, UserInterface $user): bool
     {
@@ -76,7 +76,7 @@ class ArticleVoter extends Voter
      * @param mixed         $subject Subject
      * @param UserInterface $user    User
      *
-     * @return bool
+     * @return bool Is admin
      */
     private function isAdminUser(mixed $subject, UserInterface $user): bool
     {

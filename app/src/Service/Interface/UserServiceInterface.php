@@ -19,7 +19,7 @@ interface UserServiceInterface
      *
      * @param int $page Page
      *
-     * @return PaginationInterface
+     * @return PaginationInterface Pagination
      */
     public function getPaginatedList(int $page): PaginationInterface;
 
@@ -35,7 +35,7 @@ interface UserServiceInterface
      *
      * @param int $id Id
      *
-     * @return User|null
+     * @return User|null User|null
      */
     public function findOneById(int $id): ?User;
 

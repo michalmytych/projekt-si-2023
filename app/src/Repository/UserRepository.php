@@ -88,7 +88,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
      *
      * @param mixed $email Email
      *
-     * @return User|null
+     * @return User|null User|null
      */
     public function findOneByEmail(mixed $email): ?User
     {
@@ -100,7 +100,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
      *
      * @param mixed $id Id
      *
-     * @return User|null
+     * @return User|null User|null
      */
     public function findOneById(mixed $id): ?User
     {
@@ -121,7 +121,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     /**
      * Get latest admin user if exists.
      *
-     * @return User|null
+     * @return User|null User|null
      *
      * @throws NonUniqueResultException
      */
@@ -143,7 +143,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
      *
      * @param QueryBuilder|null $queryBuilder Query builder
      *
-     * @return QueryBuilder
+     * @return QueryBuilder Query builder
      */
     private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
     {

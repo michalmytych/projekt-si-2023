@@ -111,7 +111,7 @@ class Article
     /**
      * Get article id.
      *
-     * @return int|null
+     * @return int|null Id
      */
     public function getId(): ?int
     {
@@ -121,7 +121,7 @@ class Article
     /**
      * Get article title.
      *
-     * @return string|null
+     * @return string|null Title
      */
     public function getTitle(): ?string
     {
@@ -145,7 +145,7 @@ class Article
     /**
      * Get article content.
      *
-     * @return string|null
+     * @return string|null Content
      */
     public function getContent(): ?string
     {
@@ -157,7 +157,7 @@ class Article
      *
      * @param string $content
      *
-     * @return Article
+     * @return Article Article
      */
     public function setContent(string $content): self
     {
@@ -169,7 +169,7 @@ class Article
     /**
      * Getter for created at.
      *
-     * @return DateTimeImmutable|null
+     * @return DateTimeImmutable|null Created at
      */
     public function getCreatedAt(): ?DateTimeImmutable
     {
@@ -209,7 +209,7 @@ class Article
     /**
      * Get category to which article is related.
      *
-     * @return Category|null
+     * @return Category|null Category
      */
     public function getCategory(): ?Category
     {
@@ -221,7 +221,7 @@ class Article
      *
      * @param Category|null $category Category
      *
-     * @return Article
+     * @return Article Article
      */
     public function setCategory(?Category $category): self
     {
@@ -245,7 +245,7 @@ class Article
      *
      * @param Tag $tag Added tag
      *
-     * @return Article
+     * @return Article Article
      */
     public function addTag(Tag $tag): self
     {
@@ -261,7 +261,7 @@ class Article
      *
      * @param Tag $tag Tag to remove
      *
-     * @return Article
+     * @return Article Article
      */
     public function removeTag(Tag $tag): self
     {
@@ -273,7 +273,7 @@ class Article
     /**
      * Get status.
      *
-     * @return int|null
+     * @return int|null Int
      */
     public function getStatus(): ?int
     {
@@ -285,7 +285,7 @@ class Article
      *
      * @param int $status Status
      *
-     * @return Article
+     * @return Article Article
      */
     public function setStatus(int $status): static
     {
@@ -319,7 +319,7 @@ class Article
      *
      * @param File $file File to add to related files collection
      *
-     * @return Article
+     * @return Article Article
      */
     public function addFile(File $file): static
     {

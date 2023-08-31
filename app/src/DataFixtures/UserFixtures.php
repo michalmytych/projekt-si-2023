@@ -31,7 +31,7 @@ class UserFixtures extends AbstractBaseFixtures implements OrderedFixtureInterfa
     private UserPasswordHasherInterface $passwordHasher;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param UserPasswordHasherInterface $passwordHasher Password hasher
      */

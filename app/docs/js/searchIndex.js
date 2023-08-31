@@ -186,6 +186,11 @@ Search.appendIndex(
             "summary": "Class\u0020RegistrationController.",
             "url": "classes/App-Controller-RegistrationController.html"
         },                {
+            "fqsen": "\\App\\Controller\\RegistrationController\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/App-Controller-RegistrationController.html#method___construct"
+        },                {
             "fqsen": "\\App\\Controller\\RegistrationController\u003A\u003Aregister\u0028\u0029",
             "name": "register",
             "summary": "Register\u0020new\u0020user.",
@@ -201,6 +206,11 @@ Search.appendIndex(
             "summary": "Change\u0020credentials.",
             "url": "classes/App-Controller-RegistrationController.html#method_edit"
         },                {
+            "fqsen": "\\App\\Controller\\RegistrationController\u003A\u003A\u0024translator",
+            "name": "translator",
+            "summary": "Translator\u0020interface",
+            "url": "classes/App-Controller-RegistrationController.html#property_translator"
+        },                {
             "fqsen": "\\App\\Controller\\SecurityController",
             "name": "SecurityController",
             "summary": "Class\u0020SecurityController.",
@@ -213,7 +223,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Controller\\SecurityController\u003A\u003Alogout\u0028\u0029",
             "name": "logout",
-            "summary": "Log\u0020out\u0020user.",
+            "summary": "Logout\u0020user.",
             "url": "classes/App-Controller-SecurityController.html#method_logout"
         },                {
             "fqsen": "\\App\\Controller\\TagController",
@@ -428,7 +438,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\DataFixtures\\UserFixtures\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor",
             "url": "classes/App-DataFixtures-UserFixtures.html#method___construct"
         },                {
             "fqsen": "\\App\\DataFixtures\\UserFixtures\u003A\u003AloadData\u0028\u0029",
@@ -833,7 +843,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Entity\\User\u003A\u003AgetUsername\u0028\u0029",
             "name": "getUsername",
-            "summary": "",
+            "summary": "Get\u0020username.",
             "url": "classes/App-Entity-User.html#method_getUsername"
         },                {
             "fqsen": "\\App\\Entity\\User\u003A\u003AgetRoles\u0028\u0029",
@@ -858,7 +868,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Entity\\User\u003A\u003AgetSalt\u0028\u0029",
             "name": "getSalt",
-            "summary": "Returning\u0020a\u0020salt\u0020is\u0020only\u0020needed,\u0020if\u0020you\u0020are\u0020not\u0020using\u0020a\u0020modern\nhashing\u0020algorithm\u0020\u0028e.g.\u0020bcrypt\u0020or\u0020sodium\u0029\u0020in\u0020your\u0020security.yaml.",
+            "summary": "Get\u0020salt.",
             "url": "classes/App-Entity-User.html#method_getSalt"
         },                {
             "fqsen": "\\App\\Entity\\User\u003A\u003AisAdmin\u0028\u0029",
@@ -1398,7 +1408,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Security\\LoginFormAuthenticator\u003A\u003Aauthenticate\u0028\u0029",
             "name": "authenticate",
-            "summary": "Create\u0020a\u0020passport\u0020for\u0020the\u0020current\u0020request.",
+            "summary": "Authenticate",
             "url": "classes/App-Security-LoginFormAuthenticator.html#method_authenticate"
         },                {
             "fqsen": "\\App\\Security\\LoginFormAuthenticator\u003A\u003AgetCredentials\u0028\u0029",
@@ -1913,7 +1923,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Service\\Interface\\UserServiceInterface\u003A\u003AfindOneById\u0028\u0029",
             "name": "findOneById",
-            "summary": "Find\u0020user\u0020by\u0020ID.",
+            "summary": "Find\u0020user\u0020by\u0020ID",
             "url": "classes/App-Service-Interface-UserServiceInterface.html#method_findOneById"
         },                {
             "fqsen": "\\App\\Service\\Interface\\UserServiceInterface\u003A\u003AgetLatestAdminUser\u0028\u0029",

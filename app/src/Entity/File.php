@@ -35,7 +35,7 @@ class File
     /**
      * File id getter.
      *
-     * @return int|null
+     * @return int|null Id
      */
     public function getId(): ?int
     {
@@ -45,7 +45,7 @@ class File
     /**
      * File path getter.
      *
-     * @return string|null
+     * @return string|null Path
      */
     public function getPath(): ?string
     {
@@ -57,7 +57,7 @@ class File
      *
      * @param string $path Path
      *
-     * @return File
+     * @return File File
      */
     public function setPath(string $path): static
     {

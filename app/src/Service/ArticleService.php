@@ -82,7 +82,7 @@ class ArticleService implements ArticleServiceInterface
      * @param array              $filters Filters
      * @param UserInterface|null $user    User
      *
-     * @return PaginationInterface
+     * @return PaginationInterface Pagination
      *
      * @throws NonUniqueResultException
      */
@@ -114,7 +114,7 @@ class ArticleService implements ArticleServiceInterface
      *
      * @param array $filters Filters
      *
-     * @return array
+     * @return array Filters
      *
      * @throws NonUniqueResultException
      */

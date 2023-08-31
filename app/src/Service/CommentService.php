@@ -53,7 +53,7 @@ class CommentService implements CommentServiceInterface
      * @param Article $article Article
      * @param int     $limit   Limit
      *
-     * @return array
+     * @return array Latest comments by article
      */
     public function getLatestByArticle(Article $article, int $limit = 5): array
     {

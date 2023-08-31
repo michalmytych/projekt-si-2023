@@ -22,7 +22,7 @@ class TagVoter extends Voter
      * @param string $attribute Attribute
      * @param        $subject
      *
-     * @return bool
+     * @return bool If supports
      */
     protected function supports(string $attribute, $subject): bool
     {
@@ -35,7 +35,7 @@ class TagVoter extends Voter
      * @param                $subject
      * @param TokenInterface $token     Token
      *
-     * @return bool
+     * @return bool Vote on attribute
      */
     protected function voteOnAttribute(string $attribute, $subject, TokenInterface $token): bool
     {
@@ -57,7 +57,7 @@ class TagVoter extends Voter
      * @param mixed         $subject Subject
      * @param UserInterface $user    User
      *
-     * @return bool
+     * @return bool If is admin user
      */
     private function isAdminUser(mixed $subject, UserInterface $user): bool
     {

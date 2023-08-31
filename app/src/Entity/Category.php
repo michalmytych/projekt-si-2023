@@ -45,7 +45,7 @@ class Category
     /**
      * Get category id.
      *
-     * @return int|null
+     * @return int|null Id
      */
     public function getId(): ?int
     {
@@ -55,7 +55,7 @@ class Category
     /**
      * Get category name.
      *
-     * @return string|null
+     * @return string|null Name
      */
     public function getName(): ?string
     {
@@ -67,7 +67,7 @@ class Category
      *
      * @param string $name Name
      *
-     * @return Category
+     * @return Category Category
      */
     public function setName(string $name): self
     {
@@ -79,7 +79,7 @@ class Category
     /**
      * Get category slug.
      *
-     * @return string|null
+     * @return string|null Slug
      */
     public function getSlug(): ?string
     {

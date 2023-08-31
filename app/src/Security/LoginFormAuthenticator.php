@@ -82,7 +82,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
      *
      * @param Request $request Request
      *
-     * @return bool
+     * @return bool If supports
      */
     public function supports(Request $request): bool
     {
@@ -95,7 +95,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
      *
      * @param Request $request Request
      *
-     * @return Passport
+     * @return Passport Authenticate
      */
     public function authenticate(Request $request): Passport
     {
@@ -117,7 +117,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
      *
      * @param Request $request Request
      *
-     * @return array
+     * @return array Get credentials
      */
     public function getCredentials(Request $request): array
     {
@@ -139,7 +139,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
      *
      * @param mixed $credentials Credentials
      *
-     * @return User
+     * @return User User
      */
     public function getUser(mixed $credentials): User
     {
@@ -165,7 +165,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
      * @param TokenInterface $token        Token
      * @param mixed          $firewallName Firewall name
      *
-     * @return RedirectResponse
+     * @return RedirectResponse Redirect response
      */
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, mixed $firewallName): RedirectResponse
     {
@@ -181,7 +181,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
      *
      * @param Request $request Request
      *
-     * @return string
+     * @return string Login url
      */
     protected function getLoginUrl(Request $request): string
     {

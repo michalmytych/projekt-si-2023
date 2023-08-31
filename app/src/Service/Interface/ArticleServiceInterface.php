@@ -36,7 +36,7 @@ interface ArticleServiceInterface
      * @param array              $filters Filters
      * @param UserInterface|null $user    User
      *
-     * @return PaginationInterface
+     * @return PaginationInterface Paginator
      *
      * @throws NonUniqueResultException
      */
@@ -47,7 +47,7 @@ interface ArticleServiceInterface
      *
      * @param int $id Id
      *
-     * @return Article
+     * @return Article Article
      */
     public function findOneById(int $id): Article;
 }

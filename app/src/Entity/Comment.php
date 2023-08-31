@@ -52,7 +52,7 @@ class Comment
     /**
      * Get comment id.
      *
-     * @return int|null
+     * @return int|null Id
      */
     public function getId(): ?int
     {
@@ -62,7 +62,7 @@ class Comment
     /**
      * Get comment header.
      *
-     * @return string|null
+     * @return string|null Header
      */
     public function getHeader(): ?string
     {
@@ -74,7 +74,7 @@ class Comment
      *
      * @param string $header Header
      *
-     * @return Comment
+     * @return Comment Comment
      */
     public function setHeader(string $header): self
     {
@@ -86,7 +86,7 @@ class Comment
     /**
      * Get comment content.
      *
-     * @return string|null
+     * @return string|null Content
      */
     public function getContent(): ?string
     {
@@ -98,7 +98,7 @@ class Comment
      *
      * @param string $content Content
      *
-     * @return Comment
+     * @return Comment Comment
      */
     public function setContent(string $content): self
     {
@@ -122,7 +122,7 @@ class Comment
      *
      * @param Article|null $article Related article
      *
-     * @return Comment
+     * @return Comment Comment
      */
     public function setArticle(?Article $article): self
     {
@@ -134,7 +134,7 @@ class Comment
     /**
      * Author getter.
      *
-     * @return User|null
+     * @return User|null User|null
      */
     public function getAuthor(): ?User
     {
@@ -146,7 +146,7 @@ class Comment
      *
      * @param User|null $author User
      *
-     * @return Comment
+     * @return Comment Comment
      */
     public function setAuthor(?User $author): static
     {

@@ -58,7 +58,7 @@ class Tag
      *
      * @param string $name Name
      *
-     * @return Tag
+     * @return Tag Tag
      */
     public function setName(string $name): self
     {

@@ -59,7 +59,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Getter for id.
      *
-     * @return int|null
+     * @return int|null Id
      */
     public function getId(): ?int
     {
@@ -69,7 +69,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Getter for email.
      *
-     * @return string|null
+     * @return string|null Email
      */
     public function getEmail(): ?string
     {
@@ -89,7 +89,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * A visual identifier that represents this user.
      *
-     * @return string
+     * @return string User identifier
      */
     public function getUserIdentifier(): string
     {
@@ -99,7 +99,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * User nickname getter.
      *
-     * @return string|null
+     * @return string|null Nickname
      */
     public function getNickname(): ?string
     {
@@ -111,7 +111,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      *
      * @param string $nickname Nickname
      *
-     * @return User
+     * @return User User
      */
     public function setNickname(string $nickname): static
     {
@@ -133,7 +133,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Getter for roles.
      *
-     * @return array
+     * @return array Roles
      */
     public function getRoles(): array
     {
@@ -157,7 +157,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Getter for password.
      *
-     * @return string|null
+     * @return string|null Password
      */
     public function getPassword(): ?string
     {
@@ -177,7 +177,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Get salt.
      *
-     * @return string|null
+     * @return string|null Salt
      */
     public function getSalt(): ?string
     {
@@ -187,7 +187,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Returns true if user has ROLE_ADMIN.
      *
-     * @return bool
+     * @return bool Is amin
      */
     public function isAdmin(): bool
     {

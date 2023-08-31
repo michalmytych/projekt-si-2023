@@ -44,7 +44,7 @@ class UserService implements UserServiceInterface
      *
      * @param int $page Page
      *
-     * @return PaginationInterface
+     * @return PaginationInterface Pagination
      */
     public function getPaginatedList(int $page): PaginationInterface
     {
@@ -58,7 +58,7 @@ class UserService implements UserServiceInterface
     /**
      * Save record.
      *
-     * @param User $user
+     * @param User $user User
      */
     public function save(User $user): void
     {
@@ -70,7 +70,8 @@ class UserService implements UserServiceInterface
      *
      * @param int $id Id
      *
-     * @return User|null
+     * @return User|null User|null
+     *
      */
     public function findOneById(int $id): ?User
     {
@@ -80,7 +81,7 @@ class UserService implements UserServiceInterface
     /**
      * Get latest admin user if exists.
      *
-     * @return User|null
+     * @return User|null User|null
      *
      * @throws NonUniqueResultException
      */
