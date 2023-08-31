@@ -67,7 +67,7 @@ class Category
      *
      * @param string $name Name
      *
-     * @return $this
+     * @return Category
      */
     public function setName(string $name): self
     {

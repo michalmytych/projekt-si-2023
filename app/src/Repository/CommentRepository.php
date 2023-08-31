@@ -22,7 +22,7 @@ class CommentRepository extends ServiceEntityRepository
     /**
      * Construct new comment repository object.
      *
-     * @param ManagerRegistry $registry
+     * @param ManagerRegistry $registry Manager registry
      */
     public function __construct(ManagerRegistry $registry)
     {
@@ -32,7 +32,7 @@ class CommentRepository extends ServiceEntityRepository
     /**
      * Save record in a database.
      *
-     * @param Comment $comment Comment entity
+     * @param Comment $comment Comment
      */
     public function save(Comment $comment): void
     {
@@ -43,7 +43,7 @@ class CommentRepository extends ServiceEntityRepository
     /**
      * Delete entity.
      *
-     * @param Comment $comment Comment entity
+     * @param Comment $comment Comment
      */
     public function delete(Comment $comment): void
     {
@@ -54,8 +54,8 @@ class CommentRepository extends ServiceEntityRepository
     /**
      * Remove tag entity.
      *
-     * @param Comment $comment Tag entity
-     * @param bool    $flush   If entity manager should be flushed
+     * @param Comment $comment Comment
+     * @param bool    $flush   Flush
      */
     public function remove(Comment $comment, bool $flush = false): void
     {

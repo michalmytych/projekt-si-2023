@@ -394,6 +394,10 @@
                 <source>label.header</source>
                 <target>Header</target>
             </trans-unit>
+            <trans-unit id="message_profile_updated_successfully">
+                <source>message_profile_updated_successfully</source>
+                <target>Profile has been updated</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

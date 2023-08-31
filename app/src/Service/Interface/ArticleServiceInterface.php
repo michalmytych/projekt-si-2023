@@ -18,25 +18,25 @@ interface ArticleServiceInterface
     /**
      * Save entity.
      *
-     * @param Article $article Article entity
+     * @param Article $article Article
      */
     public function save(Article $article): void;
 
     /**
      * Delete entity.
      *
-     * @param Article $article Article entity
+     * @param Article $article Article
      */
     public function delete(Article $article): void;
 
     /**
      * Get paginated list.
      *
-     * @param int                $page    Page number
+     * @param int                $page    Page
      * @param array              $filters Filters
      * @param UserInterface|null $user    User
      *
-     * @return PaginationInterface<string, mixed> Paginated list
+     * @return PaginationInterface
      *
      * @throws NonUniqueResultException
      */
@@ -45,7 +45,7 @@ interface ArticleServiceInterface
     /**
      * Find one article by id.
      *
-     * @param int $id Article id
+     * @param int $id Id
      *
      * @return Article
      */

@@ -7,9 +7,9 @@ namespace App\Repository;
 
 use App\Entity\User;
 use App\Entity\Enum\UserRole;
+use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
-use Doctrine\ORM\NonUniqueResultException;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -46,7 +46,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
      * Used to upgrade (rehash) the user's password automatically over time.
      *
      * @param UserInterface $user              User
-     * @param string        $newHashedPassword Hashed password
+     * @param string        $newHashedPassword New hashed password
      */
     public function upgradePassword(UserInterface $user, string $newHashedPassword): void
     {
@@ -62,7 +62,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     /**
      * Query all users.
      *
-     * @return QueryBuilder
+     * @return QueryBuilder Query builder
      */
     public function queryAll(): QueryBuilder
     {
@@ -74,7 +74,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     /**
      * Query all users with 'latest-first' ordering.
      *
-     * @return QueryBuilder
+     * @return QueryBuilder Query builder
      */
     public function queryAllLatest(): QueryBuilder
     {
@@ -98,7 +98,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     /**
      * Find single user by id.
      *
-     * @param mixed $id User id
+     * @param mixed $id Id
      *
      * @return User|null
      */
@@ -139,11 +139,11 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     /**
      * Get or create new query builder.
      *
+     * @noinspection PhpSameParameterValueInspection
+     *
      * @param QueryBuilder|null $queryBuilder Query builder
      *
-     * @return QueryBuilder Query builder
-     *
-     * @noinspection PhpSameParameterValueInspection
+     * @return QueryBuilder
      */
     private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
     {

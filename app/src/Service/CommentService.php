@@ -30,7 +30,7 @@ class CommentService implements CommentServiceInterface
     /**
      * Save entity.
      *
-     * @param Comment $comment Comment entity
+     * @param Comment $comment Comment
      */
     public function save(Comment $comment): void
     {
@@ -40,7 +40,7 @@ class CommentService implements CommentServiceInterface
     /**
      * Delete entity.
      *
-     * @param Comment $comment Comment entity
+     * @param Comment $comment Comment
      */
     public function delete(Comment $comment): void
     {
@@ -50,8 +50,8 @@ class CommentService implements CommentServiceInterface
     /**
      * Get latest comments by article.
      *
-     * @param Article $article Article entity
-     * @param int     $limit   Records limit
+     * @param Article $article Article
+     * @param int     $limit   Limit
      *
      * @return array
      */

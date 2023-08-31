@@ -24,4 +24,6 @@
 /phpcs.xml
 ###< squizlabs/php_codesniffer ###
 
+### local specifics
 /.phpdoc
+.php-cs-fixer.php

@@ -43,7 +43,7 @@ class ArticleService implements ArticleServiceInterface
      * Construct new article service object.
      *
      * @param ArticleRepository        $articleRepository Article repository
-     * @param PaginatorInterface       $paginator         Paginator interface
+     * @param PaginatorInterface       $paginator         Paginator
      * @param CategoryServiceInterface $categoryService   Category service
      * @param TagService               $tagService        Tag service
      */
@@ -58,7 +58,7 @@ class ArticleService implements ArticleServiceInterface
     /**
      * Save entity.
      *
-     * @param Article $article Article entity
+     * @param Article $article Article
      */
     public function save(Article $article): void
     {
@@ -68,7 +68,7 @@ class ArticleService implements ArticleServiceInterface
     /**
      * Delete entity.
      *
-     * @param Article $article Article entity
+     * @param Article $article Article
      */
     public function delete(Article $article): void
     {
@@ -78,11 +78,11 @@ class ArticleService implements ArticleServiceInterface
     /**
      * Get paginated list.
      *
-     * @param int                $page    Page number
+     * @param int                $page    Page
      * @param array              $filters Filters
      * @param UserInterface|null $user    User
      *
-     * @return PaginationInterface<string, mixed> Paginated list
+     * @return PaginationInterface
      *
      * @throws NonUniqueResultException
      */
@@ -100,7 +100,7 @@ class ArticleService implements ArticleServiceInterface
     /**
      * Find one article by id.
      *
-     * @param int $id Article id
+     * @param int $id Id
      *
      * @return Article
      */
@@ -112,9 +112,9 @@ class ArticleService implements ArticleServiceInterface
     /**
      * Prepare filters for the tasks list.
      *
-     * @param array<string, int> $filters Raw filters from request
+     * @param array $filters Filters
      *
-     * @return array<string, object> Result array of filters
+     * @return array
      *
      * @throws NonUniqueResultException
      */

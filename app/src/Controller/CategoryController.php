@@ -5,7 +5,6 @@
 
 namespace App\Controller;
 
-use LogicException;
 use App\Entity\User;
 use App\Entity\Category;
 use App\Form\Type\CategoryType;
@@ -222,7 +221,7 @@ class CategoryController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             try {
                 $this->categoryService->delete($category);
-            } catch (LogicException) {
+            } catch (\LogicException) {
                 $this->addFlash(
                     'danger',
                     $this->translator->trans('message.cannot_delete_category_with_articles')

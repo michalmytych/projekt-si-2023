@@ -39,8 +39,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * Roles.
-     *
-     * @var array<int, string>
      */
     #[ORM\Column(type: 'json')]
     private array $roles = [];
@@ -61,7 +59,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Getter for id.
      *
-     * @return int|null Id
+     * @return int|null
      */
     public function getId(): ?int
     {
@@ -71,7 +69,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Getter for email.
      *
-     * @return string|null Email
+     * @return string|null
      */
     public function getEmail(): ?string
     {
@@ -91,9 +89,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * A visual identifier that represents this user.
      *
-     * @return string User identifier
-     *
-     * @see UserInterface
+     * @return string
      */
     public function getUserIdentifier(): string
     {
@@ -113,9 +109,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * User nickname setter.
      *
-     * @param string $nickname
+     * @param string $nickname Nickname
      *
-     * @return $this
+     * @return User
      */
     public function setNickname(string $nickname): static
     {
@@ -125,7 +121,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @deprecated since Symfony 5.3, use getUserIdentifier instead
+     * Get username.
      *
      * @return string Username
      */
@@ -137,9 +133,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Getter for roles.
      *
-     * @return array<int, string> Roles
-     *
-     * @see UserInterface
+     * @return array
      */
     public function getRoles(): array
     {
@@ -153,7 +147,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Setter for roles.
      *
-     * @param array<int, string> $roles Roles
+     * @param array $roles User roles
      */
     public function setRoles(array $roles): void
     {
@@ -163,9 +157,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Getter for password.
      *
-     * @return string|null Password
-     *
-     * @see PasswordAuthenticatedUserInterface
+     * @return string|null
      */
     public function getPassword(): ?string
     {
@@ -175,7 +167,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Setter for password.
      *
-     * @param string $password User password
+     * @param string $password Password
      */
     public function setPassword(string $password): void
     {
@@ -183,12 +175,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * Returning a salt is only needed, if you are not using a modern
-     * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.
+     * Get salt.
      *
      * @return string|null
-     *
-     * @see UserInterface
      */
     public function getSalt(): ?string
     {
@@ -207,8 +196,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * Removes sensitive information from the token.
-     *
-     * @see UserInterface
      */
     public function eraseCredentials(): void
     {

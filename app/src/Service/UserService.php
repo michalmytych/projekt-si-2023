@@ -68,7 +68,7 @@ class UserService implements UserServiceInterface
     /**
      * Find user by ID.
      *
-     * @param int $id User id
+     * @param int $id Id
      *
      * @return User|null
      */

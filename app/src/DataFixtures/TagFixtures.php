@@ -16,7 +16,7 @@ class TagFixtures extends AbstractBaseFixtures implements OrderedFixtureInterfac
     /**
      * Get order of fixture.
      *
-     * @return int
+     * @return int Order
      */
     public function getOrder(): int
     {

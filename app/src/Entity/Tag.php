@@ -36,7 +36,7 @@ class Tag
     /**
      * Get tag id.
      *
-     * @return int|null
+     * @return int|null Id
      */
     public function getId(): ?int
     {
@@ -46,7 +46,7 @@ class Tag
     /**
      * Get tag name.
      *
-     * @return string|null
+     * @return string|null Name
      */
     public function getName(): ?string
     {
@@ -58,7 +58,7 @@ class Tag
      *
      * @param string $name Name
      *
-     * @return $this
+     * @return Tag
      */
     public function setName(string $name): self
     {

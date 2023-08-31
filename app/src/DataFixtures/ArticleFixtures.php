@@ -32,7 +32,7 @@ class ArticleFixtures extends AbstractBaseFixtures implements OrderedFixtureInte
     /**
      * Get order of fixture.
      *
-     * @return int
+     * @return int Order
      */
     public function getOrder(): int
     {

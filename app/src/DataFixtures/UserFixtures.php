@@ -18,7 +18,7 @@ class UserFixtures extends AbstractBaseFixtures implements OrderedFixtureInterfa
     /**
      * Get order in which fixture should be loaded.
      *
-     * @return int
+     * @return int Order
      */
     public function getOrder(): int
     {
@@ -31,6 +31,8 @@ class UserFixtures extends AbstractBaseFixtures implements OrderedFixtureInterfa
     private UserPasswordHasherInterface $passwordHasher;
 
     /**
+     * Constructor
+     *
      * @param UserPasswordHasherInterface $passwordHasher Password hasher
      */
     public function __construct(UserPasswordHasherInterface $passwordHasher)

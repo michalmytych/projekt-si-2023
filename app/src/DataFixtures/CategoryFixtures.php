@@ -16,7 +16,7 @@ class CategoryFixtures extends AbstractBaseFixtures implements OrderedFixtureInt
     /**
      * Get order of fixture.
      *
-     * @return int
+     * @return int Order
      */
     public function getOrder(): int
     {

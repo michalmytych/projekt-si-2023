@@ -20,12 +20,28 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class RegistrationController.
  */
 class RegistrationController extends AbstractController
 {
+    /**
+     * Translator interface
+     *
+     * @var TranslatorInterface Translator interface
+     */
+    private TranslatorInterface $translator;
+
+    /**
+     * @param TranslatorInterface $translator Translator
+     */
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
+
     /**
      * Register new user.
      *
@@ -146,7 +162,7 @@ class RegistrationController extends AbstractController
             $user->setNickname($newNickname);
 
             $userRepository->save($user);
-            $this->addFlash('success', 'message_profile_updated_successfully');
+            $this->addFlash('success', $this->translator->trans('message_profile_updated_successfully'));
             $this->redirectToRoute('article_index');
         }
 

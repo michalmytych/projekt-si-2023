@@ -19,8 +19,8 @@ class CategoryVoter extends Voter
     /**
      * Permissions.
      *
-     * @param string $attribute Voter attribute
-     * @param mixed  $subject   Voter subject
+     * @param string $attribute Attribute
+     * @param        $subject
      *
      * @return bool
      */
@@ -31,10 +31,9 @@ class CategoryVoter extends Voter
 
     /**
      * Voting mechanism.
-     *
-     * @param string         $attribute Voter attribute
-     * @param mixed          $subject   Voter subject
-     * @param TokenInterface $token     Authentication token
+     * @param string         $attribute Attribute
+     * @param                $subject
+     * @param TokenInterface $token     Token
      *
      * @return bool
      */
@@ -54,8 +53,7 @@ class CategoryVoter extends Voter
 
     /**
      * Returns true if user is admin.
-     *
-     * @param mixed         $subject Voter subject
+     * @param mixed         $subject Subject
      * @param UserInterface $user    User
      *
      * @return bool

@@ -26,14 +26,14 @@ interface UserServiceInterface
     /**
      * Save record.
      *
-     * @param User $user
+     * @param User $user User
      */
     public function save(User $user): void;
 
     /**
-     * Find user by ID.
+     * Find user by ID
      *
-     * @param int $id User id
+     * @param int $id Id
      *
      * @return User|null
      */
@@ -41,8 +41,6 @@ interface UserServiceInterface
 
     /**
      * Get latest admin user if exists.
-     *
-     * @return User|null
      *
      * @throws NonUniqueResultException
      */

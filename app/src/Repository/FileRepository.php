@@ -22,7 +22,7 @@ class FileRepository extends ServiceEntityRepository
     /**
      * Construct new file repository object.
      *
-     * @param ManagerRegistry $registry
+     * @param ManagerRegistry $registry Manager registry
      */
     public function __construct(ManagerRegistry $registry)
     {
@@ -32,7 +32,7 @@ class FileRepository extends ServiceEntityRepository
     /**
      * Save record in a database.
      *
-     * @param File $file File entity
+     * @param File $file File
      */
     public function save(File $file): void
     {
@@ -44,7 +44,7 @@ class FileRepository extends ServiceEntityRepository
      * Remove entity.
      *
      * @param File $entity File entity
-     * @param bool $flush  Should be flushed
+     * @param bool $flush  Flush
      */
     public function remove(File $entity, bool $flush = false): void
     {

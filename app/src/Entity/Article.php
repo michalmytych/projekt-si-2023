@@ -5,6 +5,7 @@
 
 namespace App\Entity;
 
+use DateTimeImmutable;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ArticleRepository;
@@ -69,8 +70,8 @@ class Article
      */
     #[ORM\Column(type: 'datetime_immutable')]
     #[Gedmo\Timestampable(on: 'create')]
-    #[Assert\Type(\DateTimeImmutable::class)]
-    private ?\DateTimeImmutable $createdAt;
+    #[Assert\Type(DateTimeImmutable::class)]
+    private ?DateTimeImmutable $createdAt;
 
     /**
      * Updated at.
@@ -79,8 +80,8 @@ class Article
      */
     #[ORM\Column(type: 'datetime_immutable')]
     #[Gedmo\Timestampable(on: 'update')]
-    #[Assert\Type(\DateTimeImmutable::class)]
-    private ?\DateTimeImmutable $updatedAt;
+    #[Assert\Type(DateTimeImmutable::class)]
+    private ?DateTimeImmutable $updatedAt;
 
     /**
      * Category.
@@ -132,7 +133,7 @@ class Article
      *
      * @param string $title Title
      *
-     * @return $this
+     * @return Article
      */
     public function setTitle(string $title): self
     {
@@ -154,9 +155,9 @@ class Article
     /**
      * Set article content.
      *
-     * @param string $content Content
+     * @param string $content
      *
-     * @return $this
+     * @return Article
      */
     public function setContent(string $content): self
     {
@@ -168,9 +169,9 @@ class Article
     /**
      * Getter for created at.
      *
-     * @return DateTimeImmutable|null Created at
+     * @return DateTimeImmutable|null
      */
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): ?DateTimeImmutable
     {
         return $this->createdAt;
     }
@@ -180,7 +181,7 @@ class Article
      *
      * @param DateTimeImmutable|null $createdAt Created at
      */
-    public function setCreatedAt(?\DateTimeImmutable $createdAt): void
+    public function setCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
@@ -190,7 +191,7 @@ class Article
      *
      * @return DateTimeImmutable|null Updated at
      */
-    public function getUpdatedAt(): ?\DateTimeImmutable
+    public function getUpdatedAt(): ?DateTimeImmutable
     {
         return $this->updatedAt;
     }
@@ -198,9 +199,9 @@ class Article
     /**
      * Setter for updated at.
      *
-     * @param DateTimeImmutable|null $updatedAt Updated at
+     * @param DateTimeImmutable|null $updatedAt Set updated at
      */
-    public function setUpdatedAt(?\DateTimeImmutable $updatedAt): void
+    public function setUpdatedAt(?DateTimeImmutable $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
     }
@@ -218,9 +219,9 @@ class Article
     /**
      * Set category to which article is related.
      *
-     * @param Category|null $category Category entity
+     * @param Category|null $category Category
      *
-     * @return $this
+     * @return Article
      */
     public function setCategory(?Category $category): self
     {
@@ -232,7 +233,7 @@ class Article
     /**
      * Get tags related to article.
      *
-     * @return Collection<int, Tag>
+     * @return Collection Tags collection
      */
     public function getTags(): Collection
     {
@@ -242,9 +243,9 @@ class Article
     /**
      * Add tag to tags related to article.
      *
-     * @param Tag $tag Tag entity
+     * @param Tag $tag Added tag
      *
-     * @return $this
+     * @return Article
      */
     public function addTag(Tag $tag): self
     {
@@ -258,9 +259,9 @@ class Article
     /**
      * Remove tag from related tags.
      *
-     * @param Tag $tag Tag entity
+     * @param Tag $tag Tag to remove
      *
-     * @return $this
+     * @return Article
      */
     public function removeTag(Tag $tag): self
     {
@@ -282,9 +283,9 @@ class Article
     /**
      * Set status.
      *
-     * @param int $status Status value
+     * @param int $status Status
      *
-     * @return $this
+     * @return Article
      */
     public function setStatus(int $status): static
     {
@@ -296,7 +297,7 @@ class Article
     /**
      * Returns true if article is published.
      *
-     * @return bool
+     * @return bool True if is published
      */
     public function isPublished(): bool
     {
@@ -306,7 +307,7 @@ class Article
     /**
      * Get related files.
      *
-     * @return Collection<int, File>
+     * @return Collection Related files collection
      */
     public function getFiles(): Collection
     {
@@ -316,9 +317,9 @@ class Article
     /**
      * Add file to related files.
      *
-     * @param File $file File entity
+     * @param File $file File to add to related files collection
      *
-     * @return $this
+     * @return Article
      */
     public function addFile(File $file): static
     {

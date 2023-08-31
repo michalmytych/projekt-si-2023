@@ -74,7 +74,7 @@ class Comment
      *
      * @param string $header Header
      *
-     * @return $this
+     * @return Comment
      */
     public function setHeader(string $header): self
     {
@@ -98,7 +98,7 @@ class Comment
      *
      * @param string $content Content
      *
-     * @return $this
+     * @return Comment
      */
     public function setContent(string $content): self
     {
@@ -110,7 +110,7 @@ class Comment
     /**
      * Get article to which comment is related.
      *
-     * @return Article|null
+     * @return Article|null Related article
      */
     public function getArticle(): ?Article
     {
@@ -120,9 +120,9 @@ class Comment
     /**
      * Set article to which comment is related.
      *
-     * @param Article|null $article Article
+     * @param Article|null $article Related article
      *
-     * @return $this
+     * @return Comment
      */
     public function setArticle(?Article $article): self
     {
@@ -144,9 +144,9 @@ class Comment
     /**
      * Author getter.
      *
-     * @param User|null $author
+     * @param User|null $author User
      *
-     * @return $this
+     * @return Comment
      */
     public function setAuthor(?User $author): static
     {

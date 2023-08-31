@@ -20,8 +20,8 @@ class UserRoleType extends AbstractType
     /**
      * Builds form.
      *
-     * @param FormBuilderInterface $builder Form builder
-     * @param array                $options Form options
+     * @param FormBuilderInterface $builder Builder
+     * @param array                $options Options
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -40,7 +40,7 @@ class UserRoleType extends AbstractType
     /**
      * Configure options.
      *
-     * @param OptionsResolver $resolver
+     * @param OptionsResolver $resolver Options resolver
      */
     public function configureOptions(OptionsResolver $resolver): void
     {

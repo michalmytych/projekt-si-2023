@@ -55,9 +55,9 @@ class File
     /**
      * File path setter.
      *
-     * @param string $path
+     * @param string $path Path
      *
-     * @return $this
+     * @return File
      */
     public function setPath(string $path): static
     {

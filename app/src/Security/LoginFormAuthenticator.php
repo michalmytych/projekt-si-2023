@@ -16,7 +16,6 @@ use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
-use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Security\Core\Exception\InvalidCsrfTokenException;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
@@ -67,8 +66,8 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
      *
      * @param UserRepository              $userRepository   User repository
      * @param UrlGeneratorInterface       $urlGenerator     Url generator
-     * @param CsrfTokenManagerInterface   $csrfTokenManager CSRF token manager
-     * @param UserPasswordHasherInterface $passwordHasher   User password hasher
+     * @param CsrfTokenManagerInterface   $csrfTokenManager Csrf token manager
+     * @param UserPasswordHasherInterface $passwordHasher   Password hasher
      */
     public function __construct(UserRepository $userRepository, UrlGeneratorInterface $urlGenerator, CsrfTokenManagerInterface $csrfTokenManager, UserPasswordHasherInterface $passwordHasher)
     {
@@ -81,7 +80,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
     /**
      * Supports.
      *
-     * @param Request $request Current HTTP request
+     * @param Request $request Request
      *
      * @return bool
      */
@@ -92,21 +91,11 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
     }
 
     /**
-     * Create a passport for the current request.
+     * Authenticate
      *
-     * The passport contains the user, credentials and any additional information
-     * that has to be checked by the Symfony Security system. For example, a login
-     * form authenticator will probably return a passport containing the user, the
-     * presented password and the CSRF token value.
+     * @param Request $request Request
      *
-     * You may throw any AuthenticationException in this method in case of error (e.g.
-     * a UserNotFoundException when the user cannot be found).
-     *
-     * @param Request $request HTTP request
-     *
-     * @return Passport Passport
-     *
-     * @throws AuthenticationException
+     * @return Passport
      */
     public function authenticate(Request $request): Passport
     {
@@ -126,7 +115,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
     /**
      * Get credentials.
      *
-     * @param Request $request Current HTTP request
+     * @param Request $request Request
      *
      * @return array
      */
@@ -172,7 +161,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
     /**
      * Do on auth success.
      *
-     * @param Request        $request      Current HTTP request
+     * @param Request        $request      Request
      * @param TokenInterface $token        Token
      * @param mixed          $firewallName Firewall name
      *
@@ -190,9 +179,9 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
     /**
      * Get login URL.
      *
-     * @param Request $request HTTP request
+     * @param Request $request Request
      *
-     * @return string Login URL
+     * @return string
      */
     protected function getLoginUrl(Request $request): string
     {
