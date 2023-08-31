@@ -19,7 +19,7 @@ class UserVoter extends Voter
      * Permissions.
      *
      * @param string $attribute Attribute
-     * @param        $subject
+     * @param mixed  $subject   Subject
      *
      * @return bool If supports
      */
@@ -32,7 +32,7 @@ class UserVoter extends Voter
      * Voting mechanism.
      *
      * @param string         $attribute Attribute
-     * @param                $subject
+     * @param mixed          $subject   Subject
      * @param TokenInterface $token     Token
      *
      * @return bool Vote on attribute
@@ -76,7 +76,7 @@ class UserVoter extends Voter
      * @param mixed         $subject Subject
      * @param UserInterface $user    User
      *
-     * @return bool
+     * @return bool Is admin
      */
     private function isAdminUser(mixed $subject, UserInterface $user): bool
     {

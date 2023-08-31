@@ -28,7 +28,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class RegistrationController extends AbstractController
 {
     /**
-     * Translator interface
+     * Translator interface.
      *
      * @var TranslatorInterface Translator interface
      */

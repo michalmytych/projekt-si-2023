@@ -31,7 +31,7 @@ interface UserServiceInterface
     public function save(User $user): void;
 
     /**
-     * Find user by ID
+     * Find user by ID.
      *
      * @param int $id Id
      *

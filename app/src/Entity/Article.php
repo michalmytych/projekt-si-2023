@@ -5,7 +5,6 @@
 
 namespace App\Entity;
 
-use DateTimeImmutable;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\ArticleRepository;
@@ -70,8 +69,8 @@ class Article
      */
     #[ORM\Column(type: 'datetime_immutable')]
     #[Gedmo\Timestampable(on: 'create')]
-    #[Assert\Type(DateTimeImmutable::class)]
-    private ?DateTimeImmutable $createdAt;
+    #[Assert\Type(\DateTimeImmutable::class)]
+    private ?\DateTimeImmutable $createdAt;
 
     /**
      * Updated at.
@@ -80,8 +79,8 @@ class Article
      */
     #[ORM\Column(type: 'datetime_immutable')]
     #[Gedmo\Timestampable(on: 'update')]
-    #[Assert\Type(DateTimeImmutable::class)]
-    private ?DateTimeImmutable $updatedAt;
+    #[Assert\Type(\DateTimeImmutable::class)]
+    private ?\DateTimeImmutable $updatedAt;
 
     /**
      * Category.
@@ -96,6 +95,9 @@ class Article
     #[ORM\ManyToMany(targetEntity: Tag::class, fetch: 'EXTRA_LAZY')]
     private Collection $tags;
 
+    /**
+     * Files.
+     */
     #[ORM\ManyToMany(targetEntity: File::class, fetch: 'EXTRA_LAZY')]
     private Collection $files;
 
@@ -133,7 +135,7 @@ class Article
      *
      * @param string $title Title
      *
-     * @return Article
+     * @return Article Article
      */
     public function setTitle(string $title): self
     {
@@ -155,7 +157,7 @@ class Article
     /**
      * Set article content.
      *
-     * @param string $content
+     * @param string $content Content
      *
      * @return Article Article
      */
@@ -169,9 +171,9 @@ class Article
     /**
      * Getter for created at.
      *
-     * @return DateTimeImmutable|null Created at
+     * @return \DateTimeImmutable|null Created at
      */
-    public function getCreatedAt(): ?DateTimeImmutable
+    public function getCreatedAt(): ?\DateTimeImmutable
     {
         return $this->createdAt;
     }
@@ -179,9 +181,9 @@ class Article
     /**
      * Setter for created at.
      *
-     * @param DateTimeImmutable|null $createdAt Created at
+     * @param \DateTimeImmutable|null $createdAt Created at
      */
-    public function setCreatedAt(?DateTimeImmutable $createdAt): void
+    public function setCreatedAt(?\DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
@@ -189,9 +191,9 @@ class Article
     /**
      * Getter for updated at.
      *
-     * @return DateTimeImmutable|null Updated at
+     * @return \DateTimeImmutable|null Updated at
      */
-    public function getUpdatedAt(): ?DateTimeImmutable
+    public function getUpdatedAt(): ?\DateTimeImmutable
     {
         return $this->updatedAt;
     }
@@ -199,9 +201,9 @@ class Article
     /**
      * Setter for updated at.
      *
-     * @param DateTimeImmutable|null $updatedAt Set updated at
+     * @param \DateTimeImmutable|null $updatedAt Set updated at
      */
-    public function setUpdatedAt(?DateTimeImmutable $updatedAt): void
+    public function setUpdatedAt(?\DateTimeImmutable $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
     }

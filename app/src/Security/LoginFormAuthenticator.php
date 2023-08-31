@@ -91,7 +91,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
     }
 
     /**
-     * Authenticate
+     * Authenticate.
      *
      * @param Request $request Request
      *

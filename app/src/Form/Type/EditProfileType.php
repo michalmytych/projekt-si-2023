@@ -26,7 +26,7 @@ class EditProfileType extends AbstractType
     /**
      * ChangePasswordType constructor.
      *
-     * @param TranslatorInterface $translator
+     * @param TranslatorInterface $translator Translator
      */
     public function __construct(TranslatorInterface $translator)
     {
@@ -63,7 +63,7 @@ class EditProfileType extends AbstractType
     /**
      * Configure options.
      *
-     * @param OptionsResolver $resolver
+     * @param OptionsResolver $resolver Options resolver
      */
     public function configureOptions(OptionsResolver $resolver): void
     {

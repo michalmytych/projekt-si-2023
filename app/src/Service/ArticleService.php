@@ -84,7 +84,7 @@ class ArticleService implements ArticleServiceInterface
      *
      * @return PaginationInterface Pagination
      *
-     * @throws NonUniqueResultException
+     * @throws NonUniqueResultException NonUniqueResultException
      */
     public function getPaginatedList(int $page, array $filters = [], UserInterface $user = null): PaginationInterface
     {
@@ -102,7 +102,7 @@ class ArticleService implements ArticleServiceInterface
      *
      * @param int $id Id
      *
-     * @return Article
+     * @return Article Article
      */
     public function findOneById(int $id): Article
     {
@@ -116,7 +116,7 @@ class ArticleService implements ArticleServiceInterface
      *
      * @return array Filters
      *
-     * @throws NonUniqueResultException
+     * @throws NonUniqueResultException NonUniqueResultException
      */
     private function prepareFilters(array $filters): array
     {
